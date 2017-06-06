@@ -496,32 +496,96 @@ class Error implements Throwable {
 	private $previous;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -537,32 +601,96 @@ class ParseError extends Error implements Throwable {
 	protected $line;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -580,32 +708,96 @@ class TypeError extends Error implements Throwable {
 	protected $line;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -624,32 +816,96 @@ class ArithmeticError extends Error implements Throwable {
 	protected $line;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -665,32 +921,96 @@ class DivisionByZeroError extends ArithmeticError implements Throwable {
 	protected $line;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -2062,26 +2382,26 @@ define ('PHP_ZTS', 0);
 define ('PHP_DEBUG', 0);
 define ('PHP_OS', "Linux");
 define ('PHP_SAPI', "cli");
-define ('DEFAULT_INCLUDE_PATH', ".:");
-define ('PEAR_INSTALL_DIR', "");
-define ('PEAR_EXTENSION_DIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/lib/php/extensions/no-debug-non-zts-20151012");
-define ('PHP_EXTENSION_DIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/lib/php/extensions/no-debug-non-zts-20151012");
-define ('PHP_PREFIX', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19");
-define ('PHP_BINDIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/bin");
-define ('PHP_MANDIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/php/man");
-define ('PHP_LIBDIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/lib/php");
-define ('PHP_DATADIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/share/php");
-define ('PHP_SYSCONFDIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/etc");
-define ('PHP_LOCALSTATEDIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/var");
-define ('PHP_CONFIG_FILE_PATH', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/etc");
-define ('PHP_CONFIG_FILE_SCAN_DIR', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/etc/conf.d");
+define ('DEFAULT_INCLUDE_PATH', ".:/usr/share/php");
+define ('PEAR_INSTALL_DIR', "/usr/share/php");
+define ('PEAR_EXTENSION_DIR', "/usr/lib/php/20151012");
+define ('PHP_EXTENSION_DIR', "/usr/lib/php/20151012");
+define ('PHP_PREFIX', "/usr");
+define ('PHP_BINDIR', "/usr/bin");
+define ('PHP_MANDIR', "/usr/share/man");
+define ('PHP_LIBDIR', "/usr/lib/php");
+define ('PHP_DATADIR', "/usr/share/php/7.0");
+define ('PHP_SYSCONFDIR', "/etc");
+define ('PHP_LOCALSTATEDIR', "/var");
+define ('PHP_CONFIG_FILE_PATH', "/etc/php/7.0/cli");
+define ('PHP_CONFIG_FILE_SCAN_DIR', "/etc/php/7.0/cli/conf.d");
 define ('PHP_SHLIB_SUFFIX', "so");
 define ('PHP_EOL', "\n");
 define ('PHP_MAXPATHLEN', 4096);
 define ('PHP_INT_MAX', 9223372036854775807);
 define ('PHP_INT_MIN', -9223372036854775808);
 define ('PHP_INT_SIZE', 8);
-define ('PHP_BINARY', "/home/junichi11/.anyenv/envs/phpenv/versions/7.0.19/bin/php");
+define ('PHP_BINARY', "/usr/bin/php7.0");
 
 /**
  * <p>

@@ -71,32 +71,96 @@ class AssertionError extends Error implements Throwable {
 	protected $line;
 
 
-	final private function __clone() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
 
 	/**
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
 	 */
-	public function __construct($message, $code, $previous) {}
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
 
 	public function __wakeup() {}
 
-	final public function getMessage() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
 	final public function getCode() {}
 
-	final public function getFile() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
 
-	final public function getLine() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
 
-	final public function getTrace() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
 
-	final public function getPrevious() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
 
-	final public function getTraceAsString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
 
-	public function __toString() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
 
 }
 
@@ -3682,13 +3746,23 @@ function mt_srand(int $seed = null, int $mode = MT_RAND_MT19937): void {}
 function mt_getrandmax(): int {}
 
 /**
+ * (PHP 7)<br/>
+ * Generates cryptographically secure pseudo-random bytes
+ * @link http://php.net/manual/ja/function.random-bytes.php
  * @param $length [optional]
+ * @return mixed a string containing the requested number of cryptographically
+ * secure random bytes.
  */
 function random_bytes($length) {}
 
 /**
+ * (PHP 7)<br/>
+ * Generates cryptographically secure pseudo-random integers
+ * @link http://php.net/manual/ja/function.random-int.php
  * @param $min [optional]
  * @param $max [optional]
+ * @return mixed a cryptographically secure random integer in the range
+ * <i>min</i> to <i>max</i>, inclusive.
  */
 function random_int($min, $max) {}
 
