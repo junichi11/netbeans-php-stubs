@@ -665,27 +665,103 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 
 }
 
+/**
+ * The <b>ReflectionGenerator</b> class reports
+ * information about a generator.
+ * @link http://php.net/manual/ja/class.reflectiongenerator.php
+ */
 class ReflectionGenerator  {
 
 	/**
-	 * @param $generator
+	 * (PHP 7)<br/>
+	 * Constructs a ReflectionGenerator object
+	 * @link http://php.net/manual/ja/reflectiongenerator.construct.php
+	 * @param Generator $generator <p>
+	 * A generator object.
+	 * </p>
 	 */
-	public function __construct($generator) {}
-
-	public function getExecutingLine() {}
-
-	public function getExecutingFile() {}
+	public function __construct(Generator $generator) {}
 
 	/**
-	 * @param $options [optional]
+	 * (PHP 7)<br/>
+	 * Gets the currently executing line of the generator
+	 * @link http://php.net/manual/ja/reflectiongenerator.getexecutingline.php
+	 * @return int the line number of the currently executing statement in the generator.
 	 */
-	public function getTrace($options) {}
+	public function getExecutingLine(): int {}
 
-	public function getFunction() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the file name of the currently executing generator
+	 * @link http://php.net/manual/ja/reflectiongenerator.getexecutingfile.php
+	 * @return string the full path and file name of the currently executing generator.
+	 */
+	public function getExecutingFile(): string {}
 
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the trace of the executing generator
+	 * @link http://php.net/manual/ja/reflectiongenerator.gettrace.php
+	 * @param int $options [optional] <p>
+	 * The value of <i>options</i> can be any of the following
+	 * the following flags.
+	 * </p>
+	 * <p>
+	 * <table>
+	 * Available options
+	 * <tr valign="top">
+	 * <td>Option</td>
+	 * <td>Description</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>
+	 * <b>DEBUG_BACKTRACE_PROVIDE_OBJECT</b>
+	 * </td>
+	 * <td>
+	 * Default.
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>
+	 * <b>DEBUG_BACKTRACE_IGNORE_ARGS</b>
+	 * </td>
+	 * <td>
+	 * Don't include the argument information for functions in the stack
+	 * trace.
+	 * </td>
+	 * </tr>
+	 * </table>
+	 * </p>
+	 * @return array the trace of the currently executing generator.
+	 */
+	public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the function name of the generator
+	 * @link http://php.net/manual/ja/reflectiongenerator.getfunction.php
+	 * @return ReflectionFunctionAbstract a <b>ReflectionFunctionAbstract</b> class. This will
+	 * be <b>ReflectionFunction</b> for functions, or
+	 * <b>ReflectionMethod</b> for methods.
+	 */
+	public function getFunction(): ReflectionFunctionAbstract {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the $this value of the generator
+	 * @link http://php.net/manual/ja/reflectiongenerator.getthis.php
+	 * @return object the $this value, or <b>NULL</b> if the generator was
+	 * not created in a class context.
+	 */
 	public function getThis() {}
 
-	public function getExecutingGenerator() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the executing <b>Generator</b> object
+	 * @link http://php.net/manual/ja/reflectiongenerator.getexecutinggenerator.php
+	 * @return Generator the currently executing <b>Generator</b> object.
+	 */
+	public function getExecutingGenerator(): Generator {}
 
 }
 
@@ -876,15 +952,38 @@ class ReflectionParameter implements Reflector {
 
 }
 
+/**
+ * The <b>ReflectionType</b> class reports
+ * information about a function's return type.
+ * @link http://php.net/manual/ja/class.reflectiontype.php
+ */
 class ReflectionType  {
 
 	final private function __clone() {}
 
-	public function allowsNull() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if null is allowed
+	 * @link http://php.net/manual/ja/reflectiontype.allowsnull.php
+	 * @return bool <b>TRUE</b> if <b>NULL</b> is allowed, otherwise <b>FALSE</b>
+	 */
+	public function allowsNull(): bool {}
 
-	public function isBuiltin() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if it is a built-in type
+	 * @link http://php.net/manual/ja/reflectiontype.isbuiltin.php
+	 * @return bool <b>TRUE</b> if it's a built-in type, otherwise <b>FALSE</b>
+	 */
+	public function isBuiltin(): bool {}
 
-	public function __toString() {}
+	/**
+	 * (PHP 7)<br/>
+	 * To string
+	 * @link http://php.net/manual/ja/reflectiontype.tostring.php
+	 * @return string the type of the parameter.
+	 */
+	public function __toString(): string {}
 
 }
 

@@ -406,6 +406,9 @@ class ImagickPixelException extends Exception implements Throwable {
 
 }
 
+/**
+ * @link http://php.net/manual/ja/class.imagickkernelexception.php
+ */
 class ImagickKernelException extends Exception implements Throwable {
 	protected $message;
 	protected $code;
@@ -6952,34 +6955,76 @@ class ImagickPixel  {
 
 }
 
+/**
+ * @link http://php.net/manual/ja/class.imagickkernel.php
+ */
 class ImagickKernel  {
 
 	private function __construct() {}
 
 	/**
-	 * @param $array
-	 * @param $array [optional]
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.frommatrix.php
+	 * @param array $matrix
+	 * @param array $origin [optional]
+	 * @return ImagickKernel The generated ImagickKernel.
 	 */
-	public static function frommatrix($array, $array) {}
+	public static function frommatrix(array $matrix, array $origin = null): ImagickKernel {}
 
 	/**
-	 * @param $kerneltype
-	 * @param $paramstring
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.frombuiltin.php
+	 * @param string $kernelType
+	 * @param string $kernelString <p>
+	 * A string that describes the parameters e.g. "4,2.5"
+	 * </p>
+	 * @return ImagickKernel
 	 */
-	public static function frombuiltin($kerneltype, $paramstring) {}
+	public static function frombuiltin(string $kernelType, string $kernelString): ImagickKernel {}
 
 	/**
-	 * @param ImagickKernel $ImagickKernel
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.addkernel.php
+	 * @param ImagickKernel $ImagickKernel <p>
+	 * </p>
+	 * @return void
 	 */
-	public function addkernel(ImagickKernel $ImagickKernel) {}
+	public function addkernel(ImagickKernel $ImagickKernel): void {}
 
-	public function getmatrix() {}
+	/**
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.getmatrix.php
+	 * @return array A matrix (2d array) of the values that represent the kernel.
+	 */
+	public function getmatrix(): array {}
 
-	public function separate() {}
+	/**
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.separate.php
+	 * @return array
+	 */
+	public function separate(): array {}
 
-	public function scale() {}
+	/**
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.scale.php
+	 * @return void
+	 */
+	public function scale(): void {}
 
-	public function addunitykernel() {}
+	/**
+	 * (PECL imagick &gt;= 3.3.0)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickkernel.addunitykernel.php
+	 * @return void
+	 */
+	public function addunitykernel(): void {}
 
 }
 // End of imagick v.@PACKAGE_VERSION@

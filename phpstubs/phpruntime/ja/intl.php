@@ -2423,7 +2423,7 @@ class IntlTimeZone  {
 }
 
 /**
- * @method isSet($field)
+ * @method bool isSet(int $field) (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>Whether a field is set
  * @link http://php.net/manual/ja/class.intlcalendar.php
  */
 class IntlCalendar  {
@@ -2468,196 +2468,531 @@ class IntlCalendar  {
 	const WALLTIME_NEXT_VALID = 2;
 
 
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Private constructor for disallowing instantiation
+	 * @link http://php.net/manual/ja/intlcalendar.construct.php
+	 */
 	private function __construct() {}
 
 	/**
-	 * @param $timeZone [optional]
-	 * @param $locale [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Create a new IntlCalendar
+	 * @link http://php.net/manual/ja/intlcalendar.createinstance.php
+	 * @param mixed $timeZone [optional] <p>
+	 * The timezone to use.
+	 * </p>
+	 * @param string $locale [optional] <p>
+	 * A locale to use or <b>NULL</b> to use the default locale.
+	 * </p>
+	 * @return IntlCalendar The created <b>IntlCalendar</b> instance or <b>NULL</b> on
+	 * failure.
 	 */
-	public static function createInstance($timeZone, $locale) {}
+	public static function createInstance($timeZone = NULL, string $locale = ""): IntlCalendar {}
 
 	/**
-	 * @param $key
-	 * @param $locale
-	 * @param $commonlyUsed
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get set of locale keyword values
+	 * @link http://php.net/manual/ja/intlcalendar.getkeywordvaluesforlocale.php
+	 * @param string $key <p>
+	 * The locale keyword for which relevant values are to be queried. Only
+	 * 'calendar' is supported.
+	 * </p>
+	 * @param string $locale <p>
+	 * The locale onto which the keyword/value pair are to be appended.
+	 * </p>
+	 * @param boolean $commonlyUsed <p>
+	 * Whether to show only the values commonly used for the specified locale.
+	 * </p>
+	 * @return Iterator An iterator that yields strings with the locale keyword
+	 * values失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed) {}
-
-	public static function getNow() {}
-
-	public static function getAvailableLocales() {}
+	public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed): Iterator {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get number representing the current time
+	 * @link http://php.net/manual/ja/intlcalendar.getnow.php
+	 * @return float A float representing a number of milliseconds since the epoch,
+	 * not counting leap seconds.
 	 */
-	public function get($field) {}
-
-	public function getTime() {}
+	public static function getNow(): float {}
 
 	/**
-	 * @param $date
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get array of locales for which there is data
+	 * @link http://php.net/manual/ja/intlcalendar.getavailablelocales.php
+	 * @return array An array of strings, one for which locale.
 	 */
-	public function setTime($date) {}
+	public static function getAvailableLocales(): array {}
 
 	/**
-	 * @param $field
-	 * @param $amount
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.get.php
+	 * @param int $field
+	 * @return int An integer with the value of the time field.
 	 */
-	public function add($field, $amount) {}
+	public function get(int $field): int {}
 
 	/**
-	 * @param $timeZone
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get time currently represented by the object
+	 * @link http://php.net/manual/ja/intlcalendar.gettime.php
+	 * @return float A float representing the number of milliseconds elapsed since the
+	 * reference time (1 Jan 1970 00:00:00 UTC).
 	 */
-	public function setTimeZone($timeZone) {}
+	public function getTime(): float {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the calendar time in milliseconds since the epoch
+	 * @link http://php.net/manual/ja/intlcalendar.settime.php
+	 * @param float $date <p>
+	 * An instant represented by the number of number of milliseconds between
+	 * such instant and the epoch, ignoring leap seconds.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function after(IntlCalendar $calendar) {}
+	public function setTime(float $date): bool {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Add a (signed) amount of time to a field
+	 * @link http://php.net/manual/ja/intlcalendar.add.php
+	 * @param int $field
+	 * @param int $amount <p>
+	 * The signed amount to add to the current field. If the amount is positive,
+	 * the instant will be moved forward; if it is negative, the instant wil be
+	 * moved into the past. The unit is implicit to the field type. For instance,
+	 * hours for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function before(IntlCalendar $calendar) {}
+	public function add(int $field, int $amount): bool {}
 
 	/**
-	 * @param $fieldOrYear
-	 * @param $valueOrMonth
-	 * @param $dayOfMonth [optional]
-	 * @param $hour [optional]
-	 * @param $minute [optional]
-	 * @param $second [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the timezone used by this calendar
+	 * @link http://php.net/manual/ja/intlcalendar.settimezone.php
+	 * @param mixed $timeZone <p>
+	 * The new timezone to be used by this calendar. It can be specified in the
+	 * following ways:
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function set($fieldOrYear, $valueOrMonth, $dayOfMonth, $hour, $minute, $second) {}
+	public function setTimeZone($timeZone): bool {}
 
 	/**
-	 * @param $field
-	 * @param $amountOrUpOrDown
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether this objectʼs time is after that of the passed object
+	 * @link http://php.net/manual/ja/intlcalendar.after.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar whose time will be checked against the primary objectʼs time.
+	 * </p>
+	 * @return bool <b>TRUE</b> if this objectʼs current time is after that of the
+	 * <i>calendar</i> argumentʼs time. Returns <b>FALSE</b> otherwise.
+	 * Also returns <b>FALSE</b> on failure. You can use exceptions or
+	 * <b>intl_get_error_code</b> to detect error conditions.
 	 */
-	public function roll($field, $amountOrUpOrDown) {}
+	public function after(IntlCalendar $other): bool {}
 
 	/**
-	 * @param $field [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether this objectʼs time is before that of the passed object
+	 * @link http://php.net/manual/ja/intlcalendar.before.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar whose time will be checked against the primary objectʼs time.
+	 * </p>
+	 * @return bool <b>TRUE</b> if this objectʼs current time is before that of the
+	 * <i>calendar</i> argumentʼs time. Returns <b>FALSE</b> otherwise.
+	 * Also returns <b>FALSE</b> on failure. You can use exceptions or
+	 * <b>intl_get_error_code</b> to detect error conditions.
 	 */
-	public function clear($field) {}
+	public function before(IntlCalendar $other): bool {}
 
 	/**
-	 * @param $when
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set a time field or several common fields at once
+	 * @link http://php.net/manual/ja/intlcalendar.set.php
+	 * @param int $field
+	 * @param int $value <p>
+	 * The new value of the given field.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function fieldDifference($when, $field) {}
+	public function set(int $field, int $value): bool {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Add value to field without carrying into more significant fields
+	 * @link http://php.net/manual/ja/intlcalendar.roll.php
+	 * @param int $field
+	 * @param mixed $amountOrUpOrDown <p>
+	 * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
+	 * 1), or <b>FALSE</b> for rolling down (subtracting
+	 * 1).
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function getActualMaximum($field) {}
+	public function roll(int $field, $amountOrUpOrDown): bool {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Clear a field or all fields
+	 * @link http://php.net/manual/ja/intlcalendar.clear.php
+	 * @param int $field [optional]
+	 * @return bool <b>TRUE</b> on success失敗した場合に <b>FALSE</b> を返します. Failure can only occur is
+	 * invalid arguments are provided.
 	 */
-	public function getActualMinimum($field) {}
+	public function clear(int $field = NULL): bool {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Calculate difference between given time and this objectʼs time
+	 * @link http://php.net/manual/ja/intlcalendar.fielddifference.php
+	 * @param float $when <p>
+	 * The time against which to compare the quantity represented by the
+	 * <i>field</i>. For the result to be positive, the time
+	 * given for this parameter must be ahead of the time of the object the
+	 * method is being invoked on.
+	 * </p>
+	 * @param int $field <p>
+	 * The field that represents the quantity being compared.
+	 * </p>
+	 * @return int a (signed) difference of time in the unit associated with the
+	 * specified field失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getDayOfWeekType($dayOfWeek) {}
-
-	public function getFirstDayOfWeek() {}
+	public function fieldDifference(float $when, int $field): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * The maximum value for a field, considering the objectʼs current time
+	 * @link http://php.net/manual/ja/intlcalendar.getactualmaximum.php
+	 * @param int $field
+	 * @return int An int representing the maximum value in the units associated
+	 * with the given <i>field</i>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getGreatestMinimum($field) {}
+	public function getActualMaximum(int $field): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * The minimum value for a field, considering the objectʼs current time
+	 * @link http://php.net/manual/ja/intlcalendar.getactualminimum.php
+	 * @param int $field
+	 * @return int An int representing the minimum value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getLeastMaximum($field) {}
+	public function getActualMinimum(int $field): int {}
 
 	/**
-	 * @param $localeType
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Tell whether a day is a weekday, weekend or a day that has a transition between the two
+	 * @link http://php.net/manual/ja/intlcalendar.getdayofweektype.php
+	 * @param int $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return int one of the constants
+	 * <b>IntlCalendar::DOW_TYPE_WEEKDAY</b>,
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getLocale($localeType) {}
+	public function getDayOfWeekType(int $dayOfWeek): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the first day of the week for the calendarʼs locale
+	 * @link http://php.net/manual/ja/intlcalendar.getfirstdayofweek.php
+	 * @return int One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getMaximum($field) {}
-
-	public function getMinimalDaysInFirstWeek() {}
+	public function getFirstDayOfWeek(): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the largest local minimum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getgreatestminimum.php
+	 * @param int $field
+	 * @return int An int representing a field value, in the fieldʼs
+	 * unit,失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getMinimum($field) {}
-
-	public function getTimeZone() {}
-
-	public function getType() {}
+	public function getGreatestMinimum(int $field): int {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the smallest local maximum for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getleastmaximum.php
+	 * @param int $field
+	 * @return int An int representing a field value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getWeekendTransition($dayOfWeek) {}
-
-	public function inDaylightTime() {}
+	public function getLeastMaximum(int $field): int {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the locale associated with the object
+	 * @link http://php.net/manual/ja/intlcalendar.getlocale.php
+	 * @param int $localeType <p>
+	 * Whether to fetch the actual locale (the locale from which the calendar
+	 * data originates, with <b>Locale::ACTUAL_LOCALE</b>) or the
+	 * valid locale, i.e., the most specific locale supported by ICU relatively
+	 * to the requested locale – see <b>Locale::VALID_LOCALE</b>.
+	 * From the most general to the most specific, the locales are ordered in
+	 * this fashion – actual locale, valid locale, requested locale.
+	 * </p>
+	 * @return string A locale string失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function isEquivalentTo(IntlCalendar $calendar) {}
-
-	public function isLenient() {}
+	public function getLocale(int $localeType): string {}
 
 	/**
-	 * @param $date [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the global maximum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getmaximum.php
+	 * @param int $field
+	 * @return int An int representing a field value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function isWeekend($date) {}
+	public function getMaximum(int $field): int {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get minimal number of days the first week in a year or month can have
+	 * @link http://php.net/manual/ja/intlcalendar.getminimaldaysinfirstweek.php
+	 * @return int An int representing a number of days失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setFirstDayOfWeek($dayOfWeek) {}
+	public function getMinimalDaysInFirstWeek(): int {}
 
 	/**
-	 * @param $isLenient
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the global minimum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getminimum.php
+	 * @param int $field
+	 * @return int An int representing a value for the given
+	 * field in the fieldʼs unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setLenient($isLenient) {}
+	public function getMinimum(int $field): int {}
 
 	/**
-	 * @param $numberOfDays
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the objectʼs timezone
+	 * @link http://php.net/manual/ja/intlcalendar.gettimezone.php
+	 * @return IntlTimeZone An <b>IntlTimeZone</b> object corresponding to the one used
+	 * internally in this object.
 	 */
-	public function setMinimalDaysInFirstWeek($numberOfDays) {}
+	public function getTimeZone(): IntlTimeZone {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the calendar type
+	 * @link http://php.net/manual/ja/intlcalendar.gettype.php
+	 * @return string A string representing the calendar type, such as
+	 * 'gregorian', 'islamic', etc.
 	 */
-	public function equals(IntlCalendar $calendar) {}
-
-	public function getRepeatedWallTimeOption() {}
-
-	public function getSkippedWallTimeOption() {}
+	public function getType(): string {}
 
 	/**
-	 * @param $wallTimeOption
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get time of the day at which weekend begins or ends
+	 * @link http://php.net/manual/ja/intlcalendar.getweekendtransition.php
+	 * @param string $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return int The number of milliseconds into the day at which the weekend begins or
+	 * ends失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setRepeatedWallTimeOption($wallTimeOption) {}
+	public function getWeekendTransition(string $dayOfWeek): int {}
 
 	/**
-	 * @param $wallTimeOption
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether the objectʼs time is in Daylight Savings Time
+	 * @link http://php.net/manual/ja/intlcalendar.indaylighttime.php
+	 * @return bool <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
+	 * The value <b>FALSE</b> may also be returned on failure, for instance after
+	 * specifying invalid field values on non-lenient mode; use exceptions or query
+	 * <b>intl_get_error_code</b> to disambiguate.
 	 */
-	public function setSkippedWallTimeOption($wallTimeOption) {}
+	public function inDaylightTime(): bool {}
 
 	/**
-	 * @param $dateTime
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether another calendar is equal but for a different time
+	 * @link http://php.net/manual/ja/intlcalendar.isequivalentto.php
+	 * @param IntlCalendar $other <p>
+	 * The other calendar against which the comparison is to be made.
+	 * </p>
+	 * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are
+	 * equivalent except possibly for their set time.
 	 */
-	public static function fromDateTime($dateTime) {}
+	public function isEquivalentTo(IntlCalendar $other): bool {}
 
-	public function toDateTime() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether date/time interpretation is in lenient mode
+	 * @link http://php.net/manual/ja/intlcalendar.islenient.php
+	 * @return bool A bool representing whether the calendar is set to lenient mode.
+	 */
+	public function isLenient(): bool {}
 
-	public function getErrorCode() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether a certain date/time is in the weekend
+	 * @link http://php.net/manual/ja/intlcalendar.isweekend.php
+	 * @param float $date [optional] <p>
+	 * An optional timestamp representing the number of milliseconds since the
+	 * epoch, excluding leap seconds. If <b>NULL</b>, this objectʼs current time is
+	 * used instead.
+	 * </p>
+	 * @return bool A bool indicating whether the given or this objectʼs time occurs
+	 * in a weekend.
+	 * </p>
+	 * <p>
+	 * The value <b>FALSE</b> may also be returned on failure, for instance after giving
+	 * a date out of bounds on non-lenient mode; use exceptions or query
+	 * <b>intl_get_error_code</b> to disambiguate.
+	 */
+	public function isWeekend(float $date = NULL): bool {}
 
-	public function getErrorMessage() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the day on which the week is deemed to start
+	 * @link http://php.net/manual/ja/intlcalendar.setfirstdayofweek.php
+	 * @param int $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setFirstDayOfWeek(int $dayOfWeek): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set whether date/time interpretation is to be lenient
+	 * @link http://php.net/manual/ja/intlcalendar.setlenient.php
+	 * @param string $isLenient <p>
+	 * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
+	 * </p>
+	 * @return ReturnType <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setLenient(string $isLenient): ReturnType {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Set minimal number of days the first week in a year or month can have
+	 * @link http://php.net/manual/ja/intlcalendar.setminimaldaysinfirstweek.php
+	 * @param int $minimalDays <p>
+	 * The number of minimal days to set.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
+	 */
+	public function setMinimalDaysInFirstWeek(int $minimalDays): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Compare time of two IntlCalendar objects for equality
+	 * @link http://php.net/manual/ja/intlcalendar.equals.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar to compare with the primary object.
+	 * </p>
+	 * @return bool <b>TRUE</b> if the current time of both this and the passed in
+	 * <b>IntlCalendar</b> object are the same, or <b>FALSE</b>
+	 * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
+	 * happen if bad arguments are passed in. In any case, the two cases can be
+	 * distinguished by calling <b>intl_get_error_code</b>.
+	 */
+	public function equals(IntlCalendar $other): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get behavior for handling repeating wall time
+	 * @link http://php.net/manual/ja/intlcalendar.getrepeatedwalltimeoption.php
+	 * @return int One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+	 * <b>IntlCalendar::WALLTIME_LAST</b>.
+	 */
+	public function getRepeatedWallTimeOption(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get behavior for handling skipped wall time
+	 * @link http://php.net/manual/ja/intlcalendar.getskippedwalltimeoption.php
+	 * @return int One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+	 * <b>IntlCalendar::WALLTIME_LAST</b> or
+	 * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+	 */
+	public function getSkippedWallTimeOption(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set behavior for handling repeating wall times at negative timezone offset transitions
+	 * @link http://php.net/manual/ja/intlcalendar.setrepeatedwalltimeoption.php
+	 * @param int $wallTimeOption <p>
+	 * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+	 * <b>IntlCalendar::WALLTIME_LAST</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setRepeatedWallTimeOption(int $wallTimeOption): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set behavior for handling skipped wall times at positive timezone offset transitions
+	 * @link http://php.net/manual/ja/intlcalendar.setskippedwalltimeoption.php
+	 * @param int $wallTimeOption <p>
+	 * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+	 * <b>IntlCalendar::WALLTIME_LAST</b> or
+	 * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setSkippedWallTimeOption(int $wallTimeOption): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a2)<br/>
+	 * Create an IntlCalendar from a DateTime object or string
+	 * @link http://php.net/manual/ja/intlcalendar.fromdatetime.php
+	 * @param mixed $dateTime <p>
+	 * A <b>DateTime</b> object or a string that
+	 * can be passed to <b>DateTime::__construct</b>.
+	 * </p>
+	 * @return IntlCalendar The created <b>IntlCalendar</b> object or <b>NULL</b> in case of
+	 * failure. If a string is passed, any exception that occurs
+	 * inside the <b>DateTime</b> constructor is propagated.
+	 */
+	public static function fromDateTime($dateTime): IntlCalendar {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a2)<br/>
+	 * Convert an IntlCalendar into a DateTime object
+	 * @link http://php.net/manual/ja/intlcalendar.todatetime.php
+	 * @return DateTime A <b>DateTime</b> object with the same timezone as this
+	 * object (though using PHPʼs database instead of ICUʼs) and the same time,
+	 * except for the smaller precision (second precision instead of millisecond).
+	 * Returns <b>FALSE</b> on failure.
+	 */
+	public function toDateTime(): DateTime {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get last error code on the object
+	 * @link http://php.net/manual/ja/intlcalendar.geterrorcode.php
+	 * @return int An ICU error code indicating either success, failure or a warning.
+	 */
+	public function getErrorCode(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get last error message on the object
+	 * @link http://php.net/manual/ja/intlcalendar.geterrormessage.php
+	 * @return string The error message associated with last error that occurred in a function call
+	 * on this object, or a string indicating the non-existance of an error.
+	 */
+	public function getErrorMessage(): string {}
 
 }
 
@@ -2686,196 +3021,533 @@ class IntlGregorianCalendar extends IntlCalendar  {
 	public function isLeapYear($year) {}
 
 	/**
-	 * @param $timeZone [optional]
-	 * @param $locale [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Create a new IntlCalendar
+	 * @link http://php.net/manual/ja/intlcalendar.createinstance.php
+	 * @param mixed $timeZone [optional] <p>
+	 * The timezone to use.
+	 * </p>
+	 * @param string $locale [optional] <p>
+	 * A locale to use or <b>NULL</b> to use the default locale.
+	 * </p>
+	 * @return IntlCalendar The created <b>IntlCalendar</b> instance or <b>NULL</b> on
+	 * failure.
 	 */
-	public static function createInstance($timeZone, $locale) {}
+	public static function createInstance($timeZone = NULL, string $locale = ""): IntlCalendar {}
 
 	/**
-	 * @param $key
-	 * @param $locale
-	 * @param $commonlyUsed
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get set of locale keyword values
+	 * @link http://php.net/manual/ja/intlcalendar.getkeywordvaluesforlocale.php
+	 * @param string $key <p>
+	 * The locale keyword for which relevant values are to be queried. Only
+	 * 'calendar' is supported.
+	 * </p>
+	 * @param string $locale <p>
+	 * The locale onto which the keyword/value pair are to be appended.
+	 * </p>
+	 * @param boolean $commonlyUsed <p>
+	 * Whether to show only the values commonly used for the specified locale.
+	 * </p>
+	 * @return Iterator An iterator that yields strings with the locale keyword
+	 * values失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed) {}
-
-	public static function getNow() {}
-
-	public static function getAvailableLocales() {}
+	public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed): Iterator {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get number representing the current time
+	 * @link http://php.net/manual/ja/intlcalendar.getnow.php
+	 * @return float A float representing a number of milliseconds since the epoch,
+	 * not counting leap seconds.
 	 */
-	public function get($field) {}
-
-	public function getTime() {}
+	public static function getNow(): float {}
 
 	/**
-	 * @param $date
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get array of locales for which there is data
+	 * @link http://php.net/manual/ja/intlcalendar.getavailablelocales.php
+	 * @return array An array of strings, one for which locale.
 	 */
-	public function setTime($date) {}
+	public static function getAvailableLocales(): array {}
 
 	/**
-	 * @param $field
-	 * @param $amount
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.get.php
+	 * @param int $field
+	 * @return int An integer with the value of the time field.
 	 */
-	public function add($field, $amount) {}
+	public function get(int $field): int {}
 
 	/**
-	 * @param $timeZone
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get time currently represented by the object
+	 * @link http://php.net/manual/ja/intlcalendar.gettime.php
+	 * @return float A float representing the number of milliseconds elapsed since the
+	 * reference time (1 Jan 1970 00:00:00 UTC).
 	 */
-	public function setTimeZone($timeZone) {}
+	public function getTime(): float {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the calendar time in milliseconds since the epoch
+	 * @link http://php.net/manual/ja/intlcalendar.settime.php
+	 * @param float $date <p>
+	 * An instant represented by the number of number of milliseconds between
+	 * such instant and the epoch, ignoring leap seconds.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function after(IntlCalendar $calendar) {}
+	public function setTime(float $date): bool {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Add a (signed) amount of time to a field
+	 * @link http://php.net/manual/ja/intlcalendar.add.php
+	 * @param int $field
+	 * @param int $amount <p>
+	 * The signed amount to add to the current field. If the amount is positive,
+	 * the instant will be moved forward; if it is negative, the instant wil be
+	 * moved into the past. The unit is implicit to the field type. For instance,
+	 * hours for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function before(IntlCalendar $calendar) {}
+	public function add(int $field, int $amount): bool {}
 
 	/**
-	 * @param $fieldOrYear
-	 * @param $valueOrMonth
-	 * @param $dayOfMonth [optional]
-	 * @param $hour [optional]
-	 * @param $minute [optional]
-	 * @param $second [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the timezone used by this calendar
+	 * @link http://php.net/manual/ja/intlcalendar.settimezone.php
+	 * @param mixed $timeZone <p>
+	 * The new timezone to be used by this calendar. It can be specified in the
+	 * following ways:
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function set($fieldOrYear, $valueOrMonth, $dayOfMonth, $hour, $minute, $second) {}
+	public function setTimeZone($timeZone): bool {}
 
 	/**
-	 * @param $field
-	 * @param $amountOrUpOrDown
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether this objectʼs time is after that of the passed object
+	 * @link http://php.net/manual/ja/intlcalendar.after.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar whose time will be checked against the primary objectʼs time.
+	 * </p>
+	 * @return bool <b>TRUE</b> if this objectʼs current time is after that of the
+	 * <i>calendar</i> argumentʼs time. Returns <b>FALSE</b> otherwise.
+	 * Also returns <b>FALSE</b> on failure. You can use exceptions or
+	 * <b>intl_get_error_code</b> to detect error conditions.
 	 */
-	public function roll($field, $amountOrUpOrDown) {}
+	public function after(IntlCalendar $other): bool {}
 
 	/**
-	 * @param $field [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether this objectʼs time is before that of the passed object
+	 * @link http://php.net/manual/ja/intlcalendar.before.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar whose time will be checked against the primary objectʼs time.
+	 * </p>
+	 * @return bool <b>TRUE</b> if this objectʼs current time is before that of the
+	 * <i>calendar</i> argumentʼs time. Returns <b>FALSE</b> otherwise.
+	 * Also returns <b>FALSE</b> on failure. You can use exceptions or
+	 * <b>intl_get_error_code</b> to detect error conditions.
 	 */
-	public function clear($field) {}
+	public function before(IntlCalendar $other): bool {}
 
 	/**
-	 * @param $when
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set a time field or several common fields at once
+	 * @link http://php.net/manual/ja/intlcalendar.set.php
+	 * @param int $field
+	 * @param int $value <p>
+	 * The new value of the given field.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success and <b>FALSE</b> on failure.
 	 */
-	public function fieldDifference($when, $field) {}
+	public function set(int $field, int $value): bool {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Add value to field without carrying into more significant fields
+	 * @link http://php.net/manual/ja/intlcalendar.roll.php
+	 * @param int $field
+	 * @param mixed $amountOrUpOrDown <p>
+	 * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
+	 * 1), or <b>FALSE</b> for rolling down (subtracting
+	 * 1).
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function getActualMaximum($field) {}
+	public function roll(int $field, $amountOrUpOrDown): bool {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Clear a field or all fields
+	 * @link http://php.net/manual/ja/intlcalendar.clear.php
+	 * @param int $field [optional]
+	 * @return bool <b>TRUE</b> on success失敗した場合に <b>FALSE</b> を返します. Failure can only occur is
+	 * invalid arguments are provided.
 	 */
-	public function getActualMinimum($field) {}
+	public function clear(int $field = NULL): bool {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Calculate difference between given time and this objectʼs time
+	 * @link http://php.net/manual/ja/intlcalendar.fielddifference.php
+	 * @param float $when <p>
+	 * The time against which to compare the quantity represented by the
+	 * <i>field</i>. For the result to be positive, the time
+	 * given for this parameter must be ahead of the time of the object the
+	 * method is being invoked on.
+	 * </p>
+	 * @param int $field <p>
+	 * The field that represents the quantity being compared.
+	 * </p>
+	 * @return int a (signed) difference of time in the unit associated with the
+	 * specified field失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getDayOfWeekType($dayOfWeek) {}
-
-	public function getFirstDayOfWeek() {}
+	public function fieldDifference(float $when, int $field): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * The maximum value for a field, considering the objectʼs current time
+	 * @link http://php.net/manual/ja/intlcalendar.getactualmaximum.php
+	 * @param int $field
+	 * @return int An int representing the maximum value in the units associated
+	 * with the given <i>field</i>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getGreatestMinimum($field) {}
+	public function getActualMaximum(int $field): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * The minimum value for a field, considering the objectʼs current time
+	 * @link http://php.net/manual/ja/intlcalendar.getactualminimum.php
+	 * @param int $field
+	 * @return int An int representing the minimum value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getLeastMaximum($field) {}
+	public function getActualMinimum(int $field): int {}
 
 	/**
-	 * @param $localeType
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Tell whether a day is a weekday, weekend or a day that has a transition between the two
+	 * @link http://php.net/manual/ja/intlcalendar.getdayofweektype.php
+	 * @param int $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return int one of the constants
+	 * <b>IntlCalendar::DOW_TYPE_WEEKDAY</b>,
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
+	 * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getLocale($localeType) {}
+	public function getDayOfWeekType(int $dayOfWeek): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the first day of the week for the calendarʼs locale
+	 * @link http://php.net/manual/ja/intlcalendar.getfirstdayofweek.php
+	 * @return int One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getMaximum($field) {}
-
-	public function getMinimalDaysInFirstWeek() {}
+	public function getFirstDayOfWeek(): int {}
 
 	/**
-	 * @param $field
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the largest local minimum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getgreatestminimum.php
+	 * @param int $field
+	 * @return int An int representing a field value, in the fieldʼs
+	 * unit,失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getMinimum($field) {}
-
-	public function getTimeZone() {}
-
-	public function getType() {}
+	public function getGreatestMinimum(int $field): int {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the smallest local maximum for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getleastmaximum.php
+	 * @param int $field
+	 * @return int An int representing a field value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function getWeekendTransition($dayOfWeek) {}
-
-	public function inDaylightTime() {}
+	public function getLeastMaximum(int $field): int {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the locale associated with the object
+	 * @link http://php.net/manual/ja/intlcalendar.getlocale.php
+	 * @param int $localeType <p>
+	 * Whether to fetch the actual locale (the locale from which the calendar
+	 * data originates, with <b>Locale::ACTUAL_LOCALE</b>) or the
+	 * valid locale, i.e., the most specific locale supported by ICU relatively
+	 * to the requested locale – see <b>Locale::VALID_LOCALE</b>.
+	 * From the most general to the most specific, the locales are ordered in
+	 * this fashion – actual locale, valid locale, requested locale.
+	 * </p>
+	 * @return string A locale string失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function isEquivalentTo(IntlCalendar $calendar) {}
-
-	public function isLenient() {}
+	public function getLocale(int $localeType): string {}
 
 	/**
-	 * @param $date [optional]
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the global maximum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getmaximum.php
+	 * @param int $field
+	 * @return int An int representing a field value in the fieldʼs
+	 * unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function isWeekend($date) {}
+	public function getMaximum(int $field): int {}
 
 	/**
-	 * @param $dayOfWeek
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get minimal number of days the first week in a year or month can have
+	 * @link http://php.net/manual/ja/intlcalendar.getminimaldaysinfirstweek.php
+	 * @return int An int representing a number of days失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setFirstDayOfWeek($dayOfWeek) {}
+	public function getMinimalDaysInFirstWeek(): int {}
 
 	/**
-	 * @param $isLenient
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the global minimum value for a field
+	 * @link http://php.net/manual/ja/intlcalendar.getminimum.php
+	 * @param int $field
+	 * @return int An int representing a value for the given
+	 * field in the fieldʼs unit失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setLenient($isLenient) {}
+	public function getMinimum(int $field): int {}
 
 	/**
-	 * @param $numberOfDays
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the objectʼs timezone
+	 * @link http://php.net/manual/ja/intlcalendar.gettimezone.php
+	 * @return IntlTimeZone An <b>IntlTimeZone</b> object corresponding to the one used
+	 * internally in this object.
 	 */
-	public function setMinimalDaysInFirstWeek($numberOfDays) {}
+	public function getTimeZone(): IntlTimeZone {}
 
 	/**
-	 * @param IntlCalendar $calendar
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get the calendar type
+	 * @link http://php.net/manual/ja/intlcalendar.gettype.php
+	 * @return string A string representing the calendar type, such as
+	 * 'gregorian', 'islamic', etc.
 	 */
-	public function equals(IntlCalendar $calendar) {}
-
-	public function getRepeatedWallTimeOption() {}
-
-	public function getSkippedWallTimeOption() {}
+	public function getType(): string {}
 
 	/**
-	 * @param $wallTimeOption
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get time of the day at which weekend begins or ends
+	 * @link http://php.net/manual/ja/intlcalendar.getweekendtransition.php
+	 * @param string $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return int The number of milliseconds into the day at which the weekend begins or
+	 * ends失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function setRepeatedWallTimeOption($wallTimeOption) {}
+	public function getWeekendTransition(string $dayOfWeek): int {}
 
 	/**
-	 * @param $wallTimeOption
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether the objectʼs time is in Daylight Savings Time
+	 * @link http://php.net/manual/ja/intlcalendar.indaylighttime.php
+	 * @return bool <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
+	 * The value <b>FALSE</b> may also be returned on failure, for instance after
+	 * specifying invalid field values on non-lenient mode; use exceptions or query
+	 * <b>intl_get_error_code</b> to disambiguate.
 	 */
-	public function setSkippedWallTimeOption($wallTimeOption) {}
+	public function inDaylightTime(): bool {}
 
 	/**
-	 * @param $dateTime
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether another calendar is equal but for a different time
+	 * @link http://php.net/manual/ja/intlcalendar.isequivalentto.php
+	 * @param IntlCalendar $other <p>
+	 * The other calendar against which the comparison is to be made.
+	 * </p>
+	 * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are
+	 * equivalent except possibly for their set time.
 	 */
-	public static function fromDateTime($dateTime) {}
+	public function isEquivalentTo(IntlCalendar $other): bool {}
 
-	public function toDateTime() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether date/time interpretation is in lenient mode
+	 * @link http://php.net/manual/ja/intlcalendar.islenient.php
+	 * @return bool A bool representing whether the calendar is set to lenient mode.
+	 */
+	public function isLenient(): bool {}
 
-	public function getErrorCode() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether a certain date/time is in the weekend
+	 * @link http://php.net/manual/ja/intlcalendar.isweekend.php
+	 * @param float $date [optional] <p>
+	 * An optional timestamp representing the number of milliseconds since the
+	 * epoch, excluding leap seconds. If <b>NULL</b>, this objectʼs current time is
+	 * used instead.
+	 * </p>
+	 * @return bool A bool indicating whether the given or this objectʼs time occurs
+	 * in a weekend.
+	 * </p>
+	 * <p>
+	 * The value <b>FALSE</b> may also be returned on failure, for instance after giving
+	 * a date out of bounds on non-lenient mode; use exceptions or query
+	 * <b>intl_get_error_code</b> to disambiguate.
+	 */
+	public function isWeekend(float $date = NULL): bool {}
 
-	public function getErrorMessage() {}
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set the day on which the week is deemed to start
+	 * @link http://php.net/manual/ja/intlcalendar.setfirstdayofweek.php
+	 * @param int $dayOfWeek <p>
+	 * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
+	 * <b>IntlCalendar::DOW_MONDAY</b>, …,
+	 * <b>IntlCalendar::DOW_SATURDAY</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setFirstDayOfWeek(int $dayOfWeek): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set whether date/time interpretation is to be lenient
+	 * @link http://php.net/manual/ja/intlcalendar.setlenient.php
+	 * @param string $isLenient <p>
+	 * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
+	 * </p>
+	 * @return ReturnType <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setLenient(string $isLenient): ReturnType {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Set minimal number of days the first week in a year or month can have
+	 * @link http://php.net/manual/ja/intlcalendar.setminimaldaysinfirstweek.php
+	 * @param int $minimalDays <p>
+	 * The number of minimal days to set.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
+	 */
+	public function setMinimalDaysInFirstWeek(int $minimalDays): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Compare time of two IntlCalendar objects for equality
+	 * @link http://php.net/manual/ja/intlcalendar.equals.php
+	 * @param IntlCalendar $other <p>
+	 * The calendar to compare with the primary object.
+	 * </p>
+	 * @return bool <b>TRUE</b> if the current time of both this and the passed in
+	 * <b>IntlCalendar</b> object are the same, or <b>FALSE</b>
+	 * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
+	 * happen if bad arguments are passed in. In any case, the two cases can be
+	 * distinguished by calling <b>intl_get_error_code</b>.
+	 */
+	public function equals(IntlCalendar $other): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get behavior for handling repeating wall time
+	 * @link http://php.net/manual/ja/intlcalendar.getrepeatedwalltimeoption.php
+	 * @return int One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+	 * <b>IntlCalendar::WALLTIME_LAST</b>.
+	 */
+	public function getRepeatedWallTimeOption(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get behavior for handling skipped wall time
+	 * @link http://php.net/manual/ja/intlcalendar.getskippedwalltimeoption.php
+	 * @return int One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+	 * <b>IntlCalendar::WALLTIME_LAST</b> or
+	 * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+	 */
+	public function getSkippedWallTimeOption(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set behavior for handling repeating wall times at negative timezone offset transitions
+	 * @link http://php.net/manual/ja/intlcalendar.setrepeatedwalltimeoption.php
+	 * @param int $wallTimeOption <p>
+	 * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
+	 * <b>IntlCalendar::WALLTIME_LAST</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setRepeatedWallTimeOption(int $wallTimeOption): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Set behavior for handling skipped wall times at positive timezone offset transitions
+	 * @link http://php.net/manual/ja/intlcalendar.setskippedwalltimeoption.php
+	 * @param int $wallTimeOption <p>
+	 * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
+	 * <b>IntlCalendar::WALLTIME_LAST</b> or
+	 * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+	 */
+	public function setSkippedWallTimeOption(int $wallTimeOption): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a2)<br/>
+	 * Create an IntlCalendar from a DateTime object or string
+	 * @link http://php.net/manual/ja/intlcalendar.fromdatetime.php
+	 * @param mixed $dateTime <p>
+	 * A <b>DateTime</b> object or a string that
+	 * can be passed to <b>DateTime::__construct</b>.
+	 * </p>
+	 * @return IntlCalendar The created <b>IntlCalendar</b> object or <b>NULL</b> in case of
+	 * failure. If a string is passed, any exception that occurs
+	 * inside the <b>DateTime</b> constructor is propagated.
+	 */
+	public static function fromDateTime($dateTime): IntlCalendar {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a2)<br/>
+	 * Convert an IntlCalendar into a DateTime object
+	 * @link http://php.net/manual/ja/intlcalendar.todatetime.php
+	 * @return DateTime A <b>DateTime</b> object with the same timezone as this
+	 * object (though using PHPʼs database instead of ICUʼs) and the same time,
+	 * except for the smaller precision (second precision instead of millisecond).
+	 * Returns <b>FALSE</b> on failure.
+	 */
+	public function toDateTime(): DateTime {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get last error code on the object
+	 * @link http://php.net/manual/ja/intlcalendar.geterrorcode.php
+	 * @return int An ICU error code indicating either success, failure or a warning.
+	 */
+	public function getErrorCode(): int {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Get last error message on the object
+	 * @link http://php.net/manual/ja/intlcalendar.geterrormessage.php
+	 * @return string The error message associated with last error that occurred in a function call
+	 * on this object, or a string indicating the non-existance of an error.
+	 */
+	public function getErrorMessage(): string {}
 
 }
 
+/**
+ * This class is provided because Unicode contains large number of characters
+ * and incorporates the varied writing systems of the world and their incorrect
+ * usage can expose programs or systems to possible security attacks using
+ * characters similarity.
+ * @link http://php.net/manual/ja/class.spoofchecker.php
+ */
 class Spoofchecker  {
 	const SINGLE_SCRIPT_CONFUSABLE = 1;
 	const MIXED_SCRIPT_CONFUSABLE = 2;
@@ -3029,20 +3701,76 @@ class IntlException extends Exception implements Throwable {
 
 }
 
+/**
+ * This class represents iterator objects throughout the intl extension
+ * whenever the iterator cannot be identified with any other object provided
+ * by the extension. The distinct iterator object used internally by the
+ * foreach
+ * construct can only be obtained (in the relevant part here) from
+ * objects, so objects of this class serve the purpose of providing the hook
+ * through which this internal object can be obtained. As a convenience, this
+ * class also implements the <b>Iterator</b> interface,
+ * allowing the collection of values to be navigated using the methods
+ * defined in that interface. Both these methods and the internal iterator
+ * objects provided to foreach are backed by the same
+ * state (e.g. the position of the iterator and its current value).
+ * @link http://php.net/manual/ja/class.intliterator.php
+ */
 class IntlIterator implements Iterator, Traversable {
 
-	public function current() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the current element
+	 * @link http://php.net/manual/ja/intliterator.current.php
+	 * @return ReturnType
+	 */
+	public function current(): ReturnType {}
 
-	public function key() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the current key
+	 * @link http://php.net/manual/ja/intliterator.key.php
+	 * @return ReturnType
+	 */
+	public function key(): ReturnType {}
 
-	public function next() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Move forward to the next element
+	 * @link http://php.net/manual/ja/intliterator.next.php
+	 * @return ReturnType
+	 */
+	public function next(): ReturnType {}
 
-	public function rewind() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Rewind the iterator to the first element
+	 * @link http://php.net/manual/ja/intliterator.rewind.php
+	 * @return ReturnType
+	 */
+	public function rewind(): ReturnType {}
 
-	public function valid() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Check if current position is valid
+	 * @link http://php.net/manual/ja/intliterator.valid.php
+	 * @return ReturnType
+	 */
+	public function valid(): ReturnType {}
 
 }
 
+/**
+ * A &quot;break iterator&quot; is an ICU object that exposes methods for locating
+ * boundaries in text (e.g. word or sentence boundaries).
+ * The PHP <b>IntlBreakIterator</b> serves as the base class
+ * for all types of ICU break iterators. Where extra functionality is
+ * available, the intl extension may expose the ICU break iterator with
+ * suitable subclasses, such as
+ * <b>IntlRuleBasedBreakIterator</b> or
+ * <b>IntlCodePointBreaIterator</b>.
+ * @link http://php.net/manual/ja/class.intlbreakiterator.php
+ */
 class IntlBreakIterator implements Traversable {
 	const DONE = -1;
 	const WORD_NONE = 0;
@@ -3258,6 +3986,12 @@ class IntlBreakIterator implements Traversable {
 
 }
 
+/**
+ * A subclass of <b>IntlBreakIterator</b> that encapsulates
+ * ICU break iterators whose behavior is specified using a set of rules. This
+ * is the most common kind of break iterators.
+ * @link http://php.net/manual/ja/class.intlrulebasedbreakiterator.php
+ */
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {
 	const DONE = -1;
 	const WORD_NONE = 0;
@@ -3281,18 +4015,45 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
 
 	/**
-	 * @param $rules
-	 * @param $areCompiled [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Create iterator from ruleset
+	 * @link http://php.net/manual/ja/intlrulebasedbreakiterator.construct.php
+	 * @param string $rules
+	 * @param string $areCompiled [optional]
 	 */
-	public function __construct($rules, $areCompiled) {}
+	public function __construct(string $rules, string $areCompiled = null) {}
 
-	public function getRules() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the rule set used to create this object
+	 * @link http://php.net/manual/ja/intlrulebasedbreakiterator.getrules.php
+	 * @return ReturnType
+	 */
+	public function getRules(): ReturnType {}
 
-	public function getRuleStatus() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the largest status value from the break rules that determined the current break position
+	 * @link http://php.net/manual/ja/intlrulebasedbreakiterator.getrulestatus.php
+	 * @return ReturnType
+	 */
+	public function getRuleStatus(): ReturnType {}
 
-	public function getRuleStatusVec() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the status values from the break rules that determined the current break position
+	 * @link http://php.net/manual/ja/intlrulebasedbreakiterator.getrulestatusvec.php
+	 * @return ReturnType
+	 */
+	public function getRuleStatusVec(): ReturnType {}
 
-	public function getBinaryRules() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the binary form of compiled rules
+	 * @link http://php.net/manual/ja/intlrulebasedbreakiterator.getbinaryrules.php
+	 * @return ReturnType
+	 */
+	public function getBinaryRules(): ReturnType {}
 
 	/**
 	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
@@ -3480,6 +4241,11 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
 }
 
+/**
+ * This break iterator
+ * identifies the boundaries between UTF-8 code points.
+ * @link http://php.net/manual/ja/class.intlcodepointbreakiterator.php
+ */
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable {
 	const DONE = -1;
 	const WORD_NONE = 0;
@@ -3502,7 +4268,13 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
 	const SENTENCE_SEP_LIMIT = 200;
 
 
-	public function getLastCodePoint() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get last code point passed over after advancing or receding the iterator
+	 * @link http://php.net/manual/ja/intlcodepointbreakiterator.getlastcodepoint.php
+	 * @return ReturnType
+	 */
+	public function getLastCodePoint(): ReturnType {}
 
 	/**
 	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
@@ -3697,23 +4469,68 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
 
 }
 
+/**
+ * Objects of this class can be obtained from
+ * <b>IntlBreakIterator</b> objects. While the break
+ * iterators provide a sequence of boundary positions when iterated,
+ * <b>IntlPartsIterator</b> objects provide, as a
+ * convenience, the text fragments comprehended between two successive
+ * boundaries.
+ * @link http://php.net/manual/ja/class.intlpartsiterator.php
+ */
 class IntlPartsIterator extends IntlIterator implements Traversable, Iterator {
 	const KEY_SEQUENTIAL = 0;
 	const KEY_LEFT = 1;
 	const KEY_RIGHT = 2;
 
 
-	public function getBreakIterator() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get IntlBreakIterator backing this parts iterator
+	 * @link http://php.net/manual/ja/intlpartsiterator.getbreakiterator.php
+	 * @return ReturnType
+	 */
+	public function getBreakIterator(): ReturnType {}
 
-	public function current() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the current element
+	 * @link http://php.net/manual/ja/intliterator.current.php
+	 * @return ReturnType
+	 */
+	public function current(): ReturnType {}
 
-	public function key() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Get the current key
+	 * @link http://php.net/manual/ja/intliterator.key.php
+	 * @return ReturnType
+	 */
+	public function key(): ReturnType {}
 
-	public function next() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Move forward to the next element
+	 * @link http://php.net/manual/ja/intliterator.next.php
+	 * @return ReturnType
+	 */
+	public function next(): ReturnType {}
 
-	public function rewind() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Rewind the iterator to the first element
+	 * @link http://php.net/manual/ja/intliterator.rewind.php
+	 * @return ReturnType
+	 */
+	public function rewind(): ReturnType {}
 
-	public function valid() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Check if current position is valid
+	 * @link http://php.net/manual/ja/intliterator.valid.php
+	 * @return ReturnType
+	 */
+	public function valid(): ReturnType {}
 
 }
 
@@ -3959,6 +4776,11 @@ class UConverter  {
 
 }
 
+/**
+ * <b>IntlChar</b> provides access to a number of utility
+ * methods that can be used to access information about Unicode characters.
+ * @link http://php.net/manual/ja/class.intlchar.php
+ */
 class IntlChar  {
 	const UNICODE_VERSION = 7.0;
 	const CODEPOINT_MIN = 0;
@@ -4626,310 +5448,757 @@ class IntlChar  {
 
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Return Unicode character by code point value
+	 * @link http://php.net/manual/ja/intlchar.chr.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return string A string containing the single character specified by the Unicode code point value.
 	 */
-	public static function chr($codepoint) {}
+	public static function chr($codepoint): string {}
 
 	/**
-	 * @param $character
+	 * (PHP 7)<br/>
+	 * Return Unicode code point value of character
+	 * @link http://php.net/manual/ja/intlchar.ord.php
+	 * @param mixed $character <p>
+	 * A Unicode character.
+	 * </p>
+	 * @return int the Unicode code point value as an integer.
 	 */
-	public static function ord($character) {}
+	public static function ord($character): int {}
 
 	/**
-	 * @param $codepoint
-	 * @param $property
+	 * (PHP 7)<br/>
+	 * Check a binary Unicode property for a code point
+	 * @link http://php.net/manual/ja/intlchar.hasbinaryproperty.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * @return bool <b>TRUE</b> or <b>FALSE</b> according to the binary Unicode property value for <i>codepoint</i>.
+	 * Also <b>FALSE</b> if <i>property</i> is out of bounds or if the Unicode version does not have data for
+	 * the property at all, or not for this code point.
 	 */
-	public static function hasBinaryProperty($codepoint, $property) {}
+	public static function hasBinaryProperty($codepoint, int $property): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the Alphabetic Unicode property
+	 * @link http://php.net/manual/ja/intlchar.isualphabetic.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> has the Alphabetic Unicode property, <b>FALSE</b> if not.
 	 */
-	public static function isUAlphabetic($codepoint) {}
+	public static function isUAlphabetic($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the Lowercase Unicode property
+	 * @link http://php.net/manual/ja/intlchar.isulowercase.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> has the Lowercase Unicode property, <b>FALSE</b> if not.
 	 */
-	public static function isULowercase($codepoint) {}
+	public static function isULowercase($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the Uppercase Unicode property
+	 * @link http://php.net/manual/ja/intlchar.isuuppercase.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> has the Uppercase Unicode property, <b>FALSE</b> if not.
 	 */
-	public static function isUUppercase($codepoint) {}
+	public static function isUUppercase($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the White_Space Unicode property
+	 * @link http://php.net/manual/ja/intlchar.isuwhitespace.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> has the White_Space Unicode property, <b>FALSE</b> if not.
 	 */
-	public static function isUWhiteSpace($codepoint) {}
+	public static function isUWhiteSpace($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
-	 * @param $property
+	 * (PHP 7)<br/>
+	 * Get the value for a Unicode property for a code point
+	 * @link http://php.net/manual/ja/intlchar.getintpropertyvalue.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * @return int the numeric value that is directly the property value or, for enumerated properties, corresponds to the
+	 * numeric value of the enumerated constant of the respective property value enumeration type.
+	 * </p>
+	 * <p>
+	 * Returns 0 or 1 (for <b>FALSE</b>/<b>TRUE</b>) for binary Unicode properties.
+	 * </p>
+	 * <p>
+	 * Returns a bit-mask for mask properties.
+	 * </p>
+	 * <p>
+	 * Returns 0 if <i>property</i> is out of bounds or if the Unicode version does not
+	 * have data for the property at all, or not for this code point.
 	 */
-	public static function getIntPropertyValue($codepoint, $property) {}
+	public static function getIntPropertyValue($codepoint, int $property): int {}
 
 	/**
-	 * @param $property
+	 * (PHP 7)<br/>
+	 * Get the min value for a Unicode property
+	 * @link http://php.net/manual/ja/intlchar.getintpropertyminvalue.php
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * @return int The minimum value returned by <b>IntlChar::getIntPropertyValue</b> for a Unicode property.
+	 * 0 if the property selector is out of range.
 	 */
-	public static function getIntPropertyMinValue($property) {}
+	public static function getIntPropertyMinValue(int $property): int {}
 
 	/**
-	 * @param $property
+	 * (PHP 7)<br/>
+	 * Get the max value for a Unicode property
+	 * @link http://php.net/manual/ja/intlchar.getintpropertymaxvalue.php
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * @return int The maximum value returned by <b>IntlChar::getIntPropertyValue</b> for a Unicode property.
+	 * &lt;=0 if the property selector is out of range.
 	 */
-	public static function getIntPropertyMaxValue($property) {}
+	public static function getIntPropertyMaxValue(int $property): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the numeric value for a Unicode code point
+	 * @link http://php.net/manual/ja/intlchar.getnumericvalue.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return float Numeric value of <i>codepoint</i>,
+	 * or <b>IntlChar::NO_NUMERIC_VALUE</b> if none is defined. This
+	 * constant was added in PHP 7.0.6, prior to this version the literal value
+	 * (float)-123456789 may be used instead.
 	 */
-	public static function getNumericValue($codepoint) {}
+	public static function getNumericValue($codepoint): float {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a lowercase letter
+	 * @link http://php.net/manual/ja/intlchar.islower.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is an Ll lowercase letter, <b>FALSE</b> if not.
 	 */
-	public static function islower($codepoint) {}
+	public static function islower($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the general category "Lu" (uppercase letter)
+	 * @link http://php.net/manual/ja/intlchar.isupper.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is an Lu uppercase letter, <b>FALSE</b> if not.
 	 */
-	public static function isupper($codepoint) {}
+	public static function isupper($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a titlecase letter
+	 * @link http://php.net/manual/ja/intlchar.istitle.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a titlecase letter, <b>FALSE</b> if not.
 	 */
-	public static function istitle($codepoint) {}
+	public static function istitle($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a digit character
+	 * @link http://php.net/manual/ja/intlchar.isdigit.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a digit character, <b>FALSE</b> if not.
 	 */
-	public static function isdigit($codepoint) {}
+	public static function isdigit($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a letter character
+	 * @link http://php.net/manual/ja/intlchar.isalpha.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a letter character, <b>FALSE</b> if not.
 	 */
-	public static function isalpha($codepoint) {}
+	public static function isalpha($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is an alphanumeric character
+	 * @link http://php.net/manual/ja/intlchar.isalnum.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is an alphanumeric character, <b>FALSE</b> if not.
 	 */
-	public static function isalnum($codepoint) {}
+	public static function isalnum($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a hexadecimal digit
+	 * @link http://php.net/manual/ja/intlchar.isxdigit.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a hexadecimal character, <b>FALSE</b> if not.
 	 */
-	public static function isxdigit($codepoint) {}
+	public static function isxdigit($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is punctuation character
+	 * @link http://php.net/manual/ja/intlchar.ispunct.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a punctuation character, <b>FALSE</b> if not.
 	 */
-	public static function ispunct($codepoint) {}
+	public static function ispunct($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a graphic character
+	 * @link http://php.net/manual/ja/intlchar.isgraph.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a "graphic" character, <b>FALSE</b> if not.
 	 */
-	public static function isgraph($codepoint) {}
+	public static function isgraph($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a "blank" or "horizontal space" character
+	 * @link http://php.net/manual/ja/intlchar.isblank.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is either a "blank" or "horizontal space" character, <b>FALSE</b> if not.
 	 */
-	public static function isblank($codepoint) {}
+	public static function isblank($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check whether the code point is defined
+	 * @link http://php.net/manual/ja/intlchar.isdefined.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a defined character, <b>FALSE</b> if not.
 	 */
-	public static function isdefined($codepoint) {}
+	public static function isdefined($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a space character
+	 * @link http://php.net/manual/ja/intlchar.isspace.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a space character, <b>FALSE</b> if not.
 	 */
-	public static function isspace($codepoint) {}
+	public static function isspace($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a space character according to Java
+	 * @link http://php.net/manual/ja/intlchar.isjavaspacechar.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a space character according to Java, <b>FALSE</b> if not.
 	 */
-	public static function isJavaSpaceChar($codepoint) {}
+	public static function isJavaSpaceChar($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a whitespace character according to ICU
+	 * @link http://php.net/manual/ja/intlchar.iswhitespace.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a whitespace character according to ICU, <b>FALSE</b> if not.
 	 */
-	public static function isWhitespace($codepoint) {}
+	public static function isWhitespace($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a control character
+	 * @link http://php.net/manual/ja/intlchar.iscntrl.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a control character, <b>FALSE</b> if not.
 	 */
-	public static function iscntrl($codepoint) {}
+	public static function iscntrl($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is an ISO control code
+	 * @link http://php.net/manual/ja/intlchar.isisocontrol.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is an ISO control code, <b>FALSE</b> if not.
 	 */
-	public static function isISOControl($codepoint) {}
+	public static function isISOControl($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a printable character
+	 * @link http://php.net/manual/ja/intlchar.isprint.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a printable character, <b>FALSE</b> if not.
 	 */
-	public static function isprint($codepoint) {}
+	public static function isprint($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is a base character
+	 * @link http://php.net/manual/ja/intlchar.isbase.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is a base character, <b>FALSE</b> if not.
 	 */
-	public static function isbase($codepoint) {}
+	public static function isbase($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get bidirectional category value for a code point
+	 * @link http://php.net/manual/ja/intlchar.chardirection.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return int The bidirectional category value; one of the following constants:
+	 * <b>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT</b>
+	 * <b>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT</b>
+	 * <b>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER</b>
+	 * <b>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR</b>
+	 * <b>IntlChar::CHAR_DIRECTION_ARABIC_NUMBER</b>
+	 * <b>IntlChar::CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_DIRECTION_BLOCK_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_DIRECTION_SEGMENT_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_DIRECTION_WHITE_SPACE_NEUTRAL</b>
+	 * <b>IntlChar::CHAR_DIRECTION_OTHER_NEUTRAL</b>
+	 * <b>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING</b>
+	 * <b>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC</b>
+	 * <b>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING</b>
+	 * <b>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT</b>
+	 * <b>IntlChar::CHAR_DIRECTION_DIR_NON_SPACING_MARK</b>
+	 * <b>IntlChar::CHAR_DIRECTION_BOUNDARY_NEUTRAL</b>
+	 * <b>IntlChar::CHAR_DIRECTION_FIRST_STRONG_ISOLATE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE</b>
+	 * <b>IntlChar::CHAR_DIRECTION_CHAR_DIRECTION_COUNT</b>
 	 */
-	public static function charDirection($codepoint) {}
+	public static function charDirection($codepoint): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point has the Bidi_Mirrored property
+	 * @link http://php.net/manual/ja/intlchar.ismirrored.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> has the Bidi_Mirrored property, <b>FALSE</b> if not.
 	 */
-	public static function isMirrored($codepoint) {}
+	public static function isMirrored($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the "mirror-image" character for a code point
+	 * @link http://php.net/manual/ja/intlchar.charmirror.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return mixed another Unicode code point that may serve as a mirror-image substitute, or <i>codepoint</i>
+	 * itself if there is no such mapping or <i>codepoint</i> does not have the
+	 * Bidi_Mirrored property.
 	 */
 	public static function charMirror($codepoint) {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the paired bracket character for a code point
+	 * @link http://php.net/manual/ja/intlchar.getbidipairedbracket.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return mixed the paired bracket code point, or <i>codepoint</i> itself if there is no such mapping.
 	 */
 	public static function getBidiPairedBracket($codepoint) {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the general category value for a code point
+	 * @link http://php.net/manual/ja/intlchar.chartype.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return int the general category type, which may be one of the following constants:
+	 * <b>IntlChar::CHAR_CATEGORY_UNASSIGNED</b>
+	 * <b>IntlChar::CHAR_CATEGORY_GENERAL_OTHER_TYPES</b>
+	 * <b>IntlChar::CHAR_CATEGORY_UPPERCASE_LETTER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_LOWERCASE_LETTER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_TITLECASE_LETTER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_MODIFIER_LETTER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_OTHER_LETTER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_NON_SPACING_MARK</b>
+	 * <b>IntlChar::CHAR_CATEGORY_ENCLOSING_MARK</b>
+	 * <b>IntlChar::CHAR_CATEGORY_COMBINING_SPACING_MARK</b>
+	 * <b>IntlChar::CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_LETTER_NUMBER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_OTHER_NUMBER</b>
+	 * <b>IntlChar::CHAR_CATEGORY_SPACE_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_LINE_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_PARAGRAPH_SEPARATOR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_CONTROL_CHAR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_FORMAT_CHAR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_PRIVATE_USE_CHAR</b>
+	 * <b>IntlChar::CHAR_CATEGORY_SURROGATE</b>
+	 * <b>IntlChar::CHAR_CATEGORY_DASH_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_START_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_END_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_CONNECTOR_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_OTHER_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_MATH_SYMBOL</b>
+	 * <b>IntlChar::CHAR_CATEGORY_CURRENCY_SYMBOL</b>
+	 * <b>IntlChar::CHAR_CATEGORY_MODIFIER_SYMBOL</b>
+	 * <b>IntlChar::CHAR_CATEGORY_OTHER_SYMBOL</b>
+	 * <b>IntlChar::CHAR_CATEGORY_INITIAL_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_FINAL_PUNCTUATION</b>
+	 * <b>IntlChar::CHAR_CATEGORY_CHAR_CATEGORY_COUNT</b>
 	 */
-	public static function charType($codepoint) {}
+	public static function charType($codepoint): int {}
 
 	/**
-	 * @param $callback [optional]
+	 * (PHP 7)<br/>
+	 * Enumerate all code points with their Unicode general categories
+	 * @link http://php.net/manual/ja/intlchar.enumchartypes.php
+	 * @param callable $callback <p>
+	 * The function that is to be called for each contiguous range of code points with the same general category.
+	 * The following three arguments will be passed into it:
+	 * integer $start - The starting code point of the range
+	 * integer $end - The ending code point of the range
+	 * integer $name - The category type (one of the IntlChar::CHAR_CATEGORY_* constants)
+	 * </p>
+	 * @return void 値を返しません。
 	 */
-	public static function enumCharTypes($callback) {}
+	public static function enumCharTypes(callable $callback): void {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the combining class of a code point
+	 * @link http://php.net/manual/ja/intlchar.getcombiningclass.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return int the combining class of the character.
 	 */
-	public static function getCombiningClass($codepoint) {}
+	public static function getCombiningClass($codepoint): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the decimal digit value of a decimal digit character
+	 * @link http://php.net/manual/ja/intlchar.chardigitvalue.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return int The decimal digit value of <i>codepoint</i>,
+	 * or -1 if it is not a decimal digit character.
 	 */
-	public static function charDigitValue($codepoint) {}
+	public static function charDigitValue($codepoint): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the Unicode allocation block containing a code point
+	 * @link http://php.net/manual/ja/intlchar.getblockcode.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return int the block value for <i>codepoint</i>.
+	 * See the IntlChar::BLOCK_CODE_* constants for possible return values.
 	 */
-	public static function getBlockCode($codepoint) {}
+	public static function getBlockCode($codepoint): int {}
 
 	/**
-	 * @param $codepoint
-	 * @param $nameChoice [optional]
+	 * (PHP 7)<br/>
+	 * Retrieve the name of a Unicode character
+	 * @link http://php.net/manual/ja/intlchar.charname.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @param int $nameChoice [optional] <p>
+	 * Which set of names to use for the lookup. Can be any of these constants:
+	 * <b>IntlChar::UNICODE_CHAR_NAME</b> (default)
+	 * <b>IntlChar::UNICODE_10_CHAR_NAME</b>
+	 * <b>IntlChar::EXTENDED_CHAR_NAME</b>
+	 * <b>IntlChar::CHAR_NAME_ALIAS</b>
+	 * <b>IntlChar::CHAR_NAME_CHOICE_COUNT</b>
+	 * </p>
+	 * @return string The corresponding name, or an empty string if there is no name for this character.
 	 */
-	public static function charName($codepoint, $nameChoice) {}
+	public static function charName($codepoint, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): string {}
 
 	/**
-	 * @param $characterName
-	 * @param $nameChoice [optional]
+	 * (PHP 7)<br/>
+	 * Find Unicode character by name and return its code point value
+	 * @link http://php.net/manual/ja/intlchar.charfromname.php
+	 * @param string $characterName <p>
+	 * Full name of the Unicode character.
+	 * </p>
+	 * @param int $nameChoice [optional] <p>
+	 * Which set of names to use for the lookup. Can be any of these constants:
+	 * <b>IntlChar::UNICODE_CHAR_NAME</b> (default)
+	 * <b>IntlChar::UNICODE_10_CHAR_NAME</b>
+	 * <b>IntlChar::EXTENDED_CHAR_NAME</b>
+	 * <b>IntlChar::CHAR_NAME_ALIAS</b>
+	 * <b>IntlChar::CHAR_NAME_CHOICE_COUNT</b>
+	 * </p>
+	 * @return int The Unicode value of the code point with the given name (as an integer), or <b>FALSE</b> if there is no such code point.
 	 */
-	public static function charFromName($characterName, $nameChoice) {}
+	public static function charFromName(string $characterName, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): int {}
 
 	/**
-	 * @param $start
-	 * @param $limit
-	 * @param $callback
-	 * @param $nameChoice [optional]
+	 * (PHP 7)<br/>
+	 * Enumerate all assigned Unicode characters within a range
+	 * @link http://php.net/manual/ja/intlchar.enumcharnames.php
+	 * @param mixed $start <p>
+	 * The first code point in the enumeration range.
+	 * </p>
+	 * @param mixed $limit <p>
+	 * One more than the last code point in the enumeration range (the first one after the range).
+	 * </p>
+	 * @param callable $callback <p>
+	 * The function that is to be called for each character name. The following three arguments will be passed into it:
+	 * integer $codepoint - The numeric code point value
+	 * integer $nameChoice - The same value as the <i>nameChoice</i> parameter below
+	 * string $name - The name of the character
+	 * </p>
+	 * @param int $nameChoice [optional] <p>
+	 * Selector for which kind of names to enumerate. Can be any of these constants:
+	 * <b>IntlChar::UNICODE_CHAR_NAME</b> (default)
+	 * <b>IntlChar::UNICODE_10_CHAR_NAME</b>
+	 * <b>IntlChar::EXTENDED_CHAR_NAME</b>
+	 * <b>IntlChar::CHAR_NAME_ALIAS</b>
+	 * <b>IntlChar::CHAR_NAME_CHOICE_COUNT</b>
+	 * </p>
+	 * @return void 値を返しません。
 	 */
-	public static function enumCharNames($start, $limit, $callback, $nameChoice) {}
+	public static function enumCharNames($start, $limit, callable $callback, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): void {}
 
 	/**
-	 * @param $property
-	 * @param $nameChoice [optional]
+	 * (PHP 7)<br/>
+	 * Get the Unicode name for a property
+	 * @link http://php.net/manual/ja/intlchar.getpropertyname.php
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * <p>
+	 * <b>IntlChar::PROPERTY_INVALID_CODE</b> should not be used.
+	 * Also, if <i>property</i> is out of range, <b>FALSE</b> is returned.
+	 * </p>
+	 * @param int $nameChoice [optional] <p>
+	 * Selector for which name to get. If out of range, <b>FALSE</b> is returned.
+	 * </p>
+	 * <p>
+	 * All properties have a long name. Most have a short name, but some do not. Unicode allows for additional names;
+	 * if present these will be returned by adding 1, 2, etc. to <b>IntlChar::LONG_PROPERTY_NAME</b>.
+	 * </p>
+	 * @return string the name, or <b>FALSE</b> if either the <i>property</i> or the <i>nameChoice</i>
+	 * is out of range.
+	 * </p>
+	 * <p>
+	 * If a given <i>nameChoice</i> returns <b>FALSE</b>, then all larger values of
+	 * <i>nameChoice</i> will return <b>FALSE</b>, with one exception: if <b>FALSE</b> is returned for
+	 * <b>IntlChar::SHORT_PROPERTY_NAME</b>, then <b>IntlChar::LONG_PROPERTY_NAME</b>
+	 * (and higher) may still return a non-<b>FALSE</b> value.
 	 */
-	public static function getPropertyName($property, $nameChoice) {}
+	public static function getPropertyName(int $property, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string {}
 
 	/**
-	 * @param $alias
+	 * (PHP 7)<br/>
+	 * Get the property constant value for a given property name
+	 * @link http://php.net/manual/ja/intlchar.getpropertyenum.php
+	 * @param string $alias <p>
+	 * The property name to be matched. The name is compared using "loose matching" as described in PropertyAliases.txt.
+	 * </p>
+	 * @return int an IntlChar::PROPERTY_ constant value,
+	 * or <b>IntlChar::PROPERTY_INVALID_CODE</b> if the given name does not match any property.
 	 */
-	public static function getPropertyEnum($alias) {}
+	public static function getPropertyEnum(string $alias): int {}
 
 	/**
-	 * @param $property
-	 * @param $value
-	 * @param $nameChoice [optional]
+	 * (PHP 7)<br/>
+	 * Get the Unicode name for a property value
+	 * @link http://php.net/manual/ja/intlchar.getpropertyvaluename.php
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * <p>
+	 * If out of range, or this method doesn't work with the given value, <b>FALSE</b> is returned.
+	 * </p>
+	 * @param int $value <p>
+	 * Selector for a value for the given property. If out of range, <b>FALSE</b> is returned.
+	 * </p>
+	 * <p>
+	 * In general, valid values range from 0 up to some maximum. There are a couple exceptions:
+	 * <b>IntlChar::PROPERTY_BLOCK</b> values begin at the non-zero value <b>IntlChar::BLOCK_CODE_BASIC_LATIN</b>
+	 * <b>IntlChar::PROPERTY_CANONICAL_COMBINING_CLASS</b> values are not contiguous and range from 0..240.
+	 * </p>
+	 * @param int $nameChoice [optional] <p>
+	 * Selector for which name to get. If out of range, <b>FALSE</b> is returned.
+	 * </p>
+	 * <p>
+	 * All values have a long name. Most have a short name, but some do not. Unicode allows for additional names;
+	 * if present these will be returned by adding 1, 2, etc. to <b>IntlChar::LONG_PROPERTY_NAME</b>.
+	 * </p>
+	 * @return string the name, or <b>FALSE</b> if either the <i>property</i> or the <i>nameChoice</i>
+	 * is out of range.
+	 * </p>
+	 * <p>
+	 * If a given <i>nameChoice</i> returns <b>FALSE</b>, then all larger values of <i>nameChoice</i>
+	 * will return <b>FALSE</b>, with one exception: if <b>FALSE</b> is returned for <b>IntlChar::SHORT_PROPERTY_NAME</b>,
+	 * then <b>IntlChar::LONG_PROPERTY_NAME</b> (and higher) may still return a non-<b>FALSE</b> value.
 	 */
-	public static function getPropertyValueName($property, $value, $nameChoice) {}
+	public static function getPropertyValueName(int $property, int $value, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string {}
 
 	/**
-	 * @param $property
-	 * @param $name
+	 * (PHP 7)<br/>
+	 * Get the property value for a given value name
+	 * @link http://php.net/manual/ja/intlchar.getpropertyvalueenum.php
+	 * @param int $property 調べたい Unicode プロパティ (定数 IntlChar::PROPERTY_* を参照ください)。</p>
+	 * <p>
+	 * If out of range, or this method doesn't work with the given value,
+	 * <b>IntlChar::PROPERTY_INVALID_CODE</b> is returned.
+	 * </p>
+	 * @param string $name <p>
+	 * The value name to be matched. The name is compared using "loose matching" as described in PropertyValueAliases.txt.
+	 * </p>
+	 * @return int the corresponding value integer, or <b>IntlChar::PROPERTY_INVALID_CODE</b> if the given name
+	 * does not match any value of the given property, or if the property is invalid.
 	 */
-	public static function getPropertyValueEnum($property, $name) {}
+	public static function getPropertyValueEnum(int $property, string $name): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is permissible as the first character in an identifier
+	 * @link http://php.net/manual/ja/intlchar.isidstart.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> may start an identifier, <b>FALSE</b> if not.
 	 */
-	public static function isIDStart($codepoint) {}
+	public static function isIDStart($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is permissible in an identifier
+	 * @link http://php.net/manual/ja/intlchar.isidpart.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is the code point may occur in an identifier, <b>FALSE</b> if not.
 	 */
-	public static function isIDPart($codepoint) {}
+	public static function isIDPart($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is an ignorable character
+	 * @link http://php.net/manual/ja/intlchar.isidignorable.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> is ignorable in identifiers, <b>FALSE</b> if not.
 	 */
-	public static function isIDIgnorable($codepoint) {}
+	public static function isIDIgnorable($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is permissible as the first character in a Java identifier
+	 * @link http://php.net/manual/ja/intlchar.isjavaidstart.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> may start a Java identifier, <b>FALSE</b> if not.
 	 */
-	public static function isJavaIDStart($codepoint) {}
+	public static function isJavaIDStart($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Check if code point is permissible in a Java identifier
+	 * @link http://php.net/manual/ja/intlchar.isjavaidpart.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return bool <b>TRUE</b> if
+	 * <i>codepoint</i> may occur in a Java identifier, <b>FALSE</b> if not.
 	 */
-	public static function isJavaIDPart($codepoint) {}
+	public static function isJavaIDPart($codepoint): bool {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Make Unicode character lowercase
+	 * @link http://php.net/manual/ja/intlchar.tolower.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return mixed the Simple_Lowercase_Mapping of the code point, if any;
+	 * otherwise the code point itself.
 	 */
 	public static function tolower($codepoint) {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Make Unicode character uppercase
+	 * @link http://php.net/manual/ja/intlchar.toupper.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return mixed the Simple_Uppercase_Mapping of the code point, if any;
+	 * otherwise the code point itself.
 	 */
 	public static function toupper($codepoint) {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Make Unicode character titlecase
+	 * @link http://php.net/manual/ja/intlchar.totitle.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return mixed the Simple_Titlecase_Mapping of the code point, if any;
+	 * otherwise the code point itself.
 	 */
 	public static function totitle($codepoint) {}
 
 	/**
-	 * @param $codepoint
-	 * @param $options [optional]
+	 * (PHP 7)<br/>
+	 * Perform case folding on a code point
+	 * @link http://php.net/manual/ja/intlchar.foldcase.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @param int $options [optional] <p>
+	 * Either <b>IntlChar::FOLD_CASE_DEFAULT</b> (default)
+	 * or <b>IntlChar::FOLD_CASE_EXCLUDE_SPECIAL_I</b>.
+	 * </p>
+	 * @return mixed the Simple_Case_Folding of the code point, if any; otherwise the code point itself.
 	 */
-	public static function foldCase($codepoint, $options) {}
+	public static function foldCase($codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT) {}
 
 	/**
-	 * @param $codepoint
-	 * @param $radix [optional]
+	 * (PHP 7)<br/>
+	 * Get the decimal digit value of a code point for a given radix
+	 * @link http://php.net/manual/ja/intlchar.digit.php
+	 * @param string $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @param int $radix [optional] <p>
+	 * The radix (defaults to 10).
+	 * </p>
+	 * @return int the numeric value represented by the character in the specified radix,
+	 * or <b>FALSE</b> if there is no value or if the value exceeds the radix.
 	 */
-	public static function digit($codepoint, $radix) {}
+	public static function digit(string $codepoint, int $radix = 10): int {}
 
 	/**
-	 * @param $digit
-	 * @param $radix [optional]
+	 * (PHP 7)<br/>
+	 * Get character representation for a given digit and radix
+	 * @link http://php.net/manual/ja/intlchar.fordigit.php
+	 * @param int $digit <p>
+	 * The number to convert to a character.
+	 * </p>
+	 * @param int $radix [optional] <p>
+	 * The radix (defaults to 10).
+	 * </p>
+	 * @return int The character representation (as a string) of the specified digit in the specified radix.
 	 */
-	public static function forDigit($digit, $radix) {}
+	public static function forDigit(int $digit, int $radix = 10): int {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the "age" of the code point
+	 * @link http://php.net/manual/ja/intlchar.charage.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return array The Unicode version number, as an array.
+	 * For example, version 1.3.31.2 would be represented as [1, 3, 31, 2].
 	 */
-	public static function charAge($codepoint) {}
-
-	public static function getUnicodeVersion() {}
+	public static function charAge($codepoint): array {}
 
 	/**
-	 * @param $codepoint
+	 * (PHP 7)<br/>
+	 * Get the Unicode version
+	 * @link http://php.net/manual/ja/intlchar.getunicodeversion.php
+	 * @return array An array containing the Unicode version number.
 	 */
-	public static function getFC_NFKC_Closure($codepoint) {}
+	public static function getUnicodeVersion(): array {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * Get the FC_NFKC_Closure property for a code point
+	 * @link http://php.net/manual/ja/intlchar.getfc-nfkc-closure.php
+	 * @param mixed $codepoint コードポイントを表す integer 型の値 (例: U+2603 SNOWMAN を表す 0x2603)、あるいは UTF-8 文字列としてエンコードされた文字 (例: "\u{2603}")。</p>
+	 * @return string the FC_NFKC_Closure property string for the <i>codepoint</i>, or an empty string if there is none.
+	 */
+	public static function getFC_NFKC_Closure($codepoint): string {}
 
 }
 
@@ -6844,14 +8113,23 @@ function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, $wallTime
 function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, $wallTimeOption) {}
 
 /**
+ * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+ * Get last error code on the object
+ * @link http://php.net/manual/ja/intlcalendar.geterrorcode.php
  * @param IntlCalendar $calendar
+ * @return int An ICU error code indicating either success, failure or a warning.
  */
-function intlcal_get_error_code(IntlCalendar $calendar) {}
+function intlcal_get_error_code(IntlCalendar $calendar): int {}
 
 /**
+ * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+ * Get last error message on the object
+ * @link http://php.net/manual/ja/intlcalendar.geterrormessage.php
  * @param IntlCalendar $calendar
+ * @return string The error message associated with last error that occurred in a function call
+ * on this object, or a string indicating the non-existance of an error.
  */
-function intlcal_get_error_message(IntlCalendar $calendar) {}
+function intlcal_get_error_message(IntlCalendar $calendar): string {}
 
 /**
  * @param $timeZoneOrYear [optional]
