@@ -34,17 +34,38 @@ function enchant_broker_free($broker): bool {}
 function enchant_broker_get_error($broker): string {}
 
 /**
- * @param $broker
- * @param $name
- * @param $value
+ * (PHP 5 &gt;= 5.3.1, PHP 7, PECL enchant &gt;= 1.0.1)<br/>
+ * Set the directory path for a given backend
+ * @link http://php.net/manual/ja/function.enchant-broker-set-dict-path.php
+ * @param resource $broker <p>
+ * Broker resource.
+ * </p>
+ * @param int $dict_type <p>
+ * The type of the dictionaries, i.e. <b>ENCHANT_MYSPELL</b>
+ * or <b>ENCHANT_ISPELL</b>.
+ * </p>
+ * @param string $value <p>
+ * The path of the dictionary directory.
+ * </p>
+ * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
-function enchant_broker_set_dict_path($broker, $name, $value) {}
+function enchant_broker_set_dict_path($broker, int $dict_type, string $value): bool {}
 
 /**
- * @param $broker
- * @param $name
+ * (PHP 5 &gt;= 5.3.1, PHP 7, PECL enchant &gt;= 1.0.1)<br/>
+ * Get the directory path for a given backend
+ * @link http://php.net/manual/ja/function.enchant-broker-get-dict-path.php
+ * @param resource $broker <p>
+ * Broker resource.
+ * </p>
+ * @param int $dict_type <p>
+ * The type of the dictionaries, i.e. <b>ENCHANT_MYSPELL</b>
+ * or <b>ENCHANT_ISPELL</b>.
+ * </p>
+ * @return bool the path of the dictionary directory on
+ * success失敗した場合に <b>FALSE</b> を返します.
  */
-function enchant_broker_get_dict_path($broker, $name) {}
+function enchant_broker_get_dict_path($broker, int $dict_type): bool {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL enchant &gt;= 1.0.1)<br/>

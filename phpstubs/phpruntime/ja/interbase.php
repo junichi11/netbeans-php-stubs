@@ -229,10 +229,15 @@ function ibase_free_result($result_identifier): bool {}
 function ibase_name_result($result, string $name): bool {}
 
 /**
- * @param $link_identifier [optional]
- * @param $query [optional]
+ * (PHP 5, PHP 7)<br/>
+ * Prepare a query for later binding of parameter placeholders and execution
+ * @link http://php.net/manual/ja/function.ibase-prepare.php
+ * @param string $query <p>
+ * An InterBase query.
+ * </p>
+ * @return resource a prepared query handle, or <b>FALSE</b> on error.
  */
-function ibase_prepare($link_identifier, $query) {}
+function ibase_prepare(string $query) {}
 
 /**
  * (PHP 5, PHP 7)<br/>

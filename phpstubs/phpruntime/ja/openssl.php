@@ -2,27 +2,49 @@
 
 // Start of openssl v.7.0.19
 
-function openssl_get_cert_locations() {}
+/**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Retrieve the available certificate locations
+ * @link http://php.net/manual/ja/function.openssl-get-cert-locations.php
+ * @return array an array with the available certificate locations.
+ */
+function openssl_get_cert_locations(): array {}
 
 /**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Generate a new signed public key and challenge
+ * @link http://php.net/manual/ja/function.openssl-spki-new.php
  * @param $privkey
  * @param $challenge
  * @param $algo [optional]
+ * @return mixed a signed public key and challenge string or NULL on failure.
  */
 function openssl_spki_new($privkey, $challenge, $algo) {}
 
 /**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Verifies a signed public key and challenge
+ * @link http://php.net/manual/ja/function.openssl-spki-verify.php
  * @param $spki
+ * @return mixed a boolean on success or failure.
  */
 function openssl_spki_verify($spki) {}
 
 /**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Exports a valid PEM formatted public key signed public key and challenge
+ * @link http://php.net/manual/ja/function.openssl-spki-export.php
  * @param $spki
+ * @return mixed the associated PEM formatted public key or NULL on failure.
  */
 function openssl_spki_export($spki) {}
 
 /**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Exports the challenge assoicated with a signed public key and challenge
+ * @link http://php.net/manual/ja/function.openssl-spki-export-challenge.php
  * @param $spki
+ * @return mixed the associated challenge string or NULL on failure.
  */
 function openssl_spki_export_challenge($spki) {}
 
@@ -305,11 +327,22 @@ function openssl_x509_check_private_key($cert, $key): bool {}
 function openssl_x509_export($x509, string &$output, bool $notext = true): bool {}
 
 /**
- * @param $x509
- * @param $method [optional]
- * @param $raw_output [optional]
+ * (PHP 5.6, PHP 7)<br/>
+ * Calculates the fingerprint, or digest, of a given X.509 certificate
+ * @link http://php.net/manual/ja/function.openssl-x509-fingerprint.php
+ * @param mixed $x509
+ * @param string $hash_algorithm [optional] <p>
+ * The hash algorithm to use, e.g. "md5" or "sha1"
+ * </p>
+ * @param bool $raw_output [optional] <p>
+ * When set to <b>TRUE</b>, outputs raw binary data. <b>FALSE</b> outputs lowercase hexits.
+ * </p>
+ * @return bool a string containing the calculated certificate fingerprint as lowercase hexits unless <i>raw_output</i> is set to <b>TRUE</b> in which case the raw binary representation of the message digest is returned.
+ * </p>
+ * <p>
+ * Returns <b>FALSE</b> on failure.
  */
-function openssl_x509_fingerprint($x509, $method, $raw_output) {}
+function openssl_x509_fingerprint($x509, string $hash_algorithm = "sha1", bool $raw_output = false): bool {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>

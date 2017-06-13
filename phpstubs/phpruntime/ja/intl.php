@@ -3558,20 +3558,45 @@ class Spoofchecker  {
 	const CHAR_LIMIT = 64;
 
 
+	/**
+	 * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
+	 * Constructor
+	 * @link http://php.net/manual/ja/spoofchecker.construct.php
+	 */
 	public function __construct() {}
 
 	/**
-	 * @param $text
-	 * @param $error [optional]
+	 * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
+	 * Checks if a given text contains any suspicious characters
+	 * @link http://php.net/manual/ja/spoofchecker.issuspicious.php
+	 * @param string $text <p>
+	 * String to test.
+	 * </p>
+	 * @param string $error [optional] <p>
+	 * This variable is set by-reference to string containing an error, if there
+	 * were any.
+	 * </p>
+	 * @return bool <b>TRUE</b> if there are suspicious characters, <b>FALSE</b> otherwise.
 	 */
-	public function isSuspicious($text, &$error) {}
+	public function isSuspicious(string $text, string &$error = null): bool {}
 
 	/**
-	 * @param $s1
-	 * @param $s2
-	 * @param $error [optional]
+	 * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
+	 * Checks if given strings can be confused
+	 * @link http://php.net/manual/ja/spoofchecker.areconfusable.php
+	 * @param string $str1 <p>
+	 * First string to check.
+	 * </p>
+	 * @param string $str2 <p>
+	 * Second string to check.
+	 * </p>
+	 * @param string $error [optional] <p>
+	 * This variable is set by-reference to string containing an error, if there
+	 * were any.
+	 * </p>
+	 * @return bool <b>TRUE</b> if two given strings can be confused, <b>FALSE</b> otherwise.
 	 */
-	public function areConfusable($s1, $s2, &$error) {}
+	public function areConfusable(string $str1, string $str2, string &$error = null): bool {}
 
 	/**
 	 * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>

@@ -6585,9 +6585,15 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
 	public function fwrite(string $str, int $length = null): int {}
 
 	/**
-	 * @param $length
+	 * (PHP 5 &gt;= 5.5.11, PHP 7)<br/>
+	 * Read from file
+	 * @link http://php.net/manual/ja/splfileobject.fread.php
+	 * @param int $length <p>
+	 * The number of bytes to read.
+	 * </p>
+	 * @return string the string read from the file 失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function fread($length) {}
+	public function fread(int $length): string {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7)<br/>
@@ -7208,9 +7214,15 @@ class SplTempFileObject extends SplFileObject implements SeekableIterator, Itera
 	public function fwrite(string $str, int $length = null): int {}
 
 	/**
-	 * @param $length
+	 * (PHP 5 &gt;= 5.5.11, PHP 7)<br/>
+	 * Read from file
+	 * @link http://php.net/manual/ja/splfileobject.fread.php
+	 * @param int $length <p>
+	 * The number of bytes to read.
+	 * </p>
+	 * @return string the string read from the file 失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function fread($length) {}
+	public function fread(int $length): string {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7)<br/>
@@ -7747,10 +7759,18 @@ class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAcce
 	public function offsetUnset($index): void {}
 
 	/**
-	 * @param $index
-	 * @param $newval
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * Add/insert a new value at the specified index
+	 * @link http://php.net/manual/ja/spldoublylinkedlist.add.php
+	 * @param mixed $index <p>
+	 * The index where the new value is to be inserted.
+	 * </p>
+	 * @param mixed $newval <p>
+	 * The new value for the <i>index</i>.
+	 * </p>
+	 * @return void 値を返しません。
 	 */
-	public function add($index, $newval) {}
+	public function add($index, $newval): void {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
@@ -7993,10 +8013,18 @@ class SplQueue extends SplDoublyLinkedList implements Serializable, ArrayAccess,
 	public function offsetUnset($index): void {}
 
 	/**
-	 * @param $index
-	 * @param $newval
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * Add/insert a new value at the specified index
+	 * @link http://php.net/manual/ja/spldoublylinkedlist.add.php
+	 * @param mixed $index <p>
+	 * The index where the new value is to be inserted.
+	 * </p>
+	 * @param mixed $newval <p>
+	 * The new value for the <i>index</i>.
+	 * </p>
+	 * @return void 値を返しません。
 	 */
-	public function add($index, $newval) {}
+	public function add($index, $newval): void {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
@@ -8220,10 +8248,18 @@ class SplStack extends SplDoublyLinkedList implements Serializable, ArrayAccess,
 	public function offsetUnset($index): void {}
 
 	/**
-	 * @param $index
-	 * @param $newval
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * Add/insert a new value at the specified index
+	 * @link http://php.net/manual/ja/spldoublylinkedlist.add.php
+	 * @param mixed $index <p>
+	 * The index where the new value is to be inserted.
+	 * </p>
+	 * @param mixed $newval <p>
+	 * The new value for the <i>index</i>.
+	 * </p>
+	 * @return void 値を返しません。
 	 */
-	public function add($index, $newval) {}
+	public function add($index, $newval): void {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>

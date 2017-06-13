@@ -231,10 +231,18 @@ function hash_algos(): array {}
 function hash_pbkdf2($algo, $password, $salt, $iterations, $length, $raw_output) {}
 
 /**
- * @param $known_string
- * @param $user_string
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Timing attack safe string comparison
+ * @link http://php.net/manual/ja/function.hash-equals.php
+ * @param string $known_string <p>
+ * The string of known length to compare against
+ * </p>
+ * @param string $user_string <p>
+ * The user-supplied string
+ * </p>
+ * @return bool <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.
  */
-function hash_equals($known_string, $user_string) {}
+function hash_equals(string $known_string, string $user_string): bool {}
 
 
 /**
