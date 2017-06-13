@@ -1273,6 +1273,9 @@ function socket_recvmsg($socket, string $message, int $flags = null): int {}
 function socket_cmsg_space(int $level, int $type): int {}
 
 /**
+ * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
+ * のエイリアス <b>socket_get_option</b>
+ * @link http://php.net/manual/ja/function.socket-getopt.php
  * @param $socket
  * @param $level
  * @param $optname
@@ -1280,6 +1283,9 @@ function socket_cmsg_space(int $level, int $type): int {}
 function socket_getopt($socket, $level, $optname) {}
 
 /**
+ * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
+ * のエイリアス <b>socket_set_option</b>
+ * @link http://php.net/manual/ja/function.socket-setopt.php
  * @param $socket
  * @param $level
  * @param $optname

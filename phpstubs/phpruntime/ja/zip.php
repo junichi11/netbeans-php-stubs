@@ -436,9 +436,15 @@ class ZipArchive  {
 	public function open(string $filename, int $flags = null) {}
 
 	/**
-	 * @param $password
+	 * (PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)<br/>
+	 * Set the password for the active archive
+	 * @link http://php.net/manual/ja/ziparchive.setpassword.php
+	 * @param string $password <p>
+	 * The password to be used for the archive.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setPassword($password) {}
+	public function setPassword(string $password): bool {}
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.1.0)<br/>
@@ -850,50 +856,126 @@ class ZipArchive  {
 	public function getStream(string $name) {}
 
 	/**
-	 * @param $name
-	 * @param $opsys
-	 * @param $attr
-	 * @param $flags [optional]
+	 * (PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)<br/>
+	 * Set the external attributes of an entry defined by its name
+	 * @link http://php.net/manual/ja/ziparchive.setexternalattributesname.php
+	 * @param string $name <p>
+	 * Name of the entry.
+	 * </p>
+	 * @param int $opsys <p>
+	 * The operating system code defined by one of the ZipArchive::OPSYS_ constants.
+	 * </p>
+	 * @param int $attr <p>
+	 * The external attributes. Value depends on operating system.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * Optional flags. Currently unused.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setExternalAttributesName($name, $opsys, $attr, $flags) {}
+	public function setExternalAttributesName(string $name, int $opsys, int $attr, int $flags = null): bool {}
 
 	/**
-	 * @param $index
-	 * @param $opsys
-	 * @param $attr
-	 * @param $flags [optional]
+	 * (PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)<br/>
+	 * Set the external attributes of an entry defined by its index
+	 * @link http://php.net/manual/ja/ziparchive.setexternalattributesindex.php
+	 * @param int $index <p>
+	 * Index of the entry.
+	 * </p>
+	 * @param int $opsys <p>
+	 * The operating system code defined by one of the ZipArchive::OPSYS_ constants.
+	 * </p>
+	 * @param int $attr <p>
+	 * The external attributes. Value depends on operating system.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * Optional flags. Currently unused.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setExternalAttributesIndex($index, $opsys, $attr, $flags) {}
+	public function setExternalAttributesIndex(int $index, int $opsys, int $attr, int $flags = null): bool {}
 
 	/**
-	 * @param $name
-	 * @param $opsys
-	 * @param $attr
-	 * @param $flags [optional]
+	 * (PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)<br/>
+	 * Retrieve the external attributes of an entry defined by its name
+	 * @link http://php.net/manual/ja/ziparchive.getexternalattributesname.php
+	 * @param string $name <p>
+	 * Name of the entry.
+	 * </p>
+	 * @param int $opsys <p>
+	 * On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+	 * </p>
+	 * @param int $attr <p>
+	 * On success, receive the external attributes. Value depends on operating system.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
+	 * attributes are returned.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function getExternalAttributesName($name, &$opsys, &$attr, $flags) {}
+	public function getExternalAttributesName(string $name, int &$opsys, int &$attr, int $flags = null): bool {}
 
 	/**
-	 * @param $index
-	 * @param $opsys
-	 * @param $attr
-	 * @param $flags [optional]
+	 * (PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)<br/>
+	 * Retrieve the external attributes of an entry defined by its index
+	 * @link http://php.net/manual/ja/ziparchive.getexternalattributesindex.php
+	 * @param int $index <p>
+	 * Index of the entry.
+	 * </p>
+	 * @param int $opsys <p>
+	 * On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+	 * </p>
+	 * @param int $attr <p>
+	 * On success, receive the external attributes. Value depends on operating system.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
+	 * attributes are returned.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags) {}
+	public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = null): bool {}
 
 	/**
-	 * @param $name
-	 * @param $method
-	 * @param $compflags [optional]
+	 * (PHP 7, PECL zip &gt;= 1.13.0)<br/>
+	 * Set the compression method of an entry defined by its name
+	 * @link http://php.net/manual/ja/ziparchive.setcompressionname.php
+	 * @param string $name <p>
+	 * Name of the entry.
+	 * </p>
+	 * @param int $comp_method <p>
+	 * The compression method. Either
+	 * <b>ZipArchive::CM_DEFAULT</b>,
+	 * <b>ZipArchive::CM_STORE</b> or
+	 * <b>ZipArchive::CM_DEFLATE</b>.
+	 * </p>
+	 * @param int $comp_flags [optional] <p>
+	 * Compression flags. Currently unused.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setCompressionName($name, $method, $compflags) {}
+	public function setCompressionName(string $name, int $comp_method, int $comp_flags = 0): bool {}
 
 	/**
-	 * @param $index
-	 * @param $method
-	 * @param $compflags [optional]
+	 * (PHP 7, PECL zip &gt;= 1.13.0)<br/>
+	 * Set the compression method of an entry defined by its index
+	 * @link http://php.net/manual/ja/ziparchive.setcompressionindex.php
+	 * @param int $index <p>
+	 * Index of the entry.
+	 * </p>
+	 * @param int $comp_method <p>
+	 * The compression method. Either
+	 * <b>ZipArchive::CM_DEFAULT</b>,
+	 * <b>ZipArchive::CM_STORE</b> or
+	 * <b>ZipArchive::CM_DEFLATE</b>.
+	 * </p>
+	 * @param int $comp_flags [optional] <p>
+	 * Compression flags. Currently unused.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setCompressionIndex($index, $method, $compflags) {}
+	public function setCompressionIndex(int $index, int $comp_method, int $comp_flags = 0): bool {}
 
 }
 

@@ -440,28 +440,90 @@ function zlib_decode(string $data, string $max_decoded_len = null): string {}
 function zlib_get_coding_type(): string {}
 
 /**
- * @param $encoding
- * @param $level [optional]
+ * (PHP 7)<br/>
+ * Initialize an incremental deflate context
+ * @link http://php.net/manual/ja/function.deflate-init.php
+ * @param int $encoding <p>
+ * One of the <b>ZLIB_ENCODING_*</b> constants.
+ * </p>
+ * @param array $options [optional] <p>
+ * An associative array which may contain the following elements:
+ * level
+ * <p>
+ * The compression level in range -1..9; defaults to -1.
+ * </p>
+ * @return resource a deflate context resource (zlib.deflate) on
+ * success, 失敗した場合に <b>FALSE</b> を返します.
  */
-function deflate_init($encoding, $level) {}
+function deflate_init(int $encoding, array $options = array()) {}
 
 /**
- * @param $resource
- * @param $add
- * @param $flush_behavior [optional]
+ * (PHP 7)<br/>
+ * Incrementally deflate data
+ * @link http://php.net/manual/ja/function.deflate-add.php
+ * @param resource $context <p>
+ * A context created with <b>deflate_init</b>.
+ * </p>
+ * @param string $data <p>
+ * A chunk of data to compress.
+ * </p>
+ * @param int $flush_mode [optional] <p>
+ * One of <b>ZLIB_BLOCK</b>,
+ * <b>ZLIB_NO_FLUSH</b>,
+ * <b>ZLIB_PARTIAL_FLUSH</b>,
+ * <b>ZLIB_SYNC_FLUSH</b> (default),
+ * <b>ZLIB_FULL_FLUSH</b>, <b>ZLIB_FINISH</b>.
+ * Normally you will want to set <b>ZLIB_NO_FLUSH</b> to
+ * maximize compression, and <b>ZLIB_FINISH</b> to terminate
+ * with the last chunk of data. See the zlib manual for a
+ * detailed description of these constants.
+ * </p>
+ * @return string a chunk of compressed data, 失敗した場合に <b>FALSE</b> を返します.
  */
-function deflate_add($resource, $add, $flush_behavior) {}
+function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string {}
 
 /**
- * @param $encoding
+ * (PHP 7)<br/>
+ * Initialize an incremental inflate context
+ * @link http://php.net/manual/ja/function.inflate-init.php
+ * @param int $encoding <p>
+ * One of the <b>ZLIB_ENCODING_*</b> constants.
+ * </p>
+ * @param array $options [optional] <p>
+ * An associative array which may contain the following elements:
+ * level
+ * <p>
+ * The compression level in range -1..9; defaults to -1.
+ * </p>
+ * @return resource an inflate context resource (zlib.inflate) on
+ * success, 失敗した場合に <b>FALSE</b> を返します.
  */
-function inflate_init($encoding) {}
+function inflate_init(int $encoding, array $options = array()) {}
 
 /**
- * @param $resource
- * @param $flush_behavior
+ * (PHP 7)<br/>
+ * Incrementally inflate encoded data
+ * @link http://php.net/manual/ja/function.inflate-add.php
+ * @param resource $context <p>
+ * A context created with <b>inflate_init</b>.
+ * </p>
+ * @param string $encoded_data <p>
+ * A chunk of compressed data.
+ * </p>
+ * @param int $flush_mode [optional] <p>
+ * One of <b>ZLIB_BLOCK</b>,
+ * <b>ZLIB_NO_FLUSH</b>,
+ * <b>ZLIB_PARTIAL_FLUSH</b>,
+ * <b>ZLIB_SYNC_FLUSH</b> (default),
+ * <b>ZLIB_FULL_FLUSH</b>, <b>ZLIB_FINISH</b>.
+ * Normally you will want to set <b>ZLIB_NO_FLUSH</b> to
+ * maximize compression, and <b>ZLIB_FINISH</b> to terminate
+ * with the last chunk of data. See the zlib manual for a
+ * detailed description of these constants.
+ * </p>
+ * @return string a chunk of uncompressed data, 失敗した場合に <b>FALSE</b> を返します.
  */
-function inflate_add($resource, $flush_behavior) {}
+function inflate_add($context, string $encoded_data, int $flush_mode = ZLIB_SYNC_FLUSH): string {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)<br/>

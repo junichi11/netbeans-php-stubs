@@ -1498,14 +1498,26 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function setimageproperty(string $name, string $value): bool {}
 
 	/**
-	 * @param $name
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.deleteimageproperty.php
+	 * @param string $name <p>
+	 * The name of the property to delete.
+	 * </p>
+	 * @return void
 	 */
-	public function deleteimageproperty($name) {}
+	public function deleteimageproperty(string $name): void {}
 
 	/**
-	 * @param $embedText
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.identifyformat.php
+	 * @param string $embedText <p>
+	 * A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
+	 * </p>
+	 * @return string|false
 	 */
-	public function identifyformat($embedText) {}
+	public function identifyformat(string $embedText) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2181,9 +2193,15 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function functionimage(int $function, array $arguments, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 	/**
-	 * @param $COLORSPACE
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Transforms an image to a new colorspace.
+	 * @link http://php.net/manual/ja/imagick.transformimagecolorspace.php
+	 * @param int $colorspace <p>
+	 * The colorspace the image should be transformed to, one of the COLORSPACE constants e.g. Imagick::COLORSPACE_CMYK.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function transformimagecolorspace($COLORSPACE) {}
+	public function transformimagecolorspace(int $colorspace): bool {}
 
 	/**
 	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
@@ -2203,14 +2221,25 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function haldclutimage(Imagick $clut, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 	/**
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.autolevelimage.php
+	 * @param string $CHANNEL [optional] <p>
+	 * Which channel should the auto-levelling should be done on.
+	 * </p>
+	 * @return void
 	 */
-	public function autolevelimage($CHANNEL) {}
+	public function autolevelimage(string $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param $factor [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.blueshiftimage.php
+	 * @param float $factor [optional] <p>
+	 * </p>
+	 * @return void
 	 */
-	public function blueshiftimage($factor) {}
+	public function blueshiftimage(float $factor = 1.5): void {}
 
 	/**
 	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
@@ -2270,15 +2299,26 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function setcolorspace(int $COLORSPACE): bool {}
 
 	/**
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.clampimage.php
+	 * @param string $CHANNEL [optional] <p>
+	 * </p>
+	 * @return void
 	 */
-	public function clampimage($CHANNEL) {}
+	public function clampimage(string $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param $stack
-	 * @param $offset
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.smushimages.php
+	 * @param string $stack <p>
+	 * </p>
+	 * @param string $offset <p>
+	 * </p>
+	 * @return Imagick The new smushed image.
 	 */
-	public function smushimages($stack, $offset) {}
+	public function smushimages(string $stack, string $offset): Imagick {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2292,12 +2332,24 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function __construct($files) {}
 
-	public function __tostring() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns the image as a string.
+	 * @link http://php.net/manual/ja/imagick.tostring.php
+	 * @return string the string content on success or an empty string on failure.
+	 */
+	public function __tostring(): string {}
 
 	/**
-	 * @param $mode [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.count.php
+	 * @param string $mode [optional] <p>
+	 * An unused argument. Currently there is a non-particularly well defined feature in PHP where calling count() on a countable object might (or might not) require this method to accept a parameter. This parameter is here to be conformant with the interface of countable, even though the param is not used.
+	 * </p>
+	 * @return void
 	 */
-	public function count($mode) {}
+	public function count(string $mode = null): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2337,9 +2389,14 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function readimage(string $filename): bool {}
 
 	/**
-	 * @param $filenames
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.readimages.php
+	 * @param string $filenames <p>
+	 * </p>
+	 * @return Imagick The Imagick object that contains all the images.
 	 */
-	public function readimages($filenames) {}
+	public function readimages(string $filenames): Imagick {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2471,7 +2528,13 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function getimageformat(): string {}
 
-	public function getimagemimetype() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.getimagemimetype.php
+	 * @return string
+	 */
+	public function getimagemimetype(): string {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3024,10 +3087,16 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function shadowimage(float $opacity, float $sigma, int $x, int $y): bool {}
 
 	/**
-	 * @param $key
-	 * @param $value
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.setimageattribute.php
+	 * @param string $key <p>
+	 * </p>
+	 * @param string $value <p>
+	 * </p>
+	 * @return void
 	 */
-	public function setimageattribute($key, $value) {}
+	public function setimageattribute(string $key, string $value): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3116,9 +3185,29 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function setimageprogressmonitor($filename) {}
 
 	/**
-	 * @param $callback
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.setprogressmonitor.php
+	 * @param callable $callback <p>
+	 * The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.
+	 * </p>
+	 * bool
+	 * <b>
+	 * callback
+	 * </b>
+	 * <b>
+	 * mixed<i>offset</i>
+	 * </b>
+	 * <b>
+	 * mixed
+	 * <i>span</i>
+	 * </b>
+	 * <p>
+	 * The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
+	 * </p>
+	 * @return void
 	 */
-	public function setprogressmonitor($callback) {}
+	public function setprogressmonitor(callable $callback): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3496,10 +3585,16 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function clippathimage(string $pathname, bool $inside): bool {}
 
 	/**
-	 * @param $pathname
-	 * @param $inside
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.clipimagepath.php
+	 * @param string $pathname <p>
+	 * </p>
+	 * @param string $inside <p>
+	 * </p>
+	 * @return void
 	 */
-	public function clipimagepath($pathname, $inside) {}
+	public function clipimagepath(string $pathname, string $inside): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3746,9 +3841,15 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function flopimage(): bool {}
 
 	/**
-	 * @param $magnitude
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.forwardfouriertransformimage.php
+	 * @param bool $magnitude <p>
+	 * If true, return as magnitude / phase pair otherwise a real / imaginary image pair.
+	 * </p>
+	 * @return void
 	 */
-	public function forwardfouriertransformimage($magnitude) {}
+	public function forwardfouriertransformimage(bool $magnitude): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3831,9 +3932,15 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function gaussianblurimage(float $radius, float $sigma, int $channel = Imagick::CHANNEL_ALL): bool {}
 
 	/**
-	 * @param $key
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.getimageattribute.php
+	 * @param string $key <p>
+	 * The key of the attribute to get.
+	 * </p>
+	 * @return string
 	 */
-	public function getimageattribute($key) {}
+	public function getimageattribute(string $key): string {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4252,10 +4359,18 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function implodeimage(float $radius): bool {}
 
 	/**
-	 * @param $complement
-	 * @param $magnitude
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.inversefouriertransformimage.php
+	 * @param string $complement <p>
+	 * The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.
+	 * </p>
+	 * @param string $magnitude <p>
+	 * If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.
+	 * </p>
+	 * @return void
 	 */
-	public function inversefouriertransformimage($complement, $magnitude) {}
+	public function inversefouriertransformimage(string $complement, string $magnitude): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4493,9 +4608,14 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function setimagebias(float $bias): bool {}
 
 	/**
-	 * @param $bias
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.setimagebiasquantum.php
+	 * @param string $bias <p>
+	 * </p>
+	 * @return void
 	 */
-	public function setimagebiasquantum($bias) {}
+	public function setimagebiasquantum(string $bias): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4859,7 +4979,13 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function getpage(): array {}
 
-	public static function getquantum() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.getquantum.php
+	 * @return int
+	 */
+	public static function getquantum(): int {}
 
 	public static function gethdrienabled() {}
 
@@ -4921,7 +5047,14 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function getsamplingfactors(): array {}
 
-	public function getsize() {}
+	/**
+	 * (PECL imagick 2.0.0)<br/>
+	 * Returns the size associated with the Imagick object
+	 * @link http://php.net/manual/ja/imagick.getsize.php
+	 * @return array the size associated with the Imagick object as an array with the
+	 * keys "columns" and "rows".
+	 */
+	public function getsize(): array {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -5087,47 +5220,96 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function current(): Imagick {}
 
 	/**
-	 * @param $brightness
-	 * @param $contrast
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.brightnesscontrastimage.php
+	 * @param string $brightness <p>
+	 * </p>
+	 * @param string $contrast <p>
+	 * </p>
+	 * @param string $CHANNEL [optional] <p>
+	 * </p>
+	 * @return void
 	 */
-	public function brightnesscontrastimage($brightness, $contrast, $CHANNEL) {}
+	public function brightnesscontrastimage(string $brightness, string $contrast, string $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param $color_matrix
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.colormatriximage.php
+	 * @param string $color_matrix [optional] <p>
+	 * </p>
+	 * @return void
 	 */
-	public function colormatriximage($color_matrix) {}
+	public function colormatriximage(string $color_matrix = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param $radius
-	 * @param $sigma
-	 * @param $threshold
-	 * @param $CHANNEL
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.selectiveblurimage.php
+	 * @param float $radius <p>
+	 * </p>
+	 * @param float $sigma <p>
+	 * </p>
+	 * @param float $threshold <p>
+	 * </p>
+	 * @param int $CHANNEL <p>
+	 * そのモードで有効なチャネル定数を指定します。
+	 * 複数のチャネルを適用するには、チャネル定数
+	 * をビット演算子で組み合わせます。デフォルトは <b>Imagick::CHANNEL_DEFAULT</b> です。
+	 * チャネル定数 の一覧を参照ください。
+	 * </p>
+	 * @return void
 	 */
-	public function selectiveblurimage($radius, $sigma, $threshold, $CHANNEL) {}
+	public function selectiveblurimage(float $radius, float $sigma, float $threshold, int $CHANNEL): void {}
 
 	/**
-	 * @param $angle
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.rotationalblurimage.php
+	 * @param string $angle <p>
+	 * The angle to apply the blur over.
+	 * </p>
+	 * @param string $CHANNEL [optional] <p>
+	 * そのモードで有効なチャネル定数を指定します。
+	 * 複数のチャネルを適用するには、チャネル定数
+	 * をビット演算子で組み合わせます。デフォルトは <b>Imagick::CHANNEL_DEFAULT</b> です。
+	 * チャネル定数 の一覧を参照ください。
+	 * </p>
+	 * @return void
 	 */
-	public function rotationalblurimage($angle, $CHANNEL) {}
+	public function rotationalblurimage(string $angle, string $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param $type
-	 * @param $width
-	 * @param $height
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.statisticimage.php
+	 * @param int $type <p>
+	 * </p>
+	 * @param int $width <p>
+	 * </p>
+	 * @param int $height <p>
+	 * </p>
+	 * @param string $CHANNEL [optional] <p>
+	 * </p>
+	 * @return void
 	 */
-	public function statisticimage($type, $width, $height, $CHANNEL) {}
+	public function statisticimage(int $type, int $width, int $height, string $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
-	 * @param Imagick $Imagick
-	 * @param $offset [optional]
-	 * @param $similarity [optional]
-	 * @param $similarity_threshold [optional]
-	 * @param $metric [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.subimagematch.php
+	 * @param Imagick $Imagick <p>
+	 * </p>
+	 * @param array $offset [optional] <p>
+	 * </p>
+	 * @param float $similarity [optional] <p>
+	 * A new image that displays the amount of similarity at each pixel.
+	 * </p>
+	 * @return Imagick
 	 */
-	public function subimagematch(Imagick $Imagick, &$offset, &$similarity, &$similarity_threshold, &$metric) {}
+	public function subimagematch(Imagick $Imagick, array &$offset = null, float &$similarity = null): Imagick {}
 
 	/**
 	 * @param Imagick $Imagick
@@ -5139,31 +5321,70 @@ class Imagick implements Iterator, Traversable, Countable {
 	public function similarityimage(Imagick $Imagick, &$offset, &$similarity, &$similarity_threshold, &$metric) {}
 
 	/**
-	 * @param $key
-	 * @param $value
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.setregistry.php
+	 * @param string $key <p>
+	 * </p>
+	 * @param string $value <p>
+	 * </p>
+	 * @return void
 	 */
-	public static function setregistry($key, $value) {}
+	public static function setregistry(string $key, string $value): void {}
 
 	/**
-	 * @param $key
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.getregistry.php
+	 * @param string $key <p>
+	 * The entry to get.
+	 * </p>
+	 * @return string
 	 */
-	public static function getregistry($key) {}
-
-	public static function listregistry() {}
-
-	/**
-	 * @param $morphologyMethod
-	 * @param $iterations
-	 * @param ImagickKernel $ImagickKernel
-	 * @param $CHANNEL [optional]
-	 */
-	public function morphology($morphologyMethod, $iterationsImagickKernel , $ImagickKernel, $CHANNEL) {}
+	public static function getregistry(string $key): string {}
 
 	/**
-	 * @param ImagickKernel $ImagickKernel
-	 * @param $CHANNEL [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.listregistry.php
+	 * @return array An array containing the key/values from the registry.
 	 */
-	public function filter(ImagickKernel $ImagickKernel, $CHANNEL) {}
+	public static function listregistry(): array {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.morphology.php
+	 * @param int $morphologyMethod <p>
+	 * Which morphology method to use one of the \Imagick::MORPHOLOGY_* constants.
+	 * </p>
+	 * @param int $iterations <p>
+	 * The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.
+	 * </p>
+	 * @param ImagickKernel $ImagickKernel <p>
+	 * </p>
+	 * @param string $CHANNEL [optional] <p>
+	 * </p>
+	 * @return void
+	 */
+	public function morphology(int $morphologyMethod, int $iterations, ImagickKernel $ImagickKernel, string $CHANNEL = null): void {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagick.filter.php
+	 * @param ImagickKernel $ImagickKernel <p>
+	 * An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
+	 * </p>
+	 * @param int $CHANNEL [optional] <p>
+	 * そのモードで有効なチャネル定数を指定します。
+	 * 複数のチャネルを適用するには、チャネル定数
+	 * をビット演算子で組み合わせます。デフォルトは <b>Imagick::CHANNEL_DEFAULT</b> です。
+	 * チャネル定数 の一覧を参照ください。
+	 * </p>
+	 * @return void
+	 */
+	public function filter(ImagickKernel $ImagickKernel, int $CHANNEL = Imagick::CHANNEL_DEFAULT): void {}
 
 	/**
 	 * @param $antialias
@@ -5190,28 +5411,67 @@ class Imagick implements Iterator, Traversable, Countable {
  */
 class ImagickDraw  {
 
-	public function resetvectorgraphics() {}
-
-	public function gettextkerning() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.resetvectorgraphics.php
+	 * @return void
+	 */
+	public function resetvectorgraphics(): void {}
 
 	/**
-	 * @param $kerning
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.gettextkerning.php
+	 * @return float
 	 */
-	public function settextkerning($kerning) {}
-
-	public function gettextinterwordspacing() {}
+	public function gettextkerning(): float {}
 
 	/**
-	 * @param $spacing
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.settextkerning.php
+	 * @param float $kerning <p>
+	 * </p>
+	 * @return void
 	 */
-	public function settextinterwordspacing($spacing) {}
-
-	public function gettextinterlinespacing() {}
+	public function settextkerning(float $kerning): void {}
 
 	/**
-	 * @param $spacing
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.gettextinterwordspacing.php
+	 * @return float
 	 */
-	public function settextinterlinespacing($spacing) {}
+	public function gettextinterwordspacing(): float {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.settextinterwordspacing.php
+	 * @param float $spacing <p>
+	 * </p>
+	 * @return void
+	 */
+	public function settextinterwordspacing(float $spacing): void {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.gettextinterlinespacing.php
+	 * @return float
+	 */
+	public function gettextinterlinespacing(): float {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.settextinterlinespacing.php
+	 * @param float $spacing <p>
+	 * </p>
+	 * @return void
+	 */
+	public function settextinterlinespacing(float $spacing): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -5243,10 +5503,16 @@ class ImagickDraw  {
 	public function setfillalpha(float $opacity): bool {}
 
 	/**
-	 * @param $x_resolution
-	 * @param $y_resolution
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.setresolution.php
+	 * @param string $x_resolution <p>
+	 * </p>
+	 * @param string $y_resolution <p>
+	 * </p>
+	 * @return void
 	 */
-	public function setresolution($x_resolution, $y_resolution) {}
+	public function setresolution(string $x_resolution, string $y_resolution): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -5650,7 +5916,13 @@ class ImagickDraw  {
 	 */
 	public function gettextencoding(): string {}
 
-	public function getfontstretch() {}
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickdraw.getfontstretch.php
+	 * @return int
+	 */
+	public function getfontstretch(): int {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -6809,21 +7081,45 @@ class ImagickPixel  {
 	public function sethsl(float $hue, float $saturation, float $luminosity): bool {}
 
 	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.getcolorvaluequantum.php
 	 * @param $color
+	 * @return mixed The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
 	 */
 	public function getcolorvaluequantum($color) {}
 
 	/**
-	 * @param $color_value
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.setcolorvaluequantum.php
+	 * @param int $color <p>
+	 * Which color element to set e.g. \Imagick::COLOR_GREEN.
+	 * </p>
+	 * @param mixed $value <p>
+	 * The quantum value to set the color element to. This should be a float if ImageMagick was compiled with HDRI otherwise an int in the range 0 to Imagick::getQuantum().
+	 * </p>
+	 * @return void
 	 */
-	public function setcolorvaluequantum($color_value) {}
-
-	public function getindex() {}
+	public function setcolorvaluequantum(int $color, $value): void {}
 
 	/**
-	 * @param $index
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.getindex.php
+	 * @return int
 	 */
-	public function setindex($index) {}
+	public function getindex(): int {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.setindex.php
+	 * @param int $index <p>
+	 * </p>
+	 * @return void
+	 */
+	public function setindex(int $index): void {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -6905,16 +7201,32 @@ class ImagickPixel  {
 	public function issimilar(ImagickPixel $color, float $fuzz): bool {}
 
 	/**
-	 * @param $color
-	 * @param $fuzz [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.ispixelsimilarquantum.php
+	 * @param string $color <p>
+	 * </p>
+	 * @param string $fuzz [optional] <p>
+	 * </p>
+	 * @return bool
 	 */
-	public function ispixelsimilarquantum($color, $fuzz) {}
+	public function ispixelsimilarquantum(string $color, string $fuzz = null): bool {}
 
 	/**
-	 * @param $color
-	 * @param $fuzz [optional]
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Check the distance between this color and another
+	 * @link http://php.net/manual/ja/imagickpixel.ispixelsimilar.php
+	 * @param ImagickPixel $color <p>
+	 * The ImagickPixel object to compare this object against.
+	 * </p>
+	 * @param float $fuzz <p>
+	 * The maximum distance within which to consider these colors as similar.
+	 * The theoretical maximum for this value is the square root of three
+	 * (1.732).
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を返します。
 	 */
-	public function ispixelsimilar($color, $fuzz) {}
+	public function ispixelsimilar(ImagickPixel $color, float $fuzz): bool {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -6929,6 +7241,12 @@ class ImagickPixel  {
 	 */
 	public function getcolor(bool $normalized = false): array {}
 
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.getcolorquantum.php
+	 * @return mixed The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
+	 */
 	public function getcolorquantum() {}
 
 	/**
@@ -6949,9 +7267,14 @@ class ImagickPixel  {
 	public function getcolorcount(): int {}
 
 	/**
-	 * @param $colorCount
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Description
+	 * @link http://php.net/manual/ja/imagickpixel.setcolorcount.php
+	 * @param string $colorCount <p>
+	 * </p>
+	 * @return void
 	 */
-	public function setcolorcount($colorCount) {}
+	public function setcolorcount(string $colorCount): void {}
 
 }
 

@@ -1354,7 +1354,19 @@ class mysqli_stmt  {
 	public $id;
 
 
-	public function __construct() {}
+	/**
+	 * (PHP 5, PHP 7)<br/>
+	 * Constructs a new <b>mysqli_stmt</b> object
+	 * @link http://php.net/manual/ja/mysqli-stmt.construct.php
+	 * @param mysqli $link
+	 * @param string $query [optional] <p>
+	 * The query, as a string. If this parameter is omitted, then the
+	 * constructor behaves identically to
+	 * <b>mysqli_stmt_init</b>, if provided, then it behaves as
+	 * per <b>mysqli_prepare</b>.
+	 * </p>
+	 */
+	public function __construct(mysqli $link, string $query = null) {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -2264,7 +2276,29 @@ function mysqli_get_client_info(mysqli $link): string {}
  */
 function mysqli_get_client_version(mysqli $link): int {}
 
-function mysqli_get_links_stats() {}
+/**
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Return information about open and cached links
+ * @link http://php.net/manual/ja/function.mysqli-get-links-stats.php
+ * @return array <b>mysqli_get_links_stats</b> returns an associative array
+ * with three elements, keyed as follows:
+ * <i>total</i>
+ * <p>
+ * An integer indicating the total number of open links in
+ * any state.
+ * </p>
+ * <i>active_plinks</i>
+ * <p>
+ * An integer representing the number of active persistent
+ * connections.
+ * </p>
+ * <i>cached_plinks</i>
+ * <p>
+ * An integer representing the number of inactive persistent
+ * connections.
+ * </p>
+ */
+function mysqli_get_links_stats(): array {}
 
 /**
  * (PHP 5, PHP 7)<br/>

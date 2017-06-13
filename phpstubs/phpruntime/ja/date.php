@@ -42,177 +42,661 @@ class DateTime implements DateTimeInterface {
 
 
 	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 新しい DateTime オブジェクトを返す
+	 * @link http://php.net/manual/ja/datetime.construct.php
 	 * @param $time [optional]
 	 * @param $object [optional]
 	 */
 	public function __construct($time, $object) {}
 
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * __wakeup ハンドラ
+	 * @link http://php.net/manual/ja/datetime.wakeup.php
+	 * @return mixed DateTime オブジェクトを初期化します。
+	 */
 	public function __wakeup() {}
 
-	public static function __set_state() {}
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * __set_state ハンドラ
+	 * @link http://php.net/manual/ja/datetime.set-state.php
+	 * @param array $array <p>
+	 * 初期化配列。
+	 * </p>
+	 * @return DateTime 新しい DateTime オブジェクトのインスタンスを返します。
+	 */
+	public static function __set_state(array $array): DateTime {}
 
 	/**
-	 * @param $format
-	 * @param $time
-	 * @param $object [optional]
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 指定した書式で時刻文字列をパースする
+	 * @link http://php.net/manual/ja/datetime.createfromformat.php
+	 * @param string $format <p>
+	 * 書式を文字列で渡します。以下の書式オプションを参照ください。
+	 * 大半は、<b>date</b> で使える文字と同じです。
+	 * </p>
+	 * <p>
+	 * <table>
+	 * <i>format</i> パラメータに渡せる文字
+	 * <tr valign="top">
+	 * <td><i>format</i> 文字</td>
+	 * <td>説明</td>
+	 * <td>取りうる値の例</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 日</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>d および j</td>
+	 * <td>2桁の日付。先頭のゼロを含むものと含まないもの</td>
+	 * <td>
+	 * 01 から 31 あるいは
+	 * 1 から 31
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>D および l</td>
+	 * <td>曜日を表す文字列</td>
+	 * <td>
+	 * Mon から Sun あるいは
+	 * Sunday から Saturday
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>S</td>
+	 * <td>日付の後につける英語の接尾辞。二文字。処理中には無視されます。</td>
+	 * <td>
+	 * st、nd、rd あるいは
+	 * th
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>z</td>
+	 * <td>年始からの通算日数 (最初は 0)</td>
+	 * <td>0 から 365</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 月</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>F および M</td>
+	 * <td>月を表す文字列。January あるいは Sept など</td>
+	 * <td>
+	 * January から December あるいは
+	 * Jan から Dec
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>m および n</td>
+	 * <td>月を表す数値。先頭のゼロを含むものと含まないもの</td>
+	 * <td>
+	 * 01 から 12 あるいは
+	 * 1 から 12
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 年</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>Y</td>
+	 * <td>4 桁の数値で表した年</td>
+	 * <td>例: 1999 あるいは 2003</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>y</td>
+	 * <td>
+	 * 2 桁の数値で表した年 (1970年から2069年の間だとみなされます)
+	 * </td>
+	 * <td>
+	 * 例:
+	 * 99 あるいは 03
+	 * (それぞれ、 1999 および
+	 * 2003 と見なされます)
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 時刻</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>a および A</td>
+	 * <td>午前および午後</td>
+	 * <td>am あるいは pm</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>g および h</td>
+	 * <td>12 時間制での時間。先頭のゼロを含むものと含まないもの</td>
+	 * <td>
+	 * 1 から 12 あるいは
+	 * 01 から 12
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>G and H</td>
+	 * <td>24 時間制での時間。先頭のゼロを含むものと含まないもの</td>
+	 * <td>
+	 * 0 から 23 あるいは
+	 * 00 から 23
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>i</td>
+	 * <td>分。先頭のゼロを含む</td>
+	 * <td>00 から 59</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>s</td>
+	 * <td>秒。先頭のゼロを含む</td>
+	 * <td>00 から 59</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>u</td>
+	 * <td>マイクロ秒 (最大 6 桁)</td>
+	 * <td>例: 45, 654321</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * タイムゾーン</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>
+	 * e、O、
+	 * P および T
+	 * </td>
+	 * <td>タイムゾーン識別子、UTC からの時差 (時間単位)、
+	 * UTC からの時差 (コロン区切りでの時間と分)、そしてタイムゾーンの短縮形</td>
+	 * <td>例: UTC、GMT、
+	 * Atlantic/Azores あるいは
+	 * +0200 あるいは +02:00 あるいは
+	 * EST、MDT
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 完全な日付/時刻</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>U</td>
+	 * <td>Unix エポック (January 1 1970 00:00:00 GMT) からの経過秒数</td>
+	 * <td>例: 1292177455</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * 空白および区切り</td>
+	 * <td>---</td>
+	 * <td>---</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td> (空白)</td>
+	 * <td>空白 1 文字あるいはタブ 1 文字</td>
+	 * <td>例: </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>#</td>
+	 * <td>
+	 * 次の区切り文字のいずれか: ;,
+	 * :, /, .,
+	 * ,, -, ( あるいは
+	 * )
+	 * </td>
+	 * <td>例: /</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>
+	 * ;,
+	 * :, /, .,
+	 * ,, -, ( あるいは
+	 * )
+	 * </td>
+	 * <td>指定した文字</td>
+	 * <td>例: -</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>?</td>
+	 * <td>ランダムなバイト</td>
+	 * <td>例: ^ (UTF-8 文字の場合は複数の
+	 * ? が必要になるでしょう。この場合、おそらく
+	 * * を使うと要望が満たせるはずです)</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>*</td>
+	 * <td>次の区切り文字あるいは数字までのランダムなバイト列</td>
+	 * <td>例: Y-*-d の中の *
+	 * は、文字列 2009-aWord-08 の中の
+	 * aWord にマッチします</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>!</td>
+	 * <td>すべてのフィールド (年、月、日、時、分、秒、マイクロ秒およびタイムゾーン情報)
+	 * を Unix エポックにリセットする</td>
+	 * <td>! がなければ、すべてのフィールドは現在の日時に設定されます。</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>|</td>
+	 * <td>まだパースされていないすべてのフィールド (年、月、日、時、分、秒、マイクロ秒およびタイムゾーン情報)
+	 * を Unix エポックにリセットする</td>
+	 * <td>Y-m-d| は、文字列をパースした結果から年月日を設定し
+	 * 時分秒には 0 を設定します。</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>+</td>
+	 * <td>この文字があると、文字列のそれ以降のデータではエラーが発生せず、
+	 * かわりに警告を発生させる</td>
+	 * <td>それ以降のデータが存在したかどうかを調べるには <b>DateTime::getLastErrors</b>
+	 * を使います。</td>
+	 * </tr>
+	 * </table>
+	 * </p>
+	 * <p>
+	 * 書式文字列の中に解釈不能な文字が含まれていると処理は失敗し、
+	 * 返り値にはエラーメッセージが付加されます。エラーメッセージを調べるには
+	 * <b>DateTime::getLastErrors</b> を使います。
+	 * </p>
+	 * <p>
+	 * <i>format</i> にリテラル文字を含めるには、
+	 * バックスラッシュ (\) でエスケープする必要があります。
+	 * </p>
+	 * <p>
+	 * <i>format</i> に文字
+	 * ! が含まれない場合は、作成した時刻値のうち
+	 * <i>format</i> で指定されていない部分を
+	 * 現在のシステム時刻で初期化します。
+	 * </p>
+	 * <p>
+	 * <i>format</i> に文字
+	 * ! が含まれる場合は、作成した時刻値のうち
+	 * <i>format</i> で指定されていない部分と
+	 * ! の左側の部分を
+	 * Unix エポックの対応する箇所の値で初期化します。
+	 * </p>
+	 * <p>
+	 * Unix エポックは 1970-01-01 00:00:00 です。
+	 * </p>
+	 * @param string $time <p>
+	 * 時刻を表す文字列。
+	 * </p>
+	 * @param DateTimeZone $timezone [optional] <p>
+	 * 指定したいタイムゾーンを表す
+	 * <b>DateTimeZone</b> オブジェクト。
+	 * </p>
+	 * <p>
+	 * <i>timezone</i> を省略し、かつ
+	 * <i>time</i> にタイムゾーンが含まれない場合は、
+	 * 現在のタイムゾーンを使います。
+	 * </p>
+	 * <p>
+	 * <i>time</i> パラメータが UNIX タイムスタンプ
+	 * (例: 946684800) だったりタイムゾーンを含んでいたり
+	 * (例: 2010-01-28T15:00:00+02:00)
+	 * する場合は、
+	 * <i>timezone</i> パラメータや現在のタイムゾーンは無視します。
+	 * </p>
+	 * @return DateTime 新しい DateTime のインスタンス、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public static function createFromFormat($format, $time, $object) {}
-
-	public static function getLastErrors() {}
+	public static function createFromFormat(string $format, string $time, DateTimeZone $timezone = null): DateTime {}
 
 	/**
-	 * @param $format
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 警告およびエラーを返す
+	 * @link http://php.net/manual/ja/datetime.getlasterrors.php
+	 * @return array 警告やエラーに関する情報を含む配列を返します。
 	 */
-	public function format($format) {}
+	public static function getLastErrors(): array {}
 
 	/**
-	 * @param $modify
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 指定した書式でフォーマットした日付を返す
+	 * @link http://php.net/manual/ja/datetime.format.php
+	 * @param string $format <p>
+	 * <b>date</b> が理解できる書式指定文字列。
+	 * </p>
+	 * @return string 成功した場合にフォーマット済みの日付文字列、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function modify($modify) {}
+	public function format(string $format): string {}
 
 	/**
-	 * @param $interval
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * タイムスタンプを変更する
+	 * @link http://php.net/manual/ja/datetime.modify.php
+	 * @param string $modify <p>日付/時刻 文字列。有効な書式については 日付と時刻の書式 で説明しています。</p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function add($interval) {}
+	public function modify(string $modify): DateTime {}
 
 	/**
-	 * @param $interval
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 年月日時分秒の値を DateTime オブジェクトに加える
+	 * @link http://php.net/manual/ja/datetime.add.php
+	 * @param DateInterval $interval <p>
+	 * <b>DateInterval</b> オブジェクト。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function sub($interval) {}
-
-	public function getTimezone() {}
+	public function add(DateInterval $interval): DateTime {}
 
 	/**
-	 * @param $timezone
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 年月日時分秒の値を DateTime オブジェクトから引く
+	 * @link http://php.net/manual/ja/datetime.sub.php
+	 * @param DateInterval $interval <p>
+	 * <b>DateInterval</b> オブジェクト。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setTimezone($timezone) {}
-
-	public function getOffset() {}
+	public function sub(DateInterval $interval): DateTime {}
 
 	/**
-	 * @param $hour
-	 * @param $minute
-	 * @param $second [optional]
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 指定した DateTime に関連するタイムゾーンを返す
+	 * @link http://php.net/manual/ja/datetime.gettimezone.php
+	 * @return DateTimeZone 成功した場合に <b>DateTimeZone</b> オブジェクト、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setTime($hour, $minute, $second) {}
+	public function getTimezone(): DateTimeZone {}
 
 	/**
-	 * @param $year
-	 * @param $month
-	 * @param $day
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * DateTime オブジェクトのタイムゾーンを設定する
+	 * @link http://php.net/manual/ja/datetime.settimezone.php
+	 * @param DateTimeZone $timezone <p>
+	 * 指定したいタイムゾーンを表す
+	 * <b>DateTimeZone</b> オブジェクト。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setDate($year, $month, $day) {}
+	public function setTimezone(DateTimeZone $timezone): DateTime {}
 
 	/**
-	 * @param $year
-	 * @param $week
-	 * @param $day [optional]
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * タイムゾーンのオフセットを返す
+	 * @link http://php.net/manual/ja/datetime.getoffset.php
+	 * @return int 成功した場合には UTC からのタイムゾーンオフセット秒数、
+	 * 失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setISODate($year, $week, $day) {}
+	public function getOffset(): int {}
 
 	/**
-	 * @param $unixtimestamp
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 時刻を設定する
+	 * @link http://php.net/manual/ja/datetime.settime.php
+	 * @param int $hour <p>
+	 * その時刻の時。
+	 * </p>
+	 * @param int $minute <p>
+	 * その時刻の分。
+	 * </p>
+	 * @param int $second [optional] <p>
+	 * その時刻の秒。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setTimestamp($unixtimestamp) {}
-
-	public function getTimestamp() {}
+	public function setTime(int $hour, int $minute, int $second = 0): DateTime {}
 
 	/**
-	 * @param $object
-	 * @param $absolute [optional]
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 日付を設定する
+	 * @link http://php.net/manual/ja/datetime.setdate.php
+	 * @param int $year <p>
+	 * その日付の年。
+	 * </p>
+	 * @param int $month <p>
+	 * その日付の月。
+	 * </p>
+	 * @param int $day <p>
+	 * その日付の日。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function diff($object, $absolute) {}
+	public function setDate(int $year, int $month, int $day): DateTime {}
+
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * ISO 日付を設定する
+	 * @link http://php.net/manual/ja/datetime.setisodate.php
+	 * @param int $year <p>
+	 * その日付の年。
+	 * </p>
+	 * @param int $week <p>
+	 * その日付の週。
+	 * </p>
+	 * @param int $day [optional] <p>
+	 * 週の最初の日からのオフセット。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public function setISODate(int $year, int $week, int $day = 1): DateTime {}
+
+	/**
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * Unix タイムスタンプを用いて日付と時刻を設定する
+	 * @link http://php.net/manual/ja/datetime.settimestamp.php
+	 * @param int $unixtimestamp <p>
+	 * Unix タイムスタンプ。
+	 * </p>
+	 * @return DateTime メソッドチェインに使う <b>DateTime</b> オブジェクトを返します。失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public function setTimestamp(int $unixtimestamp): DateTime {}
+
+	/**
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * Unix タイムスタンプを取得する
+	 * @link http://php.net/manual/ja/datetime.gettimestamp.php
+	 * @return int その日付をあらわす Unix タイムスタンプを返します。
+	 */
+	public function getTimestamp(): int {}
+
+	/**
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * ふたつの DateTime オブジェクトの差を返す
+	 * @link http://php.net/manual/ja/datetime.diff.php
+	 * @param DateTimeInterface $datetime2
+	 * @param bool $absolute [optional] <p>
+	 * 間隔が正の数になるようにするか否か。
+	 * </p>
+	 * @return DateInterval ふたつの日付の差をあらわす <b>DateInterval</b> オブジェクトを返します。
+	 * 失敗した場合に <b>FALSE</b> を返します
+	 */
+	public function diff(DateTimeInterface $datetime2, bool $absolute = false): DateInterval {}
 
 }
 
 class DateTimeImmutable implements DateTimeInterface {
 
 	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 新しい DateTimeImmutable オブジェクトを返す
+	 * @link http://php.net/manual/ja/datetimeimmutable.construct.php
 	 * @param $time [optional]
 	 * @param $object [optional]
 	 */
 	public function __construct($time, $object) {}
 
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * __wakeup ハンドラ
+	 * @link http://php.net/manual/ja/datetime.wakeup.php
+	 * @return mixed DateTime オブジェクトを初期化します。
+	 */
 	public function __wakeup() {}
 
-	public static function __set_state() {}
+	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * __set_state ハンドラ
+	 * @link http://php.net/manual/ja/datetimeimmutable.set-state.php
+	 * @param array $array
+	 * @return DateTimeImmutable
+	 */
+	public static function __set_state(array $array): DateTimeImmutable {}
 
 	/**
-	 * @param $format
-	 * @param $time
-	 * @param $object [optional]
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 指定した書式でフォーマットした新しい DateTimeImmutable オブジェクトを返す
+	 * @link http://php.net/manual/ja/datetimeimmutable.createfromformat.php
+	 * @param string $format
+	 * @param string $time
+	 * @param DateTimeZone $timezone [optional]
+	 * @return DateTimeImmutable
 	 */
-	public static function createFromFormat($format, $time, $object) {}
-
-	public static function getLastErrors() {}
+	public static function createFromFormat(string $format, string $time, DateTimeZone $timezone = null): DateTimeImmutable {}
 
 	/**
-	 * @param $format
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 警告およびエラーを返す
+	 * @link http://php.net/manual/ja/datetimeimmutable.getlasterrors.php
+	 * @return array
 	 */
-	public function format($format) {}
-
-	public function getTimezone() {}
-
-	public function getOffset() {}
-
-	public function getTimestamp() {}
+	public static function getLastErrors(): array {}
 
 	/**
-	 * @param $object
-	 * @param $absolute [optional]
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 指定した書式でフォーマットした日付を返す
+	 * @link http://php.net/manual/ja/datetime.format.php
+	 * @param string $format <p>
+	 * <b>date</b> が理解できる書式指定文字列。
+	 * </p>
+	 * @return string 成功した場合にフォーマット済みの日付文字列、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function diff($object, $absolute) {}
+	public function format(string $format): string {}
 
 	/**
-	 * @param $modify
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 指定した DateTime に関連するタイムゾーンを返す
+	 * @link http://php.net/manual/ja/datetime.gettimezone.php
+	 * @return DateTimeZone 成功した場合に <b>DateTimeZone</b> オブジェクト、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function modify($modify) {}
+	public function getTimezone(): DateTimeZone {}
 
 	/**
-	 * @param $interval
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * タイムゾーンのオフセットを返す
+	 * @link http://php.net/manual/ja/datetime.getoffset.php
+	 * @return int 成功した場合には UTC からのタイムゾーンオフセット秒数、
+	 * 失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function add($interval) {}
+	public function getOffset(): int {}
 
 	/**
-	 * @param $interval
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * Unix タイムスタンプを取得する
+	 * @link http://php.net/manual/ja/datetime.gettimestamp.php
+	 * @return int その日付をあらわす Unix タイムスタンプを返します。
 	 */
-	public function sub($interval) {}
+	public function getTimestamp(): int {}
 
 	/**
-	 * @param $timezone
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * ふたつの DateTime オブジェクトの差を返す
+	 * @link http://php.net/manual/ja/datetime.diff.php
+	 * @param DateTimeInterface $datetime2
+	 * @param bool $absolute [optional] <p>
+	 * 間隔が正の数になるようにするか否か。
+	 * </p>
+	 * @return DateInterval ふたつの日付の差をあらわす <b>DateInterval</b> オブジェクトを返します。
+	 * 失敗した場合に <b>FALSE</b> を返します
 	 */
-	public function setTimezone($timezone) {}
+	public function diff(DateTimeInterface $datetime2, bool $absolute = false): DateInterval {}
 
 	/**
-	 * @param $hour
-	 * @param $minute
-	 * @param $second [optional]
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * タイムスタンプを変更した新しいオブジェクトを作る
+	 * @link http://php.net/manual/ja/datetimeimmutable.modify.php
+	 * @param string $modify <p>日付/時刻 文字列。有効な書式については 日付と時刻の書式 で説明しています。</p>
+	 * @return DateTimeImmutable 新しく作ったオブジェクトを返します。
+	 * 失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function setTime($hour, $minute, $second) {}
+	public function modify(string $modify): DateTimeImmutable {}
 
 	/**
-	 * @param $year
-	 * @param $month
-	 * @param $day
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 年月日時分秒の値を加える
+	 * @link http://php.net/manual/ja/datetimeimmutable.add.php
+	 * @param DateInterval $interval
+	 * @return DateTimeImmutable
 	 */
-	public function setDate($year, $month, $day) {}
+	public function add(DateInterval $interval): DateTimeImmutable {}
 
 	/**
-	 * @param $year
-	 * @param $week
-	 * @param $day [optional]
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 年月日時分秒の値を引く
+	 * @link http://php.net/manual/ja/datetimeimmutable.sub.php
+	 * @param DateInterval $interval
+	 * @return DateTimeImmutable
 	 */
-	public function setISODate($year, $week, $day) {}
+	public function sub(DateInterval $interval): DateTimeImmutable {}
 
 	/**
-	 * @param $unixtimestamp
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * タイムゾーンを設定する
+	 * @link http://php.net/manual/ja/datetimeimmutable.settimezone.php
+	 * @param DateTimeZone $timezone
+	 * @return DateTimeImmutable
 	 */
-	public function setTimestamp($unixtimestamp) {}
+	public function setTimezone(DateTimeZone $timezone): DateTimeImmutable {}
 
 	/**
-	 * @param $DateTime
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 時刻を設定する
+	 * @link http://php.net/manual/ja/datetimeimmutable.settime.php
+	 * @param int $hour
+	 * @param int $minute
+	 * @param int $second [optional]
+	 * @return DateTimeImmutable
 	 */
-	public static function createFromMutable($DateTime) {}
+	public function setTime(int $hour, int $minute, int $second = 0): DateTimeImmutable {}
+
+	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 日付を設定する
+	 * @link http://php.net/manual/ja/datetimeimmutable.setdate.php
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return DateTimeImmutable
+	 */
+	public function setDate(int $year, int $month, int $day): DateTimeImmutable {}
+
+	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * ISO 日付を設定する
+	 * @link http://php.net/manual/ja/datetimeimmutable.setisodate.php
+	 * @param int $year
+	 * @param int $week
+	 * @param int $day [optional]
+	 * @return DateTimeImmutable
+	 */
+	public function setISODate(int $year, int $week, int $day = 1): DateTimeImmutable {}
+
+	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * Unix タイムスタンプを用いて日付と時刻を設定する
+	 * @link http://php.net/manual/ja/datetimeimmutable.settimestamp.php
+	 * @param int $unixtimestamp
+	 * @return DateTimeImmutable
+	 */
+	public function setTimestamp(int $unixtimestamp): DateTimeImmutable {}
+
+	/**
+	 * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+	 * Returns new DateTimeImmutable object encapsulating the given DateTime object
+	 * @link http://php.net/manual/ja/datetimeimmutable.createfrommutable.php
+	 * @param DateTime $datetime <p>
+	 * The mutable <b>DateTime</b> object that you want to
+	 * convert to an immutable version. This object is not modified, but
+	 * instead a new <b>DateTimeImmutable</b> object is
+	 * created containing the same date time and timezone information.
+	 * </p>
+	 * @return DateTimeImmutable a new <b>DateTimeImmutable</b> instance.
+	 */
+	public static function createFromMutable(DateTime $datetime): DateTimeImmutable {}
 
 }
 
@@ -234,6 +718,9 @@ class DateTimeZone  {
 
 
 	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 新しい DateTimeZone オブジェクトを作成する
+	 * @link http://php.net/manual/ja/datetimezone.construct.php
 	 * @param $timezone
 	 */
 	public function __construct($timezone) {}
@@ -242,28 +729,71 @@ class DateTimeZone  {
 
 	public static function __set_state() {}
 
-	public function getName() {}
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * タイムゾーンの名前を返す
+	 * @link http://php.net/manual/ja/datetimezone.getname.php
+	 * @return string タイムゾーン一覧 のタイムゾーン名のひとつを返します。
+	 */
+	public function getName(): string {}
 
 	/**
-	 * @param $object
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * GMT からのタイムゾーンのオフセットを返す
+	 * @link http://php.net/manual/ja/datetimezone.getoffset.php
+	 * @param DateTime $datetime <p>
+	 * オフセットを計算する 日付/時刻 を含む DateTime。
+	 * </p>
+	 * @return int 成功した場合にタイムゾーンのオフセット秒数、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function getOffset($object) {}
+	public function getOffset(DateTime $datetime): int {}
 
 	/**
-	 * @param $timestamp_begin [optional]
-	 * @param $timestamp_end [optional]
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * タイムゾーンの変遷を返す
+	 * @link http://php.net/manual/ja/datetimezone.gettransitions.php
+	 * @param int $timestamp_begin [optional] <p>
+	 * 開始時のタイムスタンプ。
+	 * </p>
+	 * @param int $timestamp_end [optional] <p>
+	 * 終了時のタイムスタンプ。
+	 * </p>
+	 * @return array 成功した場合にタイムゾーンの遷移を表す連想配列の配列、
+	 * 失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function getTransitions($timestamp_begin, $timestamp_end) {}
-
-	public function getLocation() {}
-
-	public static function listAbbreviations() {}
+	public function getTransitions(int $timestamp_begin = null, int $timestamp_end = null): array {}
 
 	/**
-	 * @param $what [optional]
-	 * @param $country [optional]
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * タイムゾーンの位置情報を返す
+	 * @link http://php.net/manual/ja/datetimezone.getlocation.php
+	 * @return array タイムゾーンについての位置情報を含む配列を返します。
 	 */
-	public static function listIdentifiers($what, $country) {}
+	public function getLocation(): array {}
+
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * 夏時間、オフセットおよびタイムゾーン名を含む連想配列を返す
+	 * @link http://php.net/manual/ja/datetimezone.listabbreviations.php
+	 * @return array 成功した場合に配列、失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public static function listAbbreviations(): array {}
+
+	/**
+	 * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
+	 * すべてのタイムゾーン識別子を含む配列を返す
+	 * @link http://php.net/manual/ja/datetimezone.listidentifiers.php
+	 * @param int $what [optional] <p>
+	 * <b>DateTimeZone</b> のクラス定数のいずれか。
+	 * </p>
+	 * @param string $country [optional] <p>
+	 * 2 文字の ISO 3166-1 互換の国コード。
+	 * </p>
+	 * このオプションを使用するのは、<i>what</i> に
+	 * <b>DateTimeZone::PER_COUNTRY</b> を設定した場合のみです。
+	 * @return array 成功した場合に配列、失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public static function listIdentifiers(int $what = DateTimeZone::ALL, string $country = null): array {}
 
 }
 
@@ -335,6 +865,9 @@ class DateInterval  {
 
 
 	/**
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 新しい DateInterval オブジェクトを作成する
+	 * @link http://php.net/manual/ja/dateinterval.construct.php
 	 * @param $interval_spec
 	 */
 	public function __construct($interval_spec) {}
@@ -344,14 +877,120 @@ class DateInterval  {
 	public static function __set_state() {}
 
 	/**
-	 * @param $format
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 間隔をフォーマットする
+	 * @link http://php.net/manual/ja/dateinterval.format.php
+	 * @param string $format <p>
+	 * <table>
+	 * 次の文字を、
+	 * <i>format</i> パラメータ文字列に使用することができます。
+	 * フォーマット文字は、パーセント記号
+	 * (%) で始めなければなりません。
+	 * <tr valign="top">
+	 * <td><i>format</i> 文字</td>
+	 * <td>説明</td>
+	 * <td>値の例</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>%</td>
+	 * <td>リテラルとしての %</td>
+	 * <td>%</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>Y</td>
+	 * <td>年、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>y</td>
+	 * <td>年、数値</td>
+	 * <td>1, 3</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>M</td>
+	 * <td>月、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03, 12</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>m</td>
+	 * <td>月、数値</td>
+	 * <td>1, 3, 12</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>D</td>
+	 * <td>日、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03, 31</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>d</td>
+	 * <td>日、数値</td>
+	 * <td>1, 3, 31</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>a</td>
+	 * <td><b>DateTime::diff</b> の結果に使った場合は総日数、それ以外の場合は (unknown)</td>
+	 * <td>4, 18, 8123</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>H</td>
+	 * <td>時間、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03, 23</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>h</td>
+	 * <td>時間、数値</td>
+	 * <td>1, 3, 23</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>I</td>
+	 * <td>分、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03, 59</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>i</td>
+	 * <td>分、数値</td>
+	 * <td>1, 3, 59</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>S</td>
+	 * <td>秒、数値、先頭に 0 を含む 2 桁</td>
+	 * <td>01, 03, 57</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>s</td>
+	 * <td>秒、数値</td>
+	 * <td>1, 3, 57</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>R</td>
+	 * <td>負の値の場合は "-"、正の値の場合は "+"</td>
+	 * <td>-, +</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td>r</td>
+	 * <td>負の値の場合は "-"、正の値の場合は空文字</td>
+	 * <td>-, </td>
+	 * </tr>
+	 * </table>
+	 * </p>
+	 * @return string フォーマットされた間隔を返します。
 	 */
-	public function format($format) {}
+	public function format(string $format): string {}
 
 	/**
-	 * @param $time
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 相対指定文字列から DateInterval を作成する
+	 * @link http://php.net/manual/ja/dateinterval.createfromdatestring.php
+	 * @param string $time <p>
+	 * 相対部分を含む日付。
+	 * 特に、<b>strtotime</b> や
+	 * <b>DateTime</b> が使うパーサーがサポートする
+	 * 相対書式
+	 * を使って DateInterval を作ることができます。
+	 * </p>
+	 * @return DateInterval 新しい <b>DateInterval</b> のインスタンスを返します。
 	 */
-	public static function createFromDateString($time) {}
+	public static function createFromDateString(string $time): DateInterval {}
 
 }
 
@@ -360,6 +999,9 @@ class DatePeriod implements Traversable {
 
 
 	/**
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * 新しい DatePeriod オブジェクトを作成する
+	 * @link http://php.net/manual/ja/dateperiod.construct.php
 	 * @param $start
 	 * @param $interval
 	 * @param $end
@@ -370,11 +1012,50 @@ class DatePeriod implements Traversable {
 
 	public static function __set_state() {}
 
-	public function getStartDate() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.5, PHP 7)<br/>
+	 * Gets the start date
+	 * @link http://php.net/manual/ja/dateperiod.getstartdate.php
+	 * @return DateTimeInterface a <b>DateTimeImmutable</b> object
+	 * when the <b>DatePeriod</b> is initialized with a
+	 * <b>DateTimeImmutable</b> object
+	 * as the <i>start</i> parameter.
+	 * </p>
+	 * <p>
+	 * Returns a <b>DateTime</b> object
+	 * otherwise.
+	 */
+	public function getStartDate(): DateTimeInterface {}
 
-	public function getEndDate() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.5, PHP 7)<br/>
+	 * Gets the end date
+	 * @link http://php.net/manual/ja/dateperiod.getenddate.php
+	 * @return DateTimeInterface <b>NULL</b> if the <b>DatePeriod</b> does
+	 * not have an end date. For example, when initialized with the
+	 * <i>recurrences</i> parameter, or the
+	 * <i>isostr</i> parameter without an
+	 * end date.
+	 * </p>
+	 * <p>
+	 * Returns a <b>DateTimeImmutable</b> object
+	 * when the <b>DatePeriod</b> is initialized with a
+	 * <b>DateTimeImmutable</b> object
+	 * as the <i>end</i> parameter.
+	 * </p>
+	 * <p>
+	 * Returns a <b>DateTime</b> object
+	 * otherwise.
+	 */
+	public function getEndDate(): DateTimeInterface {}
 
-	public function getDateInterval() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.5, PHP 7)<br/>
+	 * Gets the interval
+	 * @link http://php.net/manual/ja/dateperiod.getdateinterval.php
+	 * @return DateInterval a <b>DateInterval</b> object
+	 */
+	public function getDateInterval(): DateInterval {}
 
 }
 

@@ -114,9 +114,15 @@ class ReflectionException extends Exception implements Throwable {
 class Reflection  {
 
 	/**
-	 * @param $modifiers
+	 * (PHP 5, PHP 7)<br/>
+	 * Gets modifier names
+	 * @link http://php.net/manual/ja/reflection.getmodifiernames.php
+	 * @param int $modifiers <p>
+	 * Bitfield of the modifiers to get.
+	 * </p>
+	 * @return array An array of modifier names.
 	 */
-	public static function getModifierNames($modifiers) {}
+	public static function getModifierNames(int $modifiers): array {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -228,7 +234,13 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function isGenerator(): bool {}
 
-	public function isVariadic() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+	 * Checks if the function is variadic
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.isvariadic.php
+	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>.
+	 */
+	public function isVariadic(): bool {}
 
 	/**
 	 * (PHP &gt;= 5.4.0)<br/>
@@ -361,9 +373,22 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function returnsReference(): bool {}
 
-	public function hasReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if the function has a specified return type
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.hasreturntype.php
+	 * @return bool <b>TRUE</b> if the function is a specified return type, otherwise <b>FALSE</b>.
+	 */
+	public function hasReturnType(): bool {}
 
-	public function getReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the specified return type of a function
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.getreturntype.php
+	 * @return ReflectionType a <b>ReflectionType</b> object if a return type is
+	 * specified, <b>NULL</b> otherwise.
+	 */
+	public function getReturnType(): ReflectionType {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -526,7 +551,13 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 */
 	public function isGenerator(): bool {}
 
-	public function isVariadic() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+	 * Checks if the function is variadic
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.isvariadic.php
+	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>.
+	 */
+	public function isVariadic(): bool {}
 
 	/**
 	 * (PHP &gt;= 5.4.0)<br/>
@@ -659,9 +690,22 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 */
 	public function returnsReference(): bool {}
 
-	public function hasReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if the function has a specified return type
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.hasreturntype.php
+	 * @return bool <b>TRUE</b> if the function is a specified return type, otherwise <b>FALSE</b>.
+	 */
+	public function hasReturnType(): bool {}
 
-	public function getReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the specified return type of a function
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.getreturntype.php
+	 * @return ReflectionType a <b>ReflectionType</b> object if a return type is
+	 * specified, <b>NULL</b> otherwise.
+	 */
+	public function getReturnType(): ReflectionType {}
 
 }
 
@@ -870,9 +914,22 @@ class ReflectionParameter implements Reflector {
 	 */
 	public function getClass(): ReflectionClass {}
 
-	public function hasType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if parameter has a type
+	 * @link http://php.net/manual/ja/reflectionparameter.hastype.php
+	 * @return bool <b>TRUE</b> if a type is specified, <b>FALSE</b> otherwise.
+	 */
+	public function hasType(): bool {}
 
-	public function getType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets a parameter's type
+	 * @link http://php.net/manual/ja/reflectionparameter.gettype.php
+	 * @return ReflectionType a <b>ReflectionType</b> object if a parameter type is
+	 * specified, <b>NULL</b> otherwise.
+	 */
+	public function getType(): ReflectionType {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7)<br/>
@@ -948,7 +1005,13 @@ class ReflectionParameter implements Reflector {
 	 */
 	public function getDefaultValueConstantName(): string {}
 
-	public function isVariadic() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+	 * Checks if the parameter is variadic
+	 * @link http://php.net/manual/ja/reflectionparameter.isvariadic.php
+	 * @return bool <b>TRUE</b> if the parameter is variadic, otherwise <b>FALSE</b>.
+	 */
+	public function isVariadic(): bool {}
 
 }
 
@@ -1247,7 +1310,13 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function isGenerator(): bool {}
 
-	public function isVariadic() {}
+	/**
+	 * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+	 * Checks if the function is variadic
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.isvariadic.php
+	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>.
+	 */
+	public function isVariadic(): bool {}
 
 	/**
 	 * (PHP &gt;= 5.4.0)<br/>
@@ -1380,9 +1449,22 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function returnsReference(): bool {}
 
-	public function hasReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if the function has a specified return type
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.hasreturntype.php
+	 * @return bool <b>TRUE</b> if the function is a specified return type, otherwise <b>FALSE</b>.
+	 */
+	public function hasReturnType(): bool {}
 
-	public function getReturnType() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Gets the specified return type of a function
+	 * @link http://php.net/manual/ja/reflectionfunctionabstract.getreturntype.php
+	 * @return ReflectionType a <b>ReflectionType</b> object if a return type is
+	 * specified, <b>NULL</b> otherwise.
+	 */
+	public function getReturnType(): ReflectionType {}
 
 }
 
@@ -1460,7 +1542,13 @@ class ReflectionClass implements Reflector {
 	 */
 	public function isUserDefined(): bool {}
 
-	public function isAnonymous() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if class is anonymous
+	 * @link http://php.net/manual/ja/reflectionclass.isanonymous.php
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public function isAnonymous(): bool {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -1968,7 +2056,13 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 */
 	public function isUserDefined(): bool {}
 
-	public function isAnonymous() {}
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if class is anonymous
+	 * @link http://php.net/manual/ja/reflectionclass.isanonymous.php
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
+	 */
+	public function isAnonymous(): bool {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -2541,7 +2635,13 @@ class ReflectionProperty implements Reflector {
 	 */
 	public function isDefault(): bool {}
 
-	public function getModifiers() {}
+	/**
+	 * (PHP 5, PHP 7)<br/>
+	 * Gets the property modifiers
+	 * @link http://php.net/manual/ja/reflectionproperty.getmodifiers.php
+	 * @return int A numeric representation of the modifiers.
+	 */
+	public function getModifiers(): int {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>

@@ -11,16 +11,75 @@ class php_user_filter  {
 
 
 	/**
-	 * @param $in
-	 * @param $out
-	 * @param $consumed
-	 * @param $closing
+	 * (PHP 5, PHP 7)<br/>
+	 * フィルタを適用するときにコールされる
+	 * @link http://php.net/manual/ja/php-user-filter.filter.php
+	 * @param resource $in <p>
+	 * <i>in</i> は バケット群 を指すリソースで、
+	 * この中には一つあるいは複数の バケット オブジェクトが含まれています。
+	 * このオブジェクトに、フィルタ対象のデータが含まれます。
+	 * </p>
+	 * @param resource $out <p>
+	 * <i>out</i> はもう一つの バケット群 を指すリソースで、
+	 * 変更した内容をここに保存します。
+	 * </p>
+	 * @param int $consumed <p>
+	 * <i>consumed</i> は常に参照渡しとする必要があります。
+	 * フィルタで読み込んだり変更したりしたデータの長さをここで加算します。
+	 * 大半の場合、各 $bucket 上で
+	 * $bucket->datalen をコールするたびに
+	 * <i>consumed</i> を増やすことになります。
+	 * </p>
+	 * @param bool $closing <p>
+	 * ストリームが終了処理の最中である場合
+	 * (つまり、フィルタチェインの最後の処理を行っている場合)
+	 * に、<i>closing</i> パラメータが <b>TRUE</b> となります。
+	 * </p>
+	 * @return int <b>filter</b> メソッドは、処理を終えたときに次のいずれかの値を返す必要があります。
+	 * <tr valign="top">
+	 * <td>返り値</td>
+	 * <td>意味</td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td><b>PSFS_PASS_ON</b></td>
+	 * <td>
+	 * フィルタの処理が成功し、データが
+	 * <i>out</i> バケット群
+	 * に保存されました。
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td><b>PSFS_FEED_ME</b></td>
+	 * <td>
+	 * フィルタの処理は成功しましたが、返すデータはありません。
+	 * ストリームあるいは一つ前のフィルタから、さらにデータが必要です。
+	 * </td>
+	 * </tr>
+	 * <tr valign="top">
+	 * <td><b>PSFS_ERR_FATAL</b> (デフォルト)</td>
+	 * <td>
+	 * フィルタで対処不能なエラーが発生し、処理を続行できません。
+	 * </td>
+	 * </tr>
 	 */
-	public function filter($in, $out, &$consumed, $closing) {}
+	public function filter($in, $out, int &$consumed, bool $closing): int {}
 
-	public function onCreate() {}
+	/**
+	 * (PHP 5, PHP 7)<br/>
+	 * フィルタを作成するときにコールされる
+	 * @link http://php.net/manual/ja/php-user-filter.oncreate.php
+	 * @return bool このメソッドを実装は、成功した場合に <b>TRUE</b>
+	 * そして失敗した場合に <b>FALSE</b> を返す必要があります。
+	 */
+	public function onCreate(): bool {}
 
-	public function onClose() {}
+	/**
+	 * (PHP 5, PHP 7)<br/>
+	 * フィルタを閉じるときにコールされる
+	 * @link http://php.net/manual/ja/php-user-filter.onclose.php
+	 * @return void 返り値は無視されます。
+	 */
+	public function onClose(): void {}
 
 }
 
@@ -43,19 +102,31 @@ class Directory  {
 
 
 	/**
-	 * @param $dir_handle [optional]
+	 * (PHP 4, PHP 5, PHP 7)<br/>
+	 * ディレクトリハンドルをクローズする
+	 * @link http://php.net/manual/ja/directory.close.php
+	 * @param resource $dir_handle [optional]
+	 * @return void
 	 */
-	public function close($dir_handle) {}
+	public function close($dir_handle = null): void {}
 
 	/**
-	 * @param $dir_handle [optional]
+	 * (PHP 4, PHP 5, PHP 7)<br/>
+	 * ディレクトリハンドルを元に戻す
+	 * @link http://php.net/manual/ja/directory.rewind.php
+	 * @param resource $dir_handle [optional]
+	 * @return void
 	 */
-	public function rewind($dir_handle) {}
+	public function rewind($dir_handle = null): void {}
 
 	/**
-	 * @param $dir_handle [optional]
+	 * (PHP 4, PHP 5, PHP 7)<br/>
+	 * ディレクトリハンドルからエントリを読み込む
+	 * @link http://php.net/manual/ja/directory.read.php
+	 * @param resource $dir_handle [optional]
+	 * @return string
 	 */
-	public function read($dir_handle) {}
+	public function read($dir_handle = null): string {}
 
 }
 
@@ -4644,10 +4715,18 @@ function number_format(float $number, int $decimals = 0, string $dec_point = "."
 function fmod(float $x, float $y): float {}
 
 /**
- * @param $dividend
- * @param $divisor
+ * (PHP 7)<br/>
+ * Integer division
+ * @link http://php.net/manual/ja/function.intdiv.php
+ * @param int $dividend <p>
+ * Number to be divided.
+ * </p>
+ * @param int $divisor <p>
+ * Number which divides the <i>dividend</i>.
+ * </p>
+ * @return int The integer quotient of the division of <i>dividend</i> by <i>divisor</i>.
  */
-function intdiv($dividend, $divisor) {}
+function intdiv(int $dividend, int $divisor): int {}
 
 /**
  * (PHP 5 &gt;= 5.1.0, PHP 7)<br/>

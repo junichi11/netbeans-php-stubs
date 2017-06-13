@@ -81,9 +81,20 @@ function pg_connect(string $connection_string, int $connect_type = null) {}
 function pg_pconnect(string $connection_string, int $connect_type = null) {}
 
 /**
- * @param $connection [optional]
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Poll the status of an in-progress asynchronous PostgreSQL connection
+attempt.
+ * @link http://php.net/manual/ja/function.pg-connect-poll.php
+ * @param resource $connection [optional] <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return int <b>PGSQL_POLLING_FAILED</b>,
+ * <b>PGSQL_POLLING_READING</b>,
+ * <b>PGSQL_POLLING_WRITING</b>,
+ * <b>PGSQL_POLLING_OK</b>, or
+ * <b>PGSQL_POLLING_ACTIVE</b>.
  */
-function pg_connect_poll($connection) {}
+function pg_connect_poll($connection = null): int {}
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -980,17 +991,38 @@ function pg_field_table($result, int $field_number, bool $oid_only = false) {}
 function pg_get_notify($connection, int $result_type = null): array {}
 
 /**
- * @param $connection
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Get a read only handle to the socket underlying a PostgreSQL connection
+ * @link http://php.net/manual/ja/function.pg-socket.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return resource A socket resource on success失敗した場合に <b>FALSE</b> を返します.
  */
 function pg_socket($connection) {}
 
 /**
- * @param $connection
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Reads input on the connection
+ * @link http://php.net/manual/ja/function.pg-consume-input.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return bool <b>TRUE</b> if no error occurred, or <b>FALSE</b> if there was an error. Note that
+ * <b>TRUE</b> does not necessarily indicate that input was waiting to be read.
  */
-function pg_consume_input($connection) {}
+function pg_consume_input($connection): bool {}
 
 /**
- * @param $connection
+ * (PHP 5 &gt;= 5.6.0, PHP 7)<br/>
+ * Flush outbound query data on the connection
+ * @link http://php.net/manual/ja/function.pg-flush.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return mixed <b>TRUE</b> if the flush was successful or no data was waiting to be
+ * flushed, 0 if part of the pending data was flushed but
+ * more remains失敗した場合に <b>FALSE</b> を返します.
  */
 function pg_flush($connection) {}
 
@@ -1393,10 +1425,18 @@ function pg_lo_seek($large_object, int $offset, int $whence = PGSQL_SEEK_CUR): b
 function pg_lo_tell($large_object): int {}
 
 /**
- * @param $large_object
- * @param $size [optional]
+ * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+ * Truncates a large object
+ * @link http://php.net/manual/ja/function.pg-lo-truncate.php
+ * @param resource $large_object <p>
+ * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
+ * </p>
+ * @param int $size <p>
+ * The number of bytes to truncate.
+ * </p>
+ * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
-function pg_lo_truncate($large_object, $size) {}
+function pg_lo_truncate($large_object, int $size): bool {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>

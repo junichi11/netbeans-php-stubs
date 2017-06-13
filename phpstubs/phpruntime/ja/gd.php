@@ -1596,22 +1596,50 @@ function imagedashedline($image, int $x1, int $y1, int $x2, int $y2, int $color)
 function imagetypes(): int {}
 
 /**
- * @param $f_org
- * @param $f_dest
- * @param $d_height
- * @param $d_width
- * @param $d_threshold
+ * (PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)<br/>
+ * Convert JPEG image file to WBMP image file
+ * @link http://php.net/manual/ja/function.jpeg2wbmp.php
+ * @param string $jpegname <p>
+ * Path to JPEG file.
+ * </p>
+ * @param string $wbmpname <p>
+ * Path to destination WBMP file.
+ * </p>
+ * @param int $dest_height <p>
+ * Destination image height.
+ * </p>
+ * @param int $dest_width <p>
+ * Destination image width.
+ * </p>
+ * @param int $threshold <p>
+ * Threshold value, between 0 and 8 (inclusive).
+ * </p>
+ * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
-function jpeg2wbmp($f_org, $f_dest, $d_height, $d_width, $d_threshold) {}
+function jpeg2wbmp(string $jpegname, string $wbmpname, int $dest_height, int $dest_width, int $threshold): bool {}
 
 /**
- * @param $f_org
- * @param $f_dest
- * @param $d_height
- * @param $d_width
- * @param $d_threshold
+ * (PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)<br/>
+ * Convert PNG image file to WBMP image file
+ * @link http://php.net/manual/ja/function.png2wbmp.php
+ * @param string $pngname <p>
+ * Path to PNG file.
+ * </p>
+ * @param string $wbmpname <p>
+ * Path to destination WBMP file.
+ * </p>
+ * @param int $dest_height <p>
+ * Destination image height.
+ * </p>
+ * @param int $dest_width <p>
+ * Destination image width.
+ * </p>
+ * @param int $threshold <p>
+ * Threshold value, between 0 and 8 (inclusive).
+ * </p>
+ * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
-function png2wbmp($f_org, $f_dest, $d_height, $d_width, $d_threshold) {}
+function png2wbmp(string $pngname, string $wbmpname, int $dest_height, int $dest_width, int $threshold): bool {}
 
 /**
  * (PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)<br/>

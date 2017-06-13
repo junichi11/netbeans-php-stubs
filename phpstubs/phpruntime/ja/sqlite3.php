@@ -229,23 +229,51 @@ class SQLite3  {
 	public function createAggregate(string $name, $step_callback, $final_callback, int $argument_count = -1): bool {}
 
 	/**
-	 * @param $name
-	 * @param $callback
+	 * (PHP 5 &gt;= 5.3.11, PHP 7)<br/>
+	 * Registers a PHP function for use as an SQL collating function
+	 * @link http://php.net/manual/ja/sqlite3.createcollation.php
+	 * @param string $name <p>
+	 * Name of the SQL collating function to be created or redefined
+	 * </p>
+	 * @param callable $callback <p>
+	 * The name of a PHP function or user-defined function to apply as a
+	 * callback, defining the behavior of the collation. It should accept two
+	 * strings and return as <b>strcmp</b> does, i.e. it should
+	 * return -1, 1, or 0 if the first string sorts before, sorts after, or is
+	 * equal to the second.
+	 * </p>
+	 * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
 	 */
-	public function createCollation($name, $callback) {}
+	public function createCollation(string $name, callable $callback): bool {}
 
 	/**
-	 * @param $table
-	 * @param $column
-	 * @param $rowid
-	 * @param $dbname [optional]
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * Opens a stream resource to read a BLOB
+	 * @link http://php.net/manual/ja/sqlite3.openblob.php
+	 * @param string $table <p>
+	 * The table name.
+	 * </p>
+	 * @param string $column <p>
+	 * The column name.
+	 * </p>
+	 * @param int $rowid <p>
+	 * The row ID.
+	 * </p>
+	 * @param string $dbname [optional] <p>
+	 * The symbolic name of the DB
+	 * </p>
+	 * @return resource a stream resource, 失敗した場合に <b>FALSE</b> を返します.
 	 */
-	public function openBlob($table, $column, $rowid, $dbname) {}
+	public function openBlob(string $table, string $column, int $rowid, string $dbname = "main") {}
 
 	/**
-	 * @param $enableExceptions [optional]
+	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
+	 * Enable throwing exceptions
+	 * @link http://php.net/manual/ja/sqlite3.enableexceptions.php
+	 * @param bool $enableExceptions [optional]
+	 * @return bool the old value; <b>TRUE</b> if exceptions were enabled, <b>FALSE</b> otherwise.
 	 */
-	public function enableExceptions($enableExceptions) {}
+	public function enableExceptions(bool $enableExceptions = false): bool {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
@@ -365,7 +393,13 @@ class SQLite3Stmt  {
 	 */
 	public function bindValue($sql_param, $value, int $type = null): bool {}
 
-	public function readOnly() {}
+	/**
+	 * (PHP 5 &gt;= 5.3.6, PHP 7)<br/>
+	 * Returns whether a statement is definitely read only
+	 * @link http://php.net/manual/ja/sqlite3stmt.readonly.php
+	 * @return bool <b>TRUE</b> if a statement is definitely read only, <b>FALSE</b> otherwise.
+	 */
+	public function readOnly(): bool {}
 
 	/**
 	 * @param $sqlite3

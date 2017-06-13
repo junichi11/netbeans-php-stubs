@@ -1086,18 +1086,74 @@ function mb_regex_encoding(string $encoding = 'mb_regex_encoding()') {}
 function mb_regex_set_options(string $options = 'mb_regex_set_options()'): string {}
 
 /**
- * @param $pattern
- * @param $string
- * @param $registers [optional]
+ * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
+ * Regular expression match with multibyte support
+ * @link http://php.net/manual/ja/function.mb-ereg.php
+ * @param string $pattern <p>
+ * The search pattern.
+ * </p>
+ * @param string $string <p>
+ * The search string.
+ * </p>
+ * @param array $regs [optional] <p>
+ * If matches are found for parenthesized substrings of
+ * <i>pattern</i> and the function is called with the
+ * third argument <i>regs</i>, the matches will be stored
+ * in the elements of the array <i>regs</i>.
+ * If no matches are found, <i>regs</i> is set to an empty
+ * array.
+ * </p>
+ * <p>
+ * $regs[1] will contain the substring which starts at
+ * the first left parenthesis; $regs[2] will contain
+ * the substring starting at the second, and so on.
+ * $regs[0] will contain a copy of the complete string
+ * matched.
+ * </p>
+ * @return int the byte length of the matched string if a match for
+ * <i>pattern</i> was found in <i>string</i>,
+ * or <b>FALSE</b> if no matches were found or an error occurred.
+ * </p>
+ * <p>
+ * If the optional parameter <i>regs</i> was not passed or
+ * the length of the matched string is 0, this function returns 1.
  */
-function mb_ereg($pattern, $string, &$registers) {}
+function mb_ereg(string $pattern, string $string, array &$regs = null): int {}
 
 /**
- * @param $pattern
- * @param $string
- * @param $registers [optional]
+ * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
+ * Regular expression match ignoring case with multibyte support
+ * @link http://php.net/manual/ja/function.mb-eregi.php
+ * @param string $pattern <p>
+ * The regular expression pattern.
+ * </p>
+ * @param string $string <p>
+ * The string being searched.
+ * </p>
+ * @param array $regs [optional] <p>
+ * If matches are found for parenthesized substrings of
+ * <i>pattern</i> and the function is called with the
+ * third argument <i>regs</i>, the matches will be stored
+ * in the elements of the array <i>regs</i>.
+ * If no matches are found, <i>regs</i> is set to an empty
+ * array.
+ * </p>
+ * <p>
+ * $regs[1] will contain the substring which starts at
+ * the first left parenthesis; $regs[2] will contain
+ * the substring starting at the second, and so on.
+ * $regs[0] will contain a copy of the complete string
+ * matched.
+ * </p>
+ * @return int the byte length of the matched string if a match for
+ * <i>pattern</i> was found in <i>string</i>,
+ * or <b>FALSE</b> if no matches were found or an error occurred.
+ * </p>
+ * <p>
+ * If the optional parameter <i>regs</i> was not passed or
+ * the length of the matched string is 0, this function returns 1.
  */
-function mb_eregi($pattern, $string, &$registers) {}
+function mb_eregi(string $pattern, string $string, array &$regs = null): int {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)<br/>
