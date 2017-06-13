@@ -1,6 +1,6 @@
 <?php
 
-// Start of bz2 v.7.0.19
+// Start of bz2 v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)<br/>
@@ -168,5 +168,5 @@ function bzcompress(string $source, int $blocksize = 4, int $workfactor = 0) {}
  */
 function bzdecompress(string $source, int $small = 0) {}
 
-// End of bz2 v.7.0.19
+// End of bz2 v.7.1.5
 ?>

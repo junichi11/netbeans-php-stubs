@@ -1,6 +1,6 @@
 <?php
 
-// Start of xmlwriter v.7.0.19
+// Start of xmlwriter v.7.1.5
 
 class XMLWriter  {
 
@@ -1031,5 +1031,5 @@ function xmlwriter_output_memory(bool $flush = true): string {}
  */
 function xmlwriter_flush(bool $empty = true) {}
 
-// End of xmlwriter v.7.0.19
+// End of xmlwriter v.7.1.5
 ?>

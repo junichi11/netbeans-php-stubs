@@ -511,7 +511,6 @@ class ImagickKernelException extends Exception implements Throwable {
 }
 
 /**
- * @method Imagick clone() (PECL imagick 2.0.0)<br/>Imagick オブジェクトの完全なコピーを作成する
  * @link http://php.net/manual/ja/class.imagick.php
  */
 class Imagick implements Iterator, Traversable, Countable {
@@ -2496,6 +2495,14 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @return bool 成功した場合に <b>TRUE</b> を返します。
 	 */
 	public function clear(): bool {}
+
+	/**
+	 * (PECL imagick 2.0.0)<br/>
+	 * Imagick オブジェクトの完全なコピーを作成する
+	 * @link http://php.net/manual/ja/imagick.clone.php
+	 * @return Imagick Imagick オブジェクトのコピーを返します。
+	 */
+	public function clone(): Imagick {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -5177,6 +5184,8 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function colordecisionlistimage($antialias) {}
 
+	public function optimizeimagetransparency() {}
+
 	/**
 	 * @param $CHANNEL
 	 */
@@ -5185,7 +5194,6 @@ class Imagick implements Iterator, Traversable, Countable {
 }
 
 /**
- * @method ImagickDraw clone() (PECL imagick 2.0.0)<br/>指定した ImagickDraw オブジェクトの完全なコピーを作成する
  * @link http://php.net/manual/ja/class.imagickdraw.php
  */
 class ImagickDraw  {
@@ -5726,6 +5734,15 @@ class ImagickDraw  {
 	 * @return bool 値を返しません。
 	 */
 	public function setviewbox(int $x1, int $y1, int $x2, int $y2): bool {}
+
+	/**
+	 * (PECL imagick 2.0.0)<br/>
+	 * 指定した ImagickDraw オブジェクトの完全なコピーを作成する
+	 * @link http://php.net/manual/ja/imagickdraw.clone.php
+	 * @return ImagickDraw What the function returns, first on success, then on failure. See
+	 * also the &#38;#38;return.success; entity
+	 */
+	public function clone(): ImagickDraw {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -6774,7 +6791,6 @@ class ImagickPixelIterator implements Iterator, Traversable {
 }
 
 /**
- * @method clone()
  * @link http://php.net/manual/ja/class.imagickpixel.php
  */
 class ImagickPixel  {
@@ -6952,6 +6968,8 @@ class ImagickPixel  {
 	 * @param $colorCount
 	 */
 	public function setcolorcount($colorCount) {}
+
+	public function clone() {}
 
 }
 

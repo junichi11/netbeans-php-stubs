@@ -1,6 +1,6 @@
 <?php
 
-// Start of mcrypt v.7.0.19
+// Start of mcrypt v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -554,5 +554,5 @@ define ('MCRYPT_MODE_NOFB', "nofb");
 define ('MCRYPT_MODE_OFB', "ofb");
 define ('MCRYPT_MODE_STREAM', "stream");
 
-// End of mcrypt v.7.0.19
+// End of mcrypt v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of tidy v.7.0.19
+// Start of tidy v.7.1.5
 
 /**
  * HTML ファイル中の HTML ノードで、tidy が検出したものです。
@@ -994,5 +994,5 @@ define ('TIDY_NODETYPE_PHP', 12);
  */
 define ('TIDY_NODETYPE_XMLDECL', 13);
 
-// End of tidy v.7.0.19
+// End of tidy v.7.1.5
 ?>

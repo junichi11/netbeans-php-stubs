@@ -1,6 +1,6 @@
 <?php
 
-// Start of Core v.7.0.19
+// Start of Core v.7.1.5
 
 class stdClass  {
 }
@@ -801,6 +801,106 @@ class TypeError extends Error implements Throwable {
 
 }
 
+class ArgumentCountError extends TypeError implements Throwable {
+	protected $message;
+	protected $code;
+	protected $file;
+	protected $line;
+
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Clone the error
+	 * @link http://php.net/manual/ja/error.clone.php
+	 * @return void 値を返しません。
+	 */
+	final private function __clone(): void {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Construct the error object
+	 * @link http://php.net/manual/ja/error.construct.php
+	 * @param string $message [optional] <p>
+	 * The error message.
+	 * </p>
+	 * @param int $code [optional] <p>
+	 * The error code.
+	 * </p>
+	 * @param Throwable $previous [optional] <p>
+	 * The previous throwable used for the exception chaining.
+	 * </p>
+	 */
+	public function __construct(string $message = "", int $code = 0, Throwable $previous = null) {}
+
+	public function __wakeup() {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error message
+	 * @link http://php.net/manual/ja/error.getmessage.php
+	 * @return string the error message as a string.
+	 */
+	final public function getMessage(): string {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the error code
+	 * @link http://php.net/manual/ja/error.getcode.php
+	 * @return mixed the error code as integer
+	 */
+	final public function getCode() {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the file in which the error occurred
+	 * @link http://php.net/manual/ja/error.getfile.php
+	 * @return string the filename in which the error occurred.
+	 */
+	final public function getFile(): string {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the line in which the error occurred
+	 * @link http://php.net/manual/ja/error.getline.php
+	 * @return int the line number where the error occurred.
+	 */
+	final public function getLine(): int {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace
+	 * @link http://php.net/manual/ja/error.gettrace.php
+	 * @return array the stack trace as an array.
+	 */
+	final public function getTrace(): array {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Returns previous Throwable
+	 * @link http://php.net/manual/ja/error.getprevious.php
+	 * @return Throwable the previous <b>Throwable</b> if available
+	 * or <b>NULL</b> otherwise.
+	 */
+	final public function getPrevious(): Throwable {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * Gets the stack trace as a string
+	 * @link http://php.net/manual/ja/error.gettraceasstring.php
+	 * @return string the stack trace as a string.
+	 */
+	final public function getTraceAsString(): string {}
+
+	/**
+	 * (バージョン情報なし。おそらく SVN 版にしか存在しないでしょう)<br/>
+	 * String representation of the error
+	 * @link http://php.net/manual/ja/error.tostring.php
+	 * @return string the string representation of the error.
+	 */
+	public function __toString(): string {}
+
+}
+
 /**
  * <b>ArithmeticError</b>
  * は、数学的な操作でエラーが発生した場合にスローされます。
@@ -1084,11 +1184,15 @@ final class Closure  {
 	 */
 	public function call($newthis, $_ = null) {}
 
+	/**
+	 * @param $callable
+	 */
+	public static function fromCallable($callable) {}
+
 }
 
 /**
  * <b>Generator</b> は ジェネレータ が返すオブジェクトです。
- * @method mixed throw(Throwable $exception) (PHP 5 &gt;= 5.5.0, PHP 7)<br/>例外をジェネレータにスローする
  * @link http://php.net/manual/ja/class.generator.php
  */
 final class Generator implements Iterator, Traversable {
@@ -1143,6 +1247,17 @@ final class Generator implements Iterator, Traversable {
 	 * @return mixed yield した値を返します。
 	 */
 	public function send($value) {}
+
+	/**
+	 * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
+	 * 例外をジェネレータにスローする
+	 * @link http://php.net/manual/ja/generator.throw.php
+	 * @param Throwable $exception <p>
+	 * ジェネレータにスローする例外。
+	 * </p>
+	 * @return mixed yield した値を返します。
+	 */
+	public function throw(Throwable $exception) {}
 
 	public function getReturn() {}
 
@@ -2372,36 +2487,37 @@ define ('FALSE', false);
 define ('ZEND_THREAD_SAFE', false);
 define ('ZEND_DEBUG_BUILD', false);
 define ('NULL', null);
-define ('PHP_VERSION', "7.0.19");
+define ('PHP_VERSION', "7.1.5");
 define ('PHP_MAJOR_VERSION', 7);
-define ('PHP_MINOR_VERSION', 0);
-define ('PHP_RELEASE_VERSION', 19);
+define ('PHP_MINOR_VERSION', 1);
+define ('PHP_RELEASE_VERSION', 5);
 define ('PHP_EXTRA_VERSION', "");
-define ('PHP_VERSION_ID', 70019);
+define ('PHP_VERSION_ID', 70105);
 define ('PHP_ZTS', 0);
 define ('PHP_DEBUG', 0);
 define ('PHP_OS', "Linux");
 define ('PHP_SAPI', "cli");
 define ('DEFAULT_INCLUDE_PATH', ".:/usr/share/php");
 define ('PEAR_INSTALL_DIR', "/usr/share/php");
-define ('PEAR_EXTENSION_DIR', "/usr/lib/php/20151012");
-define ('PHP_EXTENSION_DIR', "/usr/lib/php/20151012");
+define ('PEAR_EXTENSION_DIR', "/usr/lib/php/20160303");
+define ('PHP_EXTENSION_DIR', "/usr/lib/php/20160303");
 define ('PHP_PREFIX', "/usr");
 define ('PHP_BINDIR', "/usr/bin");
 define ('PHP_MANDIR', "/usr/share/man");
 define ('PHP_LIBDIR', "/usr/lib/php");
-define ('PHP_DATADIR', "/usr/share/php/7.0");
+define ('PHP_DATADIR', "/usr/share/php/7.1");
 define ('PHP_SYSCONFDIR', "/etc");
 define ('PHP_LOCALSTATEDIR', "/var");
-define ('PHP_CONFIG_FILE_PATH', "/etc/php/7.0/cli");
-define ('PHP_CONFIG_FILE_SCAN_DIR', "/etc/php/7.0/cli/conf.d");
+define ('PHP_CONFIG_FILE_PATH', "/etc/php/7.1/cli");
+define ('PHP_CONFIG_FILE_SCAN_DIR', "/etc/php/7.1/cli/conf.d");
 define ('PHP_SHLIB_SUFFIX', "so");
 define ('PHP_EOL', "\n");
 define ('PHP_MAXPATHLEN', 4096);
 define ('PHP_INT_MAX', 9223372036854775807);
 define ('PHP_INT_MIN', -9223372036854775808);
 define ('PHP_INT_SIZE', 8);
-define ('PHP_BINARY', "/usr/bin/php7.0");
+define ('PHP_FD_SETSIZE', 1024);
+define ('PHP_BINARY', "/usr/bin/php7.1");
 
 /**
  * <p>
@@ -2541,5 +2657,5 @@ define ('STDIN', "Resource id #1");
 define ('STDOUT', "Resource id #2");
 define ('STDERR', "Resource id #3");
 
-// End of Core v.7.0.19
+// End of Core v.7.1.5
 ?>

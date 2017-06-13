@@ -1,6 +1,6 @@
 <?php
 
-// Start of date v.7.0.19
+// Start of date v.7.1.5
 
 interface DateTimeInterface  {
 
@@ -93,8 +93,9 @@ class DateTime implements DateTimeInterface {
 	 * @param $hour
 	 * @param $minute
 	 * @param $second [optional]
+	 * @param $microseconds [optional]
 	 */
-	public function setTime($hour, $minute, $second) {}
+	public function setTime($hour, $minute, $second, $microseconds) {}
 
 	/**
 	 * @param $year
@@ -187,8 +188,9 @@ class DateTimeImmutable implements DateTimeInterface {
 	 * @param $hour
 	 * @param $minute
 	 * @param $second [optional]
+	 * @param $microseconds [optional]
 	 */
-	public function setTime($hour, $minute, $second) {}
+	public function setTime($hour, $minute, $second, $microseconds) {}
 
 	/**
 	 * @param $year
@@ -1478,8 +1480,9 @@ function date_diff($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
+ * @param $microseconds [optional]
  */
-function date_time_set($object, $hour, $minute, $second) {}
+function date_time_set($object, $hour, $minute, $second, $microseconds) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
@@ -1806,5 +1809,5 @@ define ('SUNFUNCS_RET_STRING', 1);
  */
 define ('SUNFUNCS_RET_DOUBLE', 2);
 
-// End of date v.7.0.19
+// End of date v.7.1.5
 ?>

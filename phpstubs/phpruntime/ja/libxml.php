@@ -1,6 +1,6 @@
 <?php
 
-// Start of libxml v.7.0.19
+// Start of libxml v.7.1.5
 
 /**
  * libxml がスローするエラーについてのさまざまな情報を含みます。エラーコードについての説明は、公式の
@@ -333,5 +333,5 @@ define ('LIBXML_ERR_ERROR', 2);
  */
 define ('LIBXML_ERR_FATAL', 3);
 
-// End of libxml v.7.0.19
+// End of libxml v.7.1.5
 ?>

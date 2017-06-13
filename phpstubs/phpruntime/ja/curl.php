@@ -1,6 +1,6 @@
 <?php
 
-// Start of curl v.7.0.19
+// Start of curl v.7.1.5
 
 /**
  * <b>CURLOPT_POSTFIELDS</b> でファイルのアップロードをするには、
@@ -1647,6 +1647,11 @@ function curl_strerror(int $errornum): string {}
 function curl_multi_strerror(int $errornum): string {}
 
 /**
+ * @param $errornum
+ */
+function curl_share_strerror($errornum) {}
+
+/**
  * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
  * libcurl セッションハンドルのすべてのオプションをリセットする
  * @link http://php.net/manual/ja/function.curl-reset.php
@@ -1807,6 +1812,11 @@ function curl_multi_info_read($mh, int &$msgs_in_queue = null): array {}
 function curl_multi_close($mh): void {}
 
 /**
+ * @param $mh
+ */
+function curl_multi_errno($mh) {}
+
+/**
  * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
  * cURL マルチハンドル用のオプションを設定する
  * @link http://php.net/manual/ja/function.curl-multi-setopt.php
@@ -1954,6 +1964,11 @@ function curl_share_close($sh): void {}
  * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
 function curl_share_setopt($sh, int $option, string $value): bool {}
+
+/**
+ * @param $sh
+ */
+function curl_share_errno($sh) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 7)<br/>
@@ -2898,11 +2913,29 @@ define ('CURLOPT_DEFAULT_PROTOCOL', 10238);
 define ('CURLOPT_STREAM_WEIGHT', 239);
 
 /**
+ * PHP 7.1.0 および cURL 7.44.0 以降で使用可能です。
+ * @link http://php.net/manual/ja/curl.constants.php
+ */
+define ('CURLMOPT_PUSHFUNCTION', 20014);
+
+/**
+ * PHP 7.1.0 および cURL 7.44.0 以降で使用可能です。
+ * @link http://php.net/manual/ja/curl.constants.php
+ */
+define ('CURL_PUSH_OK', 0);
+
+/**
+ * PHP 7.1.0 および cURL 7.44.0 以降で使用可能です。
+ * @link http://php.net/manual/ja/curl.constants.php
+ */
+define ('CURL_PUSH_DENY', 1);
+
+/**
  * PHP 7.0.7 および cURL 7.47.0 以降で使用可能です。
  * @link http://php.net/manual/ja/curl.constants.php
  */
 define ('CURL_HTTP_VERSION_2TLS', 4);
 define ('CURLOPT_SAFE_UPLOAD', -1);
 
-// End of curl v.7.0.19
+// End of curl v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of mysqli v.7.0.19
+// Start of mysqli v.7.1.5
 
 /**
  * mysqli の例外を処理するクラスです。
@@ -4107,5 +4107,5 @@ define ('MYSQLI_TRANS_COR_RELEASE', 4);
  */
 define ('MYSQLI_TRANS_COR_NO_RELEASE', 8);
 
-// End of mysqli v.7.0.19
+// End of mysqli v.7.1.5
 ?>

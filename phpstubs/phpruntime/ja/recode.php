@@ -1,6 +1,6 @@
 <?php
 
-// Start of recode v.7.0.19
+// Start of recode v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -44,5 +44,5 @@ function recode_file(string $request, $input, $output): bool {}
  */
 function recode($request, $str) {}
 
-// End of recode v.7.0.19
+// End of recode v.7.1.5
 ?>

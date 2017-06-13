@@ -2420,10 +2420,20 @@ class IntlTimeZone  {
 	 */
 	public function getErrorMessage(): string {}
 
+	/**
+	 * @param $timezone
+	 */
+	public static function getWindowsID($timezone) {}
+
+	/**
+	 * @param $timezone
+	 * @param $region [optional]
+	 */
+	public static function getIDForWindowsID($timezone, $region) {}
+
 }
 
 /**
- * @method bool isSet(int $field) (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>Whether a field is set
  * @link http://php.net/manual/ja/class.intlcalendar.php
  */
 class IntlCalendar  {
@@ -2838,6 +2848,15 @@ class IntlCalendar  {
 	 * @return bool A bool representing whether the calendar is set to lenient mode.
 	 */
 	public function isLenient(): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether a field is set
+	 * @link http://php.net/manual/ja/intlcalendar.isset.php
+	 * @param int $field
+	 * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
+	 */
+	public function isSet(int $field): bool {}
 
 	/**
 	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
@@ -3383,6 +3402,15 @@ class IntlGregorianCalendar extends IntlCalendar  {
 	 * @return bool A bool representing whether the calendar is set to lenient mode.
 	 */
 	public function isLenient(): bool {}
+
+	/**
+	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>
+	 * Whether a field is set
+	 * @link http://php.net/manual/ja/intlcalendar.isset.php
+	 * @param int $field
+	 * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
+	 */
+	public function isSet(int $field): bool {}
 
 	/**
 	 * (PHP 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)<br/>

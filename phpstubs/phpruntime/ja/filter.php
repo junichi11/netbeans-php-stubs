@@ -1,6 +1,6 @@
 <?php
 
-// Start of filter v.7.0.19
+// Start of filter v.7.1.5
 
 /**
  * (PHP 5 &gt;= 5.2.0, PHP 7)<br/>
@@ -504,5 +504,12 @@ define ('FILTER_FLAG_NO_RES_RANGE', 4194304);
 define ('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
 define ('FILTER_FLAG_HOSTNAME', 1048576);
 
-// End of filter v.7.0.19
+/**
+ * Accepts Unicode characters in the local part in "validate_email" filter.
+ * (PHP 7.1.0 以降で利用可能)
+ * @link http://php.net/manual/ja/filter.constants.php
+ */
+define ('FILTER_FLAG_EMAIL_UNICODE', 1048576);
+
+// End of filter v.7.1.5
 ?>

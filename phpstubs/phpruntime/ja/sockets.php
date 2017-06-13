@@ -1,6 +1,6 @@
 <?php
 
-// Start of sockets v.7.0.19
+// Start of sockets v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
@@ -1985,5 +1985,5 @@ define ('SCM_RIGHTS', 1);
 define ('SCM_CREDENTIALS', 2);
 define ('SO_PASSCRED', 16);
 
-// End of sockets v.7.0.19
+// End of sockets v.7.1.5
 ?>

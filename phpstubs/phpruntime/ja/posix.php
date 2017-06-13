@@ -1,6 +1,6 @@
 <?php
 
-// Start of posix v.7.0.19
+// Start of posix v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -894,5 +894,5 @@ define ('POSIX_RLIMIT_STACK', 3);
  */
 define ('POSIX_RLIMIT_INFINITY', -1);
 
-// End of posix v.7.0.19
+// End of posix v.7.1.5
 ?>

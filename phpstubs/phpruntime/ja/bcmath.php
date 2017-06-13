@@ -1,6 +1,6 @@
 <?php
 
-// Start of bcmath v.7.0.19
+// Start of bcmath v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -157,5 +157,5 @@ function bccomp(string $left_operand, string $right_operand, int $scale = 0): in
  */
 function bcpowmod(string $left_operand, string $right_operand, string $modulus, int $scale = 0): string {}
 
-// End of bcmath v.7.0.19
+// End of bcmath v.7.1.5
 ?>

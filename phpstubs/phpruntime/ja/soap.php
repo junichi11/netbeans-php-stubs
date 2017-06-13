@@ -1,6 +1,6 @@
 <?php
 
-// Start of soap v.7.0.19
+// Start of soap v.7.1.5
 
 /**
  * SoapClient クラスは SOAP 1.1、SOAP 1.2 サーバー用のクライアントとなります。
@@ -835,5 +835,5 @@ define ('SOAP_SSL_METHOD_SSLv3', 2);
  */
 define ('SOAP_SSL_METHOD_SSLv23', 3);
 
-// End of soap v.7.0.19
+// End of soap v.7.1.5
 ?>

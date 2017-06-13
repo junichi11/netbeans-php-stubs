@@ -1,6 +1,6 @@
 <?php
 
-// Start of standard v.7.0.19
+// Start of standard v.7.1.5
 
 class __PHP_Incomplete_Class  {
 }
@@ -6481,6 +6481,11 @@ function is_scalar($var): bool {}
 function is_callable($var, bool $syntax_only = false, string &$callable_name = null): bool {}
 
 /**
+ * @param $var
+ */
+function is_iterable($var) {}
+
+/**
  * (PHP 4, PHP 5, PHP 7)<br/>
  * プロセスのファイルポインタをクローズする
  * @link http://php.net/manual/ja/function.pclose.php
@@ -12458,6 +12463,8 @@ define ('PASSWORD_DEFAULT', 1);
  */
 define ('PASSWORD_BCRYPT', 1);
 define ('PASSWORD_BCRYPT_DEFAULT_COST', 10);
+define ('MT_RAND_MT19937', 0);
+define ('MT_RAND_PHP', 1);
 define ('ABDAY_1', 131072);
 define ('ABDAY_2', 131073);
 define ('ABDAY_3', 131074);
@@ -13046,8 +13053,16 @@ define ('IMAGETYPE_XBM', 16);
  * @link http://php.net/manual/ja/image.constants.php
  */
 define ('IMAGETYPE_ICO', 17);
+
+/**
+ * 画像タイプ定数。<b>image_type_to_mime_type</b>
+ * や <b>image_type_to_extension</b> 関数で使用します。
+ * (PHP 7.1.0 以降で利用可能)
+ * @link http://php.net/manual/ja/image.constants.php
+ */
+define ('IMAGETYPE_WEBP', 18);
 define ('IMAGETYPE_UNKNOWN', 0);
-define ('IMAGETYPE_COUNT', 18);
+define ('IMAGETYPE_COUNT', 19);
 
 /**
  * IPv4アドレスリソース
@@ -13124,5 +13139,5 @@ define ('DNS_ANY', 268435456);
  */
 define ('DNS_ALL', 251721779);
 
-// End of standard v.7.0.19
+// End of standard v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of session v.7.0.19
+// Start of session v.7.1.5
 
 /**
  * <b>SessionHandlerInterface</b> は
@@ -295,6 +295,11 @@ function session_save_path(string $path = null): string {}
 function session_id(string $id = null): string {}
 
 /**
+ * @param $prefix [optional]
+ */
+function session_create_id($prefix) {}
+
+/**
  * (PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)<br/>
  * 現在のセッションIDを新しく生成したものと置き換える
  * @link http://php.net/manual/ja/function.session-regenerate-id.php
@@ -363,6 +368,8 @@ function session_destroy(): bool {}
  * @return void 値を返しません。
  */
 function session_unset(): void {}
+
+function session_gc() {}
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -569,5 +576,5 @@ define ('PHP_SESSION_NONE', 1);
  */
 define ('PHP_SESSION_ACTIVE', 2);
 
-// End of session v.7.0.19
+// End of session v.7.1.5
 ?>

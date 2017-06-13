@@ -1,6 +1,6 @@
 <?php
 
-// Start of pspell v.7.0.19
+// Start of pspell v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)<br/>
@@ -307,5 +307,5 @@ define ('PSPELL_NORMAL', 2);
 define ('PSPELL_BAD_SPELLERS', 3);
 define ('PSPELL_RUN_TOGETHER', 8);
 
-// End of pspell v.7.0.19
+// End of pspell v.7.1.5
 ?>

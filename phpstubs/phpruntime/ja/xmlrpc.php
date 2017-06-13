@@ -1,6 +1,6 @@
 <?php
 
-// Start of xmlrpc v.7.0.19
+// Start of xmlrpc v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
@@ -163,5 +163,5 @@ function xmlrpc_server_add_introspection_data($server, array $desc): int {}
  */
 function xmlrpc_server_register_introspection_callback($server, string $function): bool {}
 
-// End of xmlrpc v.7.0.19
+// End of xmlrpc v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of shmop v.7.0.19
+// Start of shmop v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)<br/>
@@ -58,5 +58,5 @@ function shmop_write($shmid, $data, $offset) {}
  */
 function shmop_delete($shmid) {}
 
-// End of shmop v.7.0.19
+// End of shmop v.7.1.5
 ?>

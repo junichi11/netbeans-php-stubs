@@ -1,6 +1,6 @@
 <?php
 
-// Start of sysvsem v.7.0.19
+// Start of sysvsem v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -62,5 +62,5 @@ function sem_release($sem_identifier): bool {}
  */
 function sem_remove($sem_identifier): bool {}
 
-// End of sysvsem v.7.0.19
+// End of sysvsem v.7.1.5
 ?>

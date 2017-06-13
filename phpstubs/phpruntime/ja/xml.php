@@ -1,6 +1,6 @@
 <?php
 
-// Start of xml v.7.0.19
+// Start of xml v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -581,5 +581,5 @@ define ('XML_OPTION_SKIP_WHITE', 4);
  */
 define ('XML_SAX_IMPL', "libxml");
 
-// End of xml v.7.0.19
+// End of xml v.7.1.5
 ?>

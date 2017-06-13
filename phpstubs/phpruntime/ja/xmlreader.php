@@ -1,6 +1,6 @@
 <?php
 
-// Start of xmlreader v.7.0.19
+// Start of xmlreader v.7.1.5
 
 /**
  * XMLReader 拡張モジュールは、プル型の XML パーサです。ドキュメント
@@ -318,5 +318,5 @@ class XMLReader  {
 	public function expand(DOMNode $basenode = null): DOMNode {}
 
 }
-// End of xmlreader v.7.0.19
+// End of xmlreader v.7.1.5
 ?>

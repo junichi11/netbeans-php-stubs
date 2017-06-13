@@ -1,6 +1,6 @@
 <?php
 
-// Start of readline v.7.0.19
+// Start of readline v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -142,5 +142,5 @@ function readline_redisplay(): void {}
 
 define ('READLINE_LIB', "readline");
 
-// End of readline v.7.0.19
+// End of readline v.7.1.5
 ?>

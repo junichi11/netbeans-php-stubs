@@ -1,6 +1,6 @@
 <?php
 
-// Start of gettext v.7.0.19
+// Start of gettext v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -139,5 +139,5 @@ function dcngettext(string $domain, string $msgid1, string $msgid2, int $n, int 
  */
 function bind_textdomain_codeset(string $domain, string $codeset): string {}
 
-// End of gettext v.7.0.19
+// End of gettext v.7.1.5
 ?>

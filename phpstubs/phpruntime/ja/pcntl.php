@@ -1,6 +1,6 @@
 <?php
 
-// Start of pcntl v.7.0.19
+// Start of pcntl v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
@@ -149,6 +149,11 @@ function pcntl_wait(int &$status, int $options = 0): int {}
  * @return bool 成功した場合に <b>TRUE</b> を、失敗した場合に <b>FALSE</b> を返します。
  */
 function pcntl_signal(int $signo, $signinfo): bool {}
+
+/**
+ * @param $signo
+ */
+function pcntl_signal_get_handler($signo) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7)<br/>
@@ -412,6 +417,11 @@ function pcntl_sigtimedwait(array $set, array &$siginfo = null, int $seconds = 0
  * @param $status
  */
 function pcntl_wifcontinued($status) {}
+
+/**
+ * @param $on
+ */
+function pcntl_async_signals($on) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
@@ -750,5 +760,5 @@ define ('PCNTL_ENOEXEC', 8);
 define ('PCNTL_ENOTDIR', 20);
 define ('PCNTL_ETXTBSY', 26);
 
-// End of pcntl v.7.0.19
+// End of pcntl v.7.1.5
 ?>

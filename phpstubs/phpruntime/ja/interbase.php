@@ -1,6 +1,6 @@
 <?php
 
-// Start of interbase v.7.0.19
+// Start of interbase v.7.1.5
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -1144,5 +1144,5 @@ define ('IBASE_SVC_SVR_DB_INFO', 50);
  */
 define ('IBASE_SVC_GET_USERS', 68);
 
-// End of interbase v.7.0.19
+// End of interbase v.7.1.5
 ?>

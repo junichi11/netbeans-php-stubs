@@ -1,6 +1,6 @@
 <?php
 
-// Start of zlib v.7.0.19
+// Start of zlib v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -562,5 +562,5 @@ define ('ZLIB_DEFAULT_STRATEGY', 0);
 define ('ZLIB_VERSION', "1.2.8");
 define ('ZLIB_VERNUM', 4736);
 
-// End of zlib v.7.0.19
+// End of zlib v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of SimpleXML v.7.0.19
+// Start of SimpleXML v.7.1.5
 
 /**
  * XML ドキュメントの要素をあらわします。
@@ -580,5 +580,5 @@ function simplexml_load_string(string $data, string $class_name = "SimpleXMLElem
  */
 function simplexml_import_dom(DOMNode $node, string $class_name = "SimpleXMLElement"): SimpleXMLElement {}
 
-// End of SimpleXML v.7.0.19
+// End of SimpleXML v.7.1.5
 ?>

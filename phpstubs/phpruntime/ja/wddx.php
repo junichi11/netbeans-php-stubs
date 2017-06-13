@@ -1,6 +1,6 @@
 <?php
 
-// Start of wddx v.7.0.19
+// Start of wddx v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -79,5 +79,5 @@ function wddx_add_vars($packet_id, $var_name, $_ = null): bool {}
  */
 function wddx_deserialize(string $packet) {}
 
-// End of wddx v.7.0.19
+// End of wddx v.7.1.5
 ?>

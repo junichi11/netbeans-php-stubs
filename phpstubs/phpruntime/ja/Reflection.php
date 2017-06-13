@@ -1,6 +1,6 @@
 <?php
 
-// Start of Reflection v.7.0.19
+// Start of Reflection v.7.1.5
 
 /**
  * ReflectionException クラスです。
@@ -987,6 +987,38 @@ class ReflectionType  {
 
 }
 
+class ReflectionNamedType extends ReflectionType  {
+
+	public function getName() {}
+
+	final private function __clone() {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if null is allowed
+	 * @link http://php.net/manual/ja/reflectiontype.allowsnull.php
+	 * @return bool <b>TRUE</b> if <b>NULL</b> is allowed, otherwise <b>FALSE</b>
+	 */
+	public function allowsNull(): bool {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * Checks if it is a built-in type
+	 * @link http://php.net/manual/ja/reflectiontype.isbuiltin.php
+	 * @return bool <b>TRUE</b> if it's a built-in type, otherwise <b>FALSE</b>
+	 */
+	public function isBuiltin(): bool {}
+
+	/**
+	 * (PHP 7)<br/>
+	 * To string
+	 * @link http://php.net/manual/ja/reflectiontype.tostring.php
+	 * @return string the type of the parameter.
+	 */
+	public function __toString(): string {}
+
+}
+
 /**
  * <b>ReflectionMethod</b> クラスは
  * メソッドについての情報を報告します。
@@ -1622,6 +1654,8 @@ class ReflectionClass implements Reflector {
 	 */
 	public function getConstants(): array {}
 
+	public function getReflectionConstants() {}
+
 	/**
 	 * (PHP 5, PHP 7)<br/>
 	 * 定義されている定数を取得する
@@ -1632,6 +1666,11 @@ class ReflectionClass implements Reflector {
 	 * @return mixed 定数の値を返します。
 	 */
 	public function getConstant(string $name) {}
+
+	/**
+	 * @param $name
+	 */
+	public function getReflectionConstant($name) {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -2130,6 +2169,8 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 */
 	public function getConstants(): array {}
 
+	public function getReflectionConstants() {}
+
 	/**
 	 * (PHP 5, PHP 7)<br/>
 	 * 定義されている定数を取得する
@@ -2140,6 +2181,11 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 * @return mixed 定数の値を返します。
 	 */
 	public function getConstant(string $name) {}
+
+	/**
+	 * @param $name
+	 */
+	public function getReflectionConstant($name) {}
 
 	/**
 	 * (PHP 5, PHP 7)<br/>
@@ -2572,6 +2618,46 @@ class ReflectionProperty implements Reflector {
 
 }
 
+class ReflectionClassConstant implements Reflector {
+	public $name;
+	public $class;
+
+
+	final private function __clone() {}
+
+	/**
+	 * @param $class
+	 * @param $name
+	 * @param $return [optional]
+	 */
+	public static function export($class, $name, $return) {}
+
+	/**
+	 * @param $class
+	 * @param $name
+	 */
+	public function __construct($class, $name) {}
+
+	public function __toString() {}
+
+	public function getName() {}
+
+	public function getValue() {}
+
+	public function isPublic() {}
+
+	public function isPrivate() {}
+
+	public function isProtected() {}
+
+	public function getModifiers() {}
+
+	public function getDeclaringClass() {}
+
+	public function getDocComment() {}
+
+}
+
 /**
  * <b>ReflectionExtension</b> クラスは
  * 拡張モジュールについての情報を報告します。
@@ -2811,5 +2897,5 @@ class ReflectionZendExtension implements Reflector {
 	public function getCopyright(): string {}
 
 }
-// End of Reflection v.7.0.19
+// End of Reflection v.7.1.5
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of pgsql v.7.0.19
+// Start of pgsql v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -1916,6 +1916,9 @@ define ('PGSQL_NUM', 2);
  * @link http://php.net/manual/ja/pgsql.constants.php
  */
 define ('PGSQL_BOTH', 3);
+define ('PGSQL_NOTICE_LAST', 1);
+define ('PGSQL_NOTICE_ALL', 2);
+define ('PGSQL_NOTICE_CLEAR', 3);
 
 /**
  * <b>pg_connection_status</b> から返され、データベースとの
@@ -2296,5 +2299,5 @@ define ('PGSQL_DML_ASYNC', 1024);
  */
 define ('PGSQL_DML_STRING', 2048);
 
-// End of pgsql v.7.0.19
+// End of pgsql v.7.1.5
 ?>

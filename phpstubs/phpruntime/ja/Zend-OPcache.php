@@ -1,6 +1,6 @@
 <?php
 
-// Start of Zend OPcache v.7.0.19
+// Start of Zend OPcache v.7.1.5
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 7, PECL ZendOpcache &gt;= 7.0.0)<br/>
@@ -69,5 +69,5 @@ function opcache_get_configuration(): array {}
  */
 function opcache_get_status(bool $get_scripts = true): array {}
 
-// End of Zend OPcache v.7.0.19
+// End of Zend OPcache v.7.1.5
 ?>

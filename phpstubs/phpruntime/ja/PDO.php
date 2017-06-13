@@ -1,6 +1,6 @@
 <?php
 
-// Start of PDO v.7.0.19
+// Start of PDO v.7.1.5
 
 /**
  * PDO が発するエラーを表します。あなた自身が書いたコードから
@@ -717,6 +717,15 @@ class PDO  {
 	const PGSQL_TRANSACTION_INTRANS = 2;
 	const PGSQL_TRANSACTION_INERROR = 3;
 	const PGSQL_TRANSACTION_UNKNOWN = 4;
+
+	/**
+	 * Specifies that a function created with <b>PDO::sqliteCreateFunction</b>
+	 * is deterministic, i.e. it always returns the same result given the same inputs within
+	 * a single SQL statement.
+	 * (PHP 7.1.4 以降で使用可能です)
+	 * @link http://php.net/manual/ja/pdo.constants.php
+	 */
+	const SQLITE_DETERMINISTIC = 2048;
 
 
 	/**
@@ -1439,5 +1448,5 @@ final class PDORow  {
 
 function pdo_drivers() {}
 
-// End of PDO v.7.0.19
+// End of PDO v.7.1.5
 ?>

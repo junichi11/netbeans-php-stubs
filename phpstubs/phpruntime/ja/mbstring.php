@@ -1,6 +1,6 @@
 <?php
 
-// Start of mbstring v.7.0.19
+// Start of mbstring v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)<br/>
@@ -1411,5 +1411,5 @@ define ('MB_CASE_UPPER', 0);
 define ('MB_CASE_LOWER', 1);
 define ('MB_CASE_TITLE', 2);
 
-// End of mbstring v.7.0.19
+// End of mbstring v.7.1.5
 ?>

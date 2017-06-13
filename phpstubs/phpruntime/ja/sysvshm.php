@@ -1,6 +1,6 @@
 <?php
 
-// Start of sysvshm v.7.0.19
+// Start of sysvshm v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -108,5 +108,5 @@ function shm_get_var($shm_identifier, int $variable_key) {}
  */
 function shm_remove_var($shm_identifier, int $variable_key): bool {}
 
-// End of sysvshm v.7.0.19
+// End of sysvshm v.7.1.5
 ?>

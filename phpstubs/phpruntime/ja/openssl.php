@@ -1,6 +1,6 @@
 <?php
 
-// Start of openssl v.7.0.19
+// Start of openssl v.7.1.5
 
 function openssl_get_cert_locations() {}
 
@@ -978,6 +978,8 @@ function openssl_get_md_methods(bool $aliases = false): array {}
  */
 function openssl_get_cipher_methods(bool $aliases = false): array {}
 
+function openssl_get_curve_names() {}
+
 /**
  * (PHP 5 &gt;= 5.3.11, PHP 7)<br/>
  * リモート DH キー及びローカル DH キーの公開値に関して、共有される秘密を計算
@@ -1159,5 +1161,5 @@ define ('OPENSSL_ZERO_PADDING', 2);
  */
 define ('OPENSSL_TLSEXT_SERVER_NAME', 1);
 
-// End of openssl v.7.0.19
+// End of openssl v.7.1.5
 ?>

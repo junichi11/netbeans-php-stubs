@@ -1,6 +1,6 @@
 <?php
 
-// Start of pcre v.7.0.19
+// Start of pcre v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -601,5 +601,5 @@ define ('PREG_JIT_STACKLIMIT_ERROR', 6);
  */
 define ('PCRE_VERSION', "8.38 2015-11-23");
 
-// End of pcre v.7.0.19
+// End of pcre v.7.1.5
 ?>

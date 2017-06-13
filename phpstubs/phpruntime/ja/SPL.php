@@ -1,6 +1,6 @@
 <?php
 
-// Start of SPL v.7.0.19
+// Start of SPL v.7.1.5
 
 /**
  * プログラムのロジック内でのエラーを表す例外です。
@@ -9606,5 +9606,5 @@ function iterator_count(Traversable $iterator): int {}
  */
 function iterator_apply(Traversable $iterator, callable $function, array $args = null): int {}
 
-// End of SPL v.7.0.19
+// End of SPL v.7.1.5
 ?>

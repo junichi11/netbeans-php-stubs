@@ -1,6 +1,6 @@
 <?php
 
-// Start of calendar v.7.0.19
+// Start of calendar v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -312,5 +312,5 @@ define ('CAL_JEWISH_ADD_ALAFIM_GERESH', 2);
 define ('CAL_JEWISH_ADD_ALAFIM', 4);
 define ('CAL_JEWISH_ADD_GERESHAYIM', 8);
 
-// End of calendar v.7.0.19
+// End of calendar v.7.1.5
 ?>

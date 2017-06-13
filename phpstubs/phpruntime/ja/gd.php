@@ -1,6 +1,6 @@
 <?php
 
-// Start of gd v.7.0.19
+// Start of gd v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)<br/>
@@ -2214,5 +2214,5 @@ define ('PNG_FILTER_PAETH', 128);
  */
 define ('PNG_ALL_FILTERS', 248);
 
-// End of gd v.7.0.19
+// End of gd v.7.1.5
 ?>

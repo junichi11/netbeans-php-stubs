@@ -1,6 +1,6 @@
 <?php
 
-// Start of ctype v.7.0.19
+// Start of ctype v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)<br/>
@@ -140,5 +140,5 @@ function ctype_upper(string $text): bool {}
  */
 function ctype_xdigit(string $text): bool {}
 
-// End of ctype v.7.0.19
+// End of ctype v.7.1.5
 ?>

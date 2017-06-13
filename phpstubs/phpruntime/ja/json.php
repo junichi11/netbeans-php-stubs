@@ -1,6 +1,6 @@
 <?php
 
-// Start of json v.1.4.0
+// Start of json v.1.5.0
 
 /**
  * JsonSerializable を実装したオブジェクトは、
@@ -196,6 +196,15 @@ define ('JSON_PARTIAL_OUTPUT_ON_ERROR', 512);
 define ('JSON_PRESERVE_ZERO_FRACTION', 1024);
 
 /**
+ * The line terminators are kept unescaped when
+ * <b>JSON_UNESCAPED_UNICODE</b> is supplied. It uses the same
+ * behaviour as it was before PHP 7.1 without this constant.
+ * Available since PHP 7.1.0.
+ * @link http://php.net/manual/ja/json.constants.php
+ */
+define ('JSON_UNESCAPED_LINE_TERMINATORS', 2048);
+
+/**
  * Decodes JSON objects as PHP array. This option can be added automatically
  * by calling <b>json_decode</b> with the second parameter
  * equal to <b>TRUE</b>.
@@ -303,5 +312,5 @@ define ('JSON_ERROR_UNSUPPORTED_TYPE', 8);
 define ('JSON_ERROR_INVALID_PROPERTY_NAME', 9);
 define ('JSON_ERROR_UTF16', 10);
 
-// End of json v.1.4.0
+// End of json v.1.5.0
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of ftp v.7.0.19
+// Start of ftp v.7.1.5
 
 /**
  * (PHP 4, PHP 5, PHP 7)<br/>
@@ -713,5 +713,5 @@ define ('FTP_FINISHED', 1);
  */
 define ('FTP_MOREDATA', 2);
 
-// End of ftp v.7.0.19
+// End of ftp v.7.1.5
 ?>

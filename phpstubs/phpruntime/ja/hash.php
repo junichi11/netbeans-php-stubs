@@ -236,6 +236,15 @@ function hash_pbkdf2($algo, $password, $salt, $iterations, $length, $raw_output)
  */
 function hash_equals($known_string, $user_string) {}
 
+/**
+ * @param $ikm
+ * @param $algo
+ * @param $length [optional]
+ * @param $string [optional]
+ * @param $salt [optional]
+ */
+function hash_hkdf($ikm, $algo, $length, $string, $salt) {}
+
 
 /**
  * <b>hash_init</b> のオプションのフラグです。

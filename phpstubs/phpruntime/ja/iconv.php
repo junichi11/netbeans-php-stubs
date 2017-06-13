@@ -1,6 +1,6 @@
 <?php
 
-// Start of iconv v.7.0.19
+// Start of iconv v.7.1.5
 
 /**
  * (PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)<br/>
@@ -431,5 +431,5 @@ define ('ICONV_MIME_DECODE_STRICT', 1);
  */
 define ('ICONV_MIME_DECODE_CONTINUE_ON_ERROR', 2);
 
-// End of iconv v.7.0.19
+// End of iconv v.7.1.5
 ?>
