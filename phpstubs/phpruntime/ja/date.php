@@ -2,6 +2,11 @@
 
 // Start of date v.7.0.19
 
+/**
+ * DateTimeInterface は、DateTime および DateTimeImmutable をタイプヒントで使えるようにするためのインターフェイスです。
+ * このインターフェイスを実装したクラスをユーザー側で作ることはできません。
+ * @link http://php.net/manual/ja/class.datetimeinterface.php
+ */
 interface DateTimeInterface  {
 
 	/**
@@ -25,19 +30,82 @@ interface DateTimeInterface  {
 
 }
 
+/**
+ * 日付と時刻をあらわします。
+ * @link http://php.net/manual/ja/class.datetime.php
+ */
 class DateTime implements DateTimeInterface {
+
+	/**
+	 * Atom (例: 2005-08-15T15:52:01+00:00)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const ATOM = "Y-m-d\TH:i:sP";
+
+	/**
+	 * HTTP Cookies (例: Monday, 15-Aug-2005 15:52:01 UTC)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const COOKIE = "l, d-M-Y H:i:s T";
+
+	/**
+	 * ISO-8601 (例: 2005-08-15T15:52:01+0000)
+	 * この書式は ISO-8601 との互換性がありませんが、敢えてそのまま残しています。
+	 * 下位互換性を保つためです。ISO-8601 互換の書式を使いたい場合は、
+	 * <b>DateTime::ATOM</b> あるいは
+	 * <b>DATE_ATOM</b> を使いましょう。
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const ISO8601 = "Y-m-d\TH:i:sO";
+
+	/**
+	 * RFC 822 (例: Mon, 15 Aug 05 15:52:01 +0000)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC822 = "D, d M y H:i:s O";
+
+	/**
+	 * RFC 850 (例: Monday, 15-Aug-05 15:52:01 UTC)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC850 = "l, d-M-y H:i:s T";
+
+	/**
+	 * RFC 1036 (例: Mon, 15 Aug 05 15:52:01 +0000)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC1036 = "D, d M y H:i:s O";
+
+	/**
+	 * RFC 1123 (例: Mon, 15 Aug 2005 15:52:01 +0000)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC1123 = "D, d M Y H:i:s O";
 	const RFC7231 = "D, d M Y H:i:s \G\M\T";
+
+	/**
+	 * RFC 2822 (例: Mon, 15 Aug 2005 15:52:01 +0000)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC2822 = "D, d M Y H:i:s O";
+
+	/**
+	 * <b>DATE_ATOM</b> と同じ (PHP 5.1.3 以降)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RFC3339 = "Y-m-d\TH:i:sP";
 	const RFC3339_EXTENDED = "Y-m-d\TH:i:s.vP";
+
+	/**
+	 * RSS (例: Mon, 15 Aug 2005 15:52:01 +0000)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const RSS = "D, d M Y H:i:s O";
+
+	/**
+	 * World Wide Web Consortium (例: 2005-08-15T15:52:01+00:00)
+	 * @link http://php.net/manual/ja/class.datetime.php
+	 */
 	const W3C = "Y-m-d\TH:i:sP";
 
 
@@ -509,6 +577,11 @@ class DateTime implements DateTimeInterface {
 
 }
 
+/**
+ * このクラスの挙動は <b>DateTime</b> とほぼ同じですが、
+ * 自分自身は変更せずに新しいオブジェクトを返すという点だけが異なります。
+ * @link http://php.net/manual/ja/class.datetimeimmutable.php
+ */
 class DateTimeImmutable implements DateTimeInterface {
 
 	/**
@@ -700,20 +773,94 @@ class DateTimeImmutable implements DateTimeInterface {
 
 }
 
+/**
+ * タイムゾーンをあらわします。
+ * @link http://php.net/manual/ja/class.datetimezone.php
+ */
 class DateTimeZone  {
+
+	/**
+	 * <p>アフリカのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const AFRICA = 1;
+
+	/**
+	 * <p>アメリカのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const AMERICA = 2;
+
+	/**
+	 * <p>南極のタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ANTARCTICA = 4;
+
+	/**
+	 * <p>北極のタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ARCTIC = 8;
+
+	/**
+	 * <p>アジアのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ASIA = 16;
+
+	/**
+	 * <p>大西洋のタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ATLANTIC = 32;
+
+	/**
+	 * <p>オーストラリアのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const AUSTRALIA = 64;
+
+	/**
+	 * <p>ヨーロッパのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const EUROPE = 128;
+
+	/**
+	 * <p>インドのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const INDIAN = 256;
+
+	/**
+	 * <p>太平洋のタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const PACIFIC = 512;
+
+	/**
+	 * <p>UTC タイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const UTC = 1024;
+
+	/**
+	 * <p>すべてのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ALL = 2047;
+
+	/**
+	 * <p>過去との互換性を保つものを含むすべてのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const ALL_WITH_BC = 4095;
+
+	/**
+	 * <p>国ごとのタイムゾーン。</p>
+	 * @link http://php.net/manual/ja/class.datetimezone.php
+	 */
 	const PER_COUNTRY = 4096;
 
 
@@ -797,6 +944,10 @@ class DateTimeZone  {
 
 }
 
+/**
+ * 日付の間隔をあらわします。
+ * @link http://php.net/manual/ja/class.dateinterval.php
+ */
 class DateInterval  {
 	/**
 	 * <p style="margin-top:0;">
@@ -994,7 +1145,16 @@ class DateInterval  {
 
 }
 
+/**
+ * 日付の期間をあらわします。
+ * @link http://php.net/manual/ja/class.dateperiod.php
+ */
 class DatePeriod implements Traversable {
+
+	/**
+	 * <p>開始日を含まない。<b>DatePeriod::__construct</b> で使用します。</p>
+	 * @link http://php.net/manual/ja/class.dateperiod.php
+	 */
 	const EXCLUDE_START_DATE = 1;
 
 

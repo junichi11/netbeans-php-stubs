@@ -5398,6 +5398,8 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function colordecisionlistimage($antialias) {}
 
+	public function optimizeimagetransparency() {}
+
 	/**
 	 * @param $CHANNEL
 	 */

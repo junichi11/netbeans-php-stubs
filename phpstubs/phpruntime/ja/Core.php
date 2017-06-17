@@ -2372,22 +2372,102 @@ define ('FALSE', false);
 define ('ZEND_THREAD_SAFE', false);
 define ('ZEND_DEBUG_BUILD', false);
 define ('NULL', null);
+
+/**
+ * 現在の PHP のバージョンを
+ * "major.minor.release[extra]"
+ * 形式の文字列で表したもの。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_VERSION', "7.0.19");
+
+/**
+ * 現在の PHP のメジャーバージョンを整数値で表したもの
+ * (たとえば、バージョンが "5.2.7-extra" の場合は int(5) となる)。
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_MAJOR_VERSION', 7);
+
+/**
+ * 現在の PHP のマイナーバージョンを整数値で表したもの
+ * (たとえば、バージョンが "5.2.7-extra" の場合は int(2) となる)。
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_MINOR_VERSION', 0);
+
+/**
+ * 現在の PHP のリリースバージョンを整数値で表したもの
+ * (たとえば、バージョンが "5.2.7-extra" の場合は int(7) となる)。
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_RELEASE_VERSION', 19);
+
+/**
+ * 現在の PHP の追加バージョンを文字列で表したもの
+ * (たとえば、バージョンが "5.2.7-extra" の場合は '-extra' となる)。
+ * ディストリビューションのベンダーが、パッケージのバージョンを示すために使うことが多い。
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_EXTRA_VERSION', "");
+
+/**
+ * 現在の PHP のバージョンを整数値で表したもの。バージョンを比較する際に有用
+ * (たとえば、バージョンが "5.2.7-extra" の場合は int(50207) となる)。
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_VERSION_ID', 70019);
+
+/**
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_ZTS', 0);
+
+/**
+ * PHP 5.2.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_DEBUG', 0);
+
+/**
+ * The operating system PHP was built for.
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_OS', "Linux");
+
+/**
+ * この PHP のサーバー API。
+ * <b>php_sapi_name</b> も参照ください。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_SAPI', "cli");
 define ('DEFAULT_INCLUDE_PATH', ".:/usr/share/php");
 define ('PEAR_INSTALL_DIR', "/usr/share/php");
 define ('PEAR_EXTENSION_DIR', "/usr/lib/php/20151012");
 define ('PHP_EXTENSION_DIR', "/usr/lib/php/20151012");
+
+/**
+ * configure 時に設定された "--prefix" の値。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_PREFIX', "/usr");
+
+/**
+ * バイナリのインストール先。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_BINDIR', "/usr/bin");
+
+/**
+ * man ページのインストール先。
+ * PHP 5.3.7 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_MANDIR', "/usr/share/man");
 define ('PHP_LIBDIR', "/usr/lib/php");
 define ('PHP_DATADIR', "/usr/share/php/7.0");
@@ -2395,12 +2475,56 @@ define ('PHP_SYSCONFDIR', "/etc");
 define ('PHP_LOCALSTATEDIR', "/var");
 define ('PHP_CONFIG_FILE_PATH', "/etc/php/7.0/cli");
 define ('PHP_CONFIG_FILE_SCAN_DIR', "/etc/php/7.0/cli/conf.d");
+
+/**
+ * このプラットフォームの共有ライブラリの拡張子。"so" (多くの Unix 系 OS)
+ * や "dll" (Windows) など。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_SHLIB_SUFFIX', "so");
+
+/**
+ * このプラットフォームの行末文字。
+ * PHP 5.0.2 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_EOL', "\n");
+
+/**
+ * この PHP がサポートする、ファイル名の長さ (パスを含む) の最大値。
+ * PHP 5.3.0 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_MAXPATHLEN', 4096);
+
+/**
+ * この PHP がサポートする整数型の最大値。通常は int(2147483647)。
+ * PHP 5.0.5 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_INT_MAX', 9223372036854775807);
+
+/**
+ * この PHP がサポートする整数型の最小値。通常は、32ビットシステムなら int(-2147483648)、
+ * 64ビットシステムなら int(-9223372036854775808)。
+ * PHP 7.0.0 以降で利用可能。
+ * 通常は PHP_INT_MIN === ~PHP_INT_MAX となる。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_INT_MIN', -9223372036854775808);
+
+/**
+ * この PHP ビルドにおける整数型のサイズ (バイト数)。
+ * PHP 5.0.5 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_INT_SIZE', 8);
+
+/**
+ * スクリプト実行時の PHP バイナリのパス。
+ * PHP 5.4 以降で利用可能。
+ * @link http://php.net/manual/ja/reserved.constants.php
+ */
 define ('PHP_BINARY', "/usr/bin/php7.0");
 
 /**
@@ -2529,16 +2653,117 @@ define ('PHP_OUTPUT_HANDLER_REMOVABLE', 64);
 define ('PHP_OUTPUT_HANDLER_STDFLAGS', 112);
 define ('PHP_OUTPUT_HANDLER_STARTED', 4096);
 define ('PHP_OUTPUT_HANDLER_DISABLED', 8192);
+
+/**
+ * <p>
+ * 値: 0; エラーはなく、ファイルアップロードは成功しています。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_OK', 0);
+
+/**
+ * <p>
+ * 値: 1; アップロードされたファイルは、<i>php.ini</i> の
+ * upload_max_filesize
+ * ディレクティブの値を超えています。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_INI_SIZE', 1);
+
+/**
+ * <p>
+ * 値: 2; アップロードされたファイルは、HTML フォームで指定された
+ * MAX_FILE_SIZE を超えています。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_FORM_SIZE', 2);
+
+/**
+ * <p>
+ * 値: 3; アップロードされたファイルは一部のみしかアップロードされていません。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_PARTIAL', 3);
+
+/**
+ * <p>
+ * 値: 4; ファイルはアップロードされませんでした。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_NO_FILE', 4);
+
+/**
+ * <p>
+ * 値: 6; テンポラリフォルダがありません。PHP 5.0.3
+ * で導入されました。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_NO_TMP_DIR', 6);
+
+/**
+ * <p>
+ * 値: 7; ディスクへの書き込みに失敗しました。PHP 5.1.0
+ * で導入されました。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_CANT_WRITE', 7);
+
+/**
+ * <p>
+ * 値: 8; PHP の拡張モジュールがファイルのアップロードを中止しました。
+ * どの拡張モジュールがファイルアップロードを中止させたのかを突き止めることはできません。
+ * 読み込まれている拡張モジュールの一覧を <b>phpinfo</b> で取得すれば参考になるでしょう。
+ * PHP 5.2.0 で導入されました。
+ * </p>
+ * @link http://php.net/manual/ja/features.file-upload.php
+ */
 define ('UPLOAD_ERR_EXTENSION', 8);
+
+/**
+ * <p>stdin へのオープン済みのストリーム。
+ * これにより、以下のようにオープンする必要がなくなります。
+ * <code>
+ * $stdin = fopen('php://stdin', 'r');
+ * </code>
+ * stdin から1行読み込みたい場合、以下のようにします。
+ * <code>
+ * $line = trim(fgets(STDIN)); // STDIN から 1 行読み込む
+ * fscanf(STDIN, "%d\n", $number); // STDIN から数値を読み込む
+ * </code>
+ * </p>
+ * @link http://php.net/manual/ja/features.commandline.php
+ */
 define ('STDIN', "Resource id #1");
+
+/**
+ * <p>
+ * stdout へのオープン済みのストリーム。
+ * これにより、以下のようにオープンする必要がなくなります。
+ * <code>
+ * $stdout = fopen('php://stdout', 'w');
+ * </code>
+ * </p>
+ * @link http://php.net/manual/ja/features.commandline.php
+ */
 define ('STDOUT', "Resource id #2");
+
+/**
+ * <p>
+ * stderr へのオープン済みのストリーム。
+ * これにより、以下のようにオープンする必要がなくなります。
+ * <code>
+ * $stderr = fopen('php://stderr', 'w');
+ * </code>
+ * </p>
+ * @link http://php.net/manual/ja/features.commandline.php
+ */
 define ('STDERR', "Resource id #3");
 
 // End of Core v.7.0.19
