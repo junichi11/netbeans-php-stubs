@@ -4,19 +4,22 @@ NetBeans PHP 用の日本語のスタブです。ドキュメントは日本語�
 
 ### 使用方法
 
-1. 対応したバージョンのブランチを選択し、ダウンロードする。もしくは `git clone` する。
-2. NetBeansをインストールしたディレクトリのなかにある php/phpstubs/phpruntime 内のファイルをバックアップする。
-3. phpstubs/phpruntime/ja 内のファイルをコピーし、 php/phpstubs/phpruntime のファイルを上書きする。
-
-もしくは、シンボリックリンクを作成するなどしてください。上書きせずに`ja`ディレクトリをそのまま`php/phpstubs/phpruntime`内にコピーしても使えますが、二重に補完の候補が追加されるので処理が遅くなるかもしれません。
+1. GitHubリポジトリの [releases](https://github.com/junichi11/netbeans-php-stubs/releases) から`phpsigfiles.zip`ファイルをダウンロードする
+2. NetBeansをインストールしたディレクトリのなかにある`php/docs/phpsigfiles.zip`をバックアップする。
+3. ダウンロードしたzipファイルと差し替える。
+4. ダウンロードしたzipファイルのファイル名が`phpsigfiles-*.*.zip`になっている場合は、`phpsigfiles.zip`にリネームしてから使用してください。
 
 ### 注意
 
-- すべてのファイルには対応していませんので、不足するファイルはデフォルトのものを使用してください。
+- できる限り多くの日本語マニュアルから生成していますが、不足する部分もあるかもしれません。
 - ファイルを上書きした時に、例外が発生する場合は、構文が未対応のNetBeansのバージョンを使用している可能性があります。その場合は、バックアップしていたデフォルトのファイルに戻してください。
 - このスタブを使用した時に起こったエラーについては、NetBeans本体側にはバグ報告しないでください。報告しても何も対応されません。
 - NetBeansでエラーが出ないことを確認していますが、他のIDEでの動作の保証はできません。
 
 ### NetBeansのバージョン
 
-NetBeans 8.2
+NetBeans 10.0
+
+### ライセンス
+
+[Creative Commons Attribution 3.0 (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)
