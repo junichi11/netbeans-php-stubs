@@ -2,260 +2,263 @@
 
 
 
-/**
- * Async and non-blocking hostname to IP lookup
- * @param string $hostname <p>The host name.</p>
- * @param callable $callback <code>mixed</code> callback ( string <code>$hostname</code> , string <code>$ip</code> )   <code>hostname</code>   <p>The host name.</p>   <code>IP</code>   <p>The IP address.</p>
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-async-dns-lookup.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_dns_lookup(string $hostname, callable $callback): bool {}
+namespace {
 
-/**
- * Read file stream asynchronously
- * @param string $filename <p>The filename of the file being read.</p>
- * @param callable $callback <code>mixed</code> callback ( string <code>$filename</code> , string <code>$content</code> )   <code>filename</code>   <p>The name of the file.</p>   <code>content</code>   <p>The content readed from the file stream.</p>
- * @param int $chunk_size <p>The chunk length.</p>
- * @param int $offset <p>The offset.</p>
- * @return bool <p>Whether the read is succeed.</p>
- * @link http://php.net/manual/ja/function.swoole-async-read.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_read(string $filename, callable $callback, int $chunk_size = 65536, int $offset = 0): bool {}
+	/**
+	 * Async and non-blocking hostname to IP lookup
+	 * @param string $hostname <p>The host name.</p>
+	 * @param callable $callback callback ( string <code>$hostname</code> , string <code>$ip</code> ) : <code>mixed</code>    <code>hostname</code>   <p>The host name.</p>   <code>IP</code>   <p>The IP address.</p>
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-async-dns-lookup.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_dns_lookup(string $hostname, callable $callback): bool {}
 
-/**
- * Read a file asynchronously
- * @param string $filename <p>The filename of the file being read.</p>
- * @param callable $callback <code>mixed</code> callback ( string <code>$filename</code> , string <code>$content</code> )   <code>filename</code>   <p>The name of the file.</p>   <code>content</code>   <p>The content readed from the file.</p>
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-async-readfile.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_readfile(string $filename, callable $callback): bool {}
+	/**
+	 * Read file stream asynchronously
+	 * @param string $filename <p>The filename of the file being read.</p>
+	 * @param callable $callback callback ( string <code>$filename</code> , string <code>$content</code> ) : <code>mixed</code>    <code>filename</code>   <p>The name of the file.</p>   <code>content</code>   <p>The content readed from the file stream.</p>
+	 * @param int $chunk_size <p>The chunk length.</p>
+	 * @param int $offset <p>The offset.</p>
+	 * @return bool <p>Whether the read is succeed.</p>
+	 * @link https://php.net/manual/ja/function.swoole-async-read.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_read(string $filename, callable $callback, int $chunk_size = 65536, int $offset = 0): bool {}
 
-/**
- * Update the async I/O options
- * @param array $settings
- * @return void
- * @link http://php.net/manual/ja/function.swoole-async-set.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_set(array $settings): void {}
+	/**
+	 * Read a file asynchronously
+	 * @param string $filename <p>The filename of the file being read.</p>
+	 * @param callable $callback callback ( string <code>$filename</code> , string <code>$content</code> ) : <code>mixed</code>    <code>filename</code>   <p>The name of the file.</p>   <code>content</code>   <p>The content readed from the file.</p>
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-async-readfile.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_readfile(string $filename, callable $callback): bool {}
 
-/**
- * Write data to a file stream asynchronously
- * @param string $filename <p>The filename being written.</p>
- * @param string $content <p>The content writing to the file.</p>
- * @param int $offset <p>The offset.</p>
- * @param callable $callback
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-async-write.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_write(string $filename, string $content, int $offset = NULL, callable $callback = NULL): bool {}
+	/**
+	 * Update the async I/O options
+	 * @param array $settings
+	 * @return void
+	 * @link https://php.net/manual/ja/function.swoole-async-set.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_set(array $settings): void {}
 
-/**
- * Write data to a file asynchronously
- * @param string $filename <p>The filename being written.</p>
- * @param string $content <p>The content writing to the file.</p>
- * @param callable $callback
- * @param int $flags
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-async-writefile.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_async_writefile(string $filename, string $content, callable $callback = NULL, int $flags = 0): bool {}
+	/**
+	 * Write data to a file stream asynchronously
+	 * @param string $filename <p>The filename being written.</p>
+	 * @param string $content <p>The content writing to the file.</p>
+	 * @param int $offset <p>The offset.</p>
+	 * @param callable $callback
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-async-write.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_write(string $filename, string $content, int $offset = NULL, callable $callback = NULL): bool {}
 
-/**
- * Get the file description which are ready to read/write or error
- * @param array $read_array
- * @param array $write_array
- * @param array $error_array
- * @param float $timeout
- * @return int
- * @link http://php.net/manual/ja/function.swoole-client-select.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_client_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = 0.5): int {}
+	/**
+	 * Write data to a file asynchronously
+	 * @param string $filename <p>The filename being written.</p>
+	 * @param string $content <p>The content writing to the file.</p>
+	 * @param callable $callback
+	 * @param int $flags
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-async-writefile.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_async_writefile(string $filename, string $content, callable $callback = NULL, int $flags = 0): bool {}
 
-/**
- * Get the number of CPU
- * @return int <p>The number of CPU.</p>
- * @link http://php.net/manual/ja/function.swoole-cpu-num.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_cpu_num(): int {}
+	/**
+	 * Get the file description which are ready to read/write or error
+	 * @param array $read_array
+	 * @param array $write_array
+	 * @param array $error_array
+	 * @param float $timeout
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-client-select.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_client_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = 0.5): int {}
 
-/**
- * Get the error code of the latest system call
- * @return int
- * @link http://php.net/manual/ja/function.swoole-errno.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_errno(): int {}
+	/**
+	 * Get the number of CPU
+	 * @return int <p>The number of CPU.</p>
+	 * @link https://php.net/manual/ja/function.swoole-cpu-num.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_cpu_num(): int {}
 
-/**
- * Add new callback functions of a socket into the EventLoop
- * @param int $fd
- * @param callable $read_callback
- * @param callable $write_callback
- * @param int $events
- * @return int
- * @link http://php.net/manual/ja/function.swoole-event-add.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_add(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): int {}
+	/**
+	 * Get the error code of the latest system call
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-errno.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_errno(): int {}
 
-/**
- * Add callback function to the next event loop
- * @param callable $callback
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-event-defer.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_defer(callable $callback): bool {}
+	/**
+	 * Add new callback functions of a socket into the EventLoop
+	 * @param int $fd
+	 * @param callable $read_callback
+	 * @param callable $write_callback
+	 * @param int $events
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-event-add.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_add(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): int {}
 
-/**
- * Remove all event callback functions of a socket
- * @param int $fd
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-event-del.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_del(int $fd): bool {}
+	/**
+	 * Add callback function to the next event loop
+	 * @param callable $callback
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-event-defer.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_defer(callable $callback): bool {}
 
-/**
- * Exit the eventloop, only available at the client side
- * @return void
- * @link http://php.net/manual/ja/function.swoole-event-exit.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_exit(): void {}
+	/**
+	 * Remove all event callback functions of a socket
+	 * @param int $fd
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-event-del.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_del(int $fd): bool {}
 
-/**
- * Update the event callback functions of a socket
- * @param int $fd
- * @param callable $read_callback
- * @param callable $write_callback
- * @param int $events
- * @return bool
- * @link http://php.net/manual/ja/function.swoole-event-set.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_set(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): bool {}
+	/**
+	 * Exit the eventloop, only available at the client side
+	 * @return void
+	 * @link https://php.net/manual/ja/function.swoole-event-exit.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_exit(): void {}
 
-/**
- * Start the event loop
- * @return void
- * @link http://php.net/manual/ja/function.swoole-event-wait.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_wait(): void {}
+	/**
+	 * Update the event callback functions of a socket
+	 * @param int $fd
+	 * @param callable $read_callback
+	 * @param callable $write_callback
+	 * @param int $events
+	 * @return bool
+	 * @link https://php.net/manual/ja/function.swoole-event-set.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_set(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): bool {}
 
-/**
- * Write data to a socket
- * @param int $fd
- * @param string $data
- * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
- * @link http://php.net/manual/ja/function.swoole-event-write.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_event_write(int $fd, string $data): bool {}
+	/**
+	 * Start the event loop
+	 * @return void
+	 * @link https://php.net/manual/ja/function.swoole-event-wait.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_wait(): void {}
 
-/**
- * Get the IPv4 IP addresses of each NIC on the machine
- * @return array
- * @link http://php.net/manual/ja/function.swoole-get-local-ip.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_get_local_ip(): array {}
+	/**
+	 * Write data to a socket
+	 * @param int $fd
+	 * @param string $data
+	 * @return bool <p>成功した場合に <b><code>TRUE</code></b> を、失敗した場合に <b><code>FALSE</code></b> を返します。</p>
+	 * @link https://php.net/manual/ja/function.swoole-event-write.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_event_write(int $fd, string $data): bool {}
 
-/**
- * Get the lastest error message
- * @return int
- * @link http://php.net/manual/ja/function.swoole-last-error.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_last_error(): int {}
+	/**
+	 * Get the IPv4 IP addresses of each NIC on the machine
+	 * @return array
+	 * @link https://php.net/manual/ja/function.swoole-get-local-ip.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_get_local_ip(): array {}
 
-/**
- * Load a swoole extension
- * @param string $filename
- * @return mixed
- * @link http://php.net/manual/ja/function.swoole-load-module.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_load_module(string $filename) {}
+	/**
+	 * Get the lastest error message
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-last-error.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_last_error(): int {}
 
-/**
- * Select the file descriptions which are ready to read/write or error in the eventloop
- * @param array $read_array
- * @param array $write_array
- * @param array $error_array
- * @param float $timeout
- * @return int
- * @link http://php.net/manual/ja/function.swoole-select.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = NULL): int {}
+	/**
+	 * Load a swoole extension
+	 * @param string $filename
+	 * @return mixed
+	 * @link https://php.net/manual/ja/function.swoole-load-module.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_load_module(string $filename) {}
 
-/**
- * Set the process name
- * @param string $process_name
- * @param int $size
- * @return void
- * @link http://php.net/manual/ja/function.swoole-set-process-name.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_set_process_name(string $process_name, int $size = 128): void {}
+	/**
+	 * Select the file descriptions which are ready to read/write or error in the eventloop
+	 * @param array $read_array
+	 * @param array $write_array
+	 * @param array $error_array
+	 * @param float $timeout
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-select.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = NULL): int {}
 
-/**
- * Convert the Errno into error messages
- * @param int $errno
- * @param int $error_type
- * @return string
- * @link http://php.net/manual/ja/function.swoole-strerror.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_strerror(int $errno, int $error_type = 0): string {}
+	/**
+	 * Set the process name
+	 * @param string $process_name
+	 * @param int $size
+	 * @return void
+	 * @link https://php.net/manual/ja/function.swoole-set-process-name.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_set_process_name(string $process_name, int $size = 128): void {}
 
-/**
- * Trigger a one time callback function in the future
- * @param int $ms
- * @param callable $callback
- * @param mixed $param
- * @return int
- * @link http://php.net/manual/ja/function.swoole-timer-after.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_timer_after(int $ms, callable $callback, $param = NULL): int {}
+	/**
+	 * Convert the Errno into error messages
+	 * @param int $errno
+	 * @param int $error_type
+	 * @return string
+	 * @link https://php.net/manual/ja/function.swoole-strerror.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_strerror(int $errno, int $error_type = 0): string {}
 
-/**
- * Check if a timer callback function is existed
- * @param int $timer_id
- * @return bool
- * @link http://php.net/manual/ja/function.swoole-timer-exists.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_timer_exists(int $timer_id): bool {}
+	/**
+	 * Trigger a one time callback function in the future
+	 * @param int $ms
+	 * @param callable $callback
+	 * @param mixed $param
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-timer-after.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_timer_after(int $ms, callable $callback, $param = NULL): int {}
 
-/**
- * Trigger a timer tick callback function by time interval
- * @param int $ms
- * @param callable $callback
- * @param mixed $param
- * @return int
- * @link http://php.net/manual/ja/function.swoole-timer-tick.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_timer_tick(int $ms, callable $callback, $param = NULL): int {}
+	/**
+	 * Check if a timer callback function is existed
+	 * @param int $timer_id
+	 * @return bool
+	 * @link https://php.net/manual/ja/function.swoole-timer-exists.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_timer_exists(int $timer_id): bool {}
 
-/**
- * Get the version of Swoole
- * @return string <p>The version of Swoole.</p>
- * @link http://php.net/manual/ja/function.swoole-version.php
- * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
- */
-function swoole_version(): string {}
+	/**
+	 * Trigger a timer tick callback function by time interval
+	 * @param int $ms
+	 * @param callable $callback
+	 * @param mixed $param
+	 * @return int
+	 * @link https://php.net/manual/ja/function.swoole-timer-tick.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_timer_tick(int $ms, callable $callback, $param = NULL): int {}
 
+	/**
+	 * Get the version of Swoole
+	 * @return string <p>The version of Swoole.</p>
+	 * @link https://php.net/manual/ja/function.swoole-version.php
+	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 */
+	function swoole_version(): string {}
+
+}
