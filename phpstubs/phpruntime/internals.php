@@ -2,6 +2,9 @@
 
 
 
-class stdClass {
-}
+namespace {
 
+	class stdClass {
+	}
+
+}
